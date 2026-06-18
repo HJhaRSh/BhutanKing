@@ -1,97 +1,101 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import Particles from "@tsparticles/react";
-import { type Container, tsParticles } from "@tsparticles/engine";
-import { loadSlim } from "@tsparticles/slim";
+import { useEffect, useRef } from "react";
+
+interface Particle {
+  x: number;
+  y: number;
+  vx: number;
+  vy: number;
+  size: number;
+  opacity: number;
+  color: string;
+}
 
 export default function ParticleBackground() {
-  const [init, setInit] = useState(false);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
-    loadSlim(tsParticles).then(() => {
-      setInit(true);
-    });
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+
+    let animationId: number;
+    const particles: Particle[] = [];
+    const colors = ["#C5A059", "#C5A059", "#C5A059", "#ffffff"];
+
+    const resize = () => {
+      canvas.width = canvas.offsetWidth;
+      canvas.height = canvas.offsetHeight;
+    };
+    resize();
+    window.addEventListener("resize", resize);
+
+    // Create particles
+    for (let i = 0; i < 60; i++) {
+      particles.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        vx: (Math.random() - 0.5) * 0.4,
+        vy: (Math.random() - 0.5) * 0.4,
+        size: Math.random() * 2 + 0.5,
+        opacity: Math.random() * 0.4 + 0.1,
+        color: colors[Math.floor(Math.random() * colors.length)],
+      });
+    }
+
+    const draw = () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      // Draw connections
+      for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+          const dx = particles[i].x - particles[j].x;
+          const dy = particles[i].y - particles[j].y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < 140) {
+            ctx.beginPath();
+            ctx.strokeStyle = `rgba(197, 160, 89, ${0.08 * (1 - dist / 140)})`;
+            ctx.lineWidth = 0.5;
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.stroke();
+          }
+        }
+      }
+
+      // Draw particles
+      for (const p of particles) {
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+        ctx.fillStyle = p.color + Math.floor(p.opacity * 255).toString(16).padStart(2, "0");
+        ctx.fill();
+
+        // Move
+        p.x += p.vx;
+        p.y += p.vy;
+
+        // Bounce off edges
+        if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
+        if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
+      }
+
+      animationId = requestAnimationFrame(draw);
+    };
+
+    draw();
+
+    return () => {
+      cancelAnimationFrame(animationId);
+      window.removeEventListener("resize", resize);
+    };
   }, []);
 
-  const particlesLoaded = async (container?: Container) => {
-    console.log(container);
-  };
-
-  if (init) {
-    return (
-      <Particles
-        id="tsparticles"
-        particlesLoaded={particlesLoaded}
-        options={{
-          background: {
-            color: {
-              value: "transparent",
-            },
-          },
-          fpsLimit: 60,
-          interactivity: {
-            events: {
-              onHover: {
-                enable: true,
-                mode: "repulse",
-              },
-              resize: {
-                enable: true,
-              },
-            },
-            modes: {
-              repulse: {
-                distance: 100,
-                duration: 0.4,
-              },
-            },
-          },
-          particles: {
-            color: {
-              value: ["#D4AF37", "#00FF88"], // Gold and Dataviv Green
-            },
-            links: {
-              color: "#ffffff",
-              distance: 150,
-              enable: true,
-              opacity: 0.1,
-              width: 1,
-            },
-            move: {
-              direction: "none",
-              enable: true,
-              outModes: {
-                default: "bounce",
-              },
-              random: false,
-              speed: 1,
-              straight: false,
-            },
-            number: {
-              density: {
-                enable: true,
-                width: 800,
-                height: 800,
-              },
-              value: 60,
-            },
-            opacity: {
-              value: 0.3,
-            },
-            shape: {
-              type: "circle",
-            },
-            size: {
-              value: { min: 1, max: 3 },
-            },
-          },
-          detectRetina: true,
-        }}
-        className="absolute inset-0 -z-10"
-      />
-    );
-  }
-
-  return <></>;
+  return (
+    <canvas
+      ref={canvasRef}
+      className="absolute inset-0 w-full h-full -z-10 pointer-events-none"
+    />
+  );
 }
