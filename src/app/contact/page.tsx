@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import GlassCard from "@/components/GlassCard";
-import { Send, Terminal, MapPin } from "lucide-react";
+import { Send, Terminal } from "lucide-react";
 import ParticleBackground from "@/components/ParticleBackground";
 import Image from "next/image";
 

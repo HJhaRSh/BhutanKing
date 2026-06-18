@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import SectionHeading from "@/components/SectionHeading";
 import { ArrowRight, Leaf, Shirt, HeartPulse, Building2, GraduationCap, Truck } from "lucide-react";
