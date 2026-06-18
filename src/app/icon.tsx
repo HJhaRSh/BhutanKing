@@ -15,14 +15,16 @@ export default function Icon() {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          color: "#00FF88",
-          fontWeight: "bold",
-          fontSize: 20,
-          border: "2px solid #D4AF37",
-          borderRadius: "8px",
         }}
       >
-        D×D
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="https://raw.githubusercontent.com/HJhaRSh/BhutanKing/main/public/dralha-dataviv-logo-v2.png"
+          alt="logo"
+          width={32}
+          height={32}
+          style={{ objectFit: "contain" }}
+        />
       </div>
     ),
     { ...size }
