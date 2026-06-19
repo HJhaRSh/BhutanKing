@@ -161,7 +161,7 @@ export default function AIPartnershipPage() {
             <h2 className="text-xs font-bold tracking-[0.4em] uppercase mb-6 text-brand-vibrantGreen">
               THE FUTURE OF DRALHA
             </h2>
-            <h1 className="text-6xl md:text-8xl font-display leading-[1.1] mb-6 font-bold">
+            <h1 className="text-5xl md:text-6xl lg:text-8xl font-display leading-[1.1] mb-6 font-bold">
               Powered by <span className="text-brand-vibrantGreen">Dataviv AI OS.</span>
             </h1>
             <p className="text-xl md:text-2xl font-light text-brand-white/80 max-w-3xl mx-auto leading-relaxed">
@@ -210,27 +210,27 @@ export default function AIPartnershipPage() {
         <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-20 items-center">
           <ScrollReveal>
             <h2 className="text-xs font-bold tracking-[0.4em] uppercase mb-4 text-brand-vibrantGreen">THE PLATFORM</h2>
-            <h3 className="text-5xl md:text-7xl font-display text-brand-white mb-6">DATAVIV AI OS</h3>
+            <h3 className="text-4xl md:text-5xl lg:text-7xl font-display text-brand-white mb-6">DATAVIV AI OS</h3>
             <p className="text-xl text-brand-vibrantGreen mb-8">The Operating System for Artificial Intelligence</p>
             <p className="text-brand-white/70 text-lg leading-relaxed mb-12">
               Just as a computer needs an operating system — DATAVIV AI OS is the operating system that runs AI across your entire organisation. One platform. One place. Full control.
             </p>
             
-            <div className="flex flex-col sm:flex-row items-center gap-4 text-sm font-bold uppercase tracking-wider text-brand-white mt-12">
+            <div className="flex flex-col lg:flex-row items-center gap-4 text-sm font-bold uppercase tracking-wider text-brand-white mt-12 w-full">
               <motion.div 
                 onHoverStart={() => setActiveLayer(0)} onHoverEnd={() => setActiveLayer(null)}
                 className={`px-6 py-4 border rounded cursor-pointer transition-all duration-300 ${activeLayer === 0 ? 'border-brand-white bg-brand-white/20 shadow-[0_0_15px_rgba(255,255,255,0.3)] scale-105' : activeLayer === null ? 'border-brand-white/20 bg-brand-white/5' : 'border-brand-white/10 bg-transparent opacity-50'}`}
               >
                 Collect Data
               </motion.div>
-              <ChevronRight className={`w-5 h-5 hidden sm:block transition-opacity duration-300 ${activeLayer === 1 ? 'text-brand-vibrantGreen opacity-100' : 'text-brand-white/20'}`} />
+              <ChevronRight className={`w-5 h-5 hidden lg:block transition-opacity duration-300 ${activeLayer === 1 ? 'text-brand-vibrantGreen opacity-100' : 'text-brand-white/20'}`} />
               <motion.div 
                 onHoverStart={() => setActiveLayer(1)} onHoverEnd={() => setActiveLayer(null)}
                 className={`px-6 py-4 border rounded cursor-pointer transition-all duration-300 ${activeLayer === 1 ? 'border-brand-vibrantGreen bg-brand-vibrantGreen/20 text-brand-vibrantGreen shadow-[0_0_15px_rgba(0,255,136,0.5)] scale-105' : activeLayer === null ? 'border-brand-vibrantGreen/50 bg-brand-vibrantGreen/10 text-brand-vibrantGreen' : 'border-brand-white/10 text-brand-white/30 bg-transparent opacity-50'}`}
               >
                 AI Analysis
               </motion.div>
-              <ChevronRight className={`w-5 h-5 hidden sm:block transition-opacity duration-300 ${activeLayer === 2 ? 'text-brand-vibrantBlue opacity-100' : 'text-brand-white/20'}`} />
+              <ChevronRight className={`w-5 h-5 hidden lg:block transition-opacity duration-300 ${activeLayer === 2 ? 'text-brand-vibrantBlue opacity-100' : 'text-brand-white/20'}`} />
               <motion.div 
                 onHoverStart={() => setActiveLayer(2)} onHoverEnd={() => setActiveLayer(null)}
                 className={`px-6 py-4 border rounded cursor-pointer transition-all duration-300 ${activeLayer === 2 ? 'border-brand-vibrantBlue bg-brand-vibrantBlue/20 text-brand-vibrantBlue shadow-[0_0_15px_rgba(0,229,255,0.5)] scale-105' : activeLayer === null ? 'border-brand-vibrantBlue/50 bg-brand-vibrantBlue/10 text-brand-vibrantBlue' : 'border-brand-white/10 text-brand-white/30 bg-transparent opacity-50'}`}
@@ -242,7 +242,7 @@ export default function AIPartnershipPage() {
           
           <ScrollReveal delay={0.2} className="flex justify-center">
             {/* Pyramid SVG */}
-            <svg width="400" height="300" viewBox="0 0 400 300" className="w-full max-w-md cursor-pointer overflow-visible">
+            <svg width="400" height="300" viewBox="0 0 400 300" className="w-full max-w-[280px] md:max-w-md cursor-pointer overflow-visible">
               <defs>
                 <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
                   <stop offset="0%" style={{ stopColor: '#050505', stopOpacity: 1 }} />

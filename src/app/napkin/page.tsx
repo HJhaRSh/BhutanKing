@@ -33,7 +33,7 @@ export default function NapkinPage() {
             <h2 className="text-xs font-bold tracking-[0.3em] uppercase mb-6 text-brand-vibrantPurple pb-4 inline-block">
               Manufacturing · Est. 2009
             </h2>
-            <h1 className="text-6xl md:text-8xl font-display leading-[1] mb-6">
+            <h1 className="text-5xl md:text-6xl lg:text-8xl font-display leading-[1] mb-6">
               Napkin <span className="text-brand-vibrantPurple">Factory.</span>
             </h1>
             <p className="text-xl md:text-2xl font-medium text-brand-black/70">

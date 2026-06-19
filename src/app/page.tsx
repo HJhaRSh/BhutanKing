@@ -62,7 +62,7 @@ export default function Home() {
               <h2 className="text-xs font-bold tracking-[0.3em] uppercase mb-6 text-brand-black/50">
                 Established 1988 · Phuentsholing, Bhutan
               </h2>
-              <h1 className="text-6xl md:text-8xl font-display leading-[0.9] mb-8 font-medium">
+              <h1 className="text-5xl md:text-6xl lg:text-8xl font-display leading-[0.9] mb-8 font-medium">
                 Building<br />
                 Bhutan's<br />
                 Future.

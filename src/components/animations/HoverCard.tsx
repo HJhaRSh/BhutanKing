@@ -21,7 +21,7 @@ export function HoverCard({
     <motion.div 
       whileHover={{ y: -8, scale: 1.02 }}
       className={clsx(
-        "relative bg-brand-white p-10 rounded-3xl border border-brand-black/5 shadow-2xl shadow-brand-black/5 flex flex-col items-center justify-center text-center group overflow-hidden",
+        "relative bg-brand-white p-6 md:p-10 rounded-3xl border border-brand-black/5 shadow-2xl shadow-brand-black/5 flex flex-col items-center justify-center text-center group overflow-hidden",
         className
       )}
     >

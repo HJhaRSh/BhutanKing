@@ -33,7 +33,7 @@ export default function HotelPage() {
             <h2 className="text-xs font-bold tracking-[0.3em] uppercase mb-6 text-brand-vibrantPink pb-4 inline-block">
               Hospitality · Thimphu, Bhutan
             </h2>
-            <h1 className="text-6xl md:text-8xl font-display leading-[1] mb-6">
+            <h1 className="text-5xl md:text-6xl lg:text-8xl font-display leading-[1] mb-6">
               Hotel <span className="text-brand-vibrantBlue">Dralha.</span>
             </h1>
             <p className="text-xl md:text-2xl mb-12 font-medium text-brand-white/70">

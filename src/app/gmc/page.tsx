@@ -23,7 +23,7 @@ export default function GMCPage() {
             <h2 className="text-xs font-bold tracking-[0.4em] uppercase mb-6 text-brand-vibrantBlue">
               REAL ESTATE · GELEPHU MINDFULNESS CITY
             </h2>
-            <h1 className="text-6xl md:text-8xl font-display leading-[1.1] mb-6 font-light tracking-tight">
+            <h1 className="text-5xl md:text-6xl lg:text-8xl font-display leading-[1.1] mb-6 font-light tracking-tight">
               The Dralha <br/><span className="font-bold text-vibrant-gradient">GMC Residences</span>
             </h1>
             <p className="text-xl md:text-2xl mb-8 font-medium text-brand-white/70 max-w-2xl mx-auto">

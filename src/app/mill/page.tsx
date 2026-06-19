@@ -35,7 +35,7 @@ export default function MillPage() {
             <h2 className="text-xs font-bold tracking-[0.3em] uppercase mb-6 text-brand-vibrantOrange pb-4 inline-block">
               Food Manufacturing · Bhutan's First
             </h2>
-            <h1 className="text-6xl md:text-8xl font-display leading-[1] mb-6">
+            <h1 className="text-5xl md:text-6xl lg:text-8xl font-display leading-[1] mb-6">
               Dralha Flour <span className="text-brand-vibrantOrange">Mill.</span>
             </h1>
             <p className="text-xl md:text-2xl mb-12 font-medium text-brand-white/70">

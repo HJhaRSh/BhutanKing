@@ -12,7 +12,7 @@ export default function AboutPage() {
       <section className="relative w-full h-[60vh] flex items-center justify-center overflow-hidden border-b border-brand-white/10 pt-20">
         <div className="absolute inset-0 bg-brand-vibrantBlue/5 blur-[100px] pointer-events-none" />
         <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
-          <h1 className="text-6xl md:text-8xl font-display mb-6 text-brand-white">Our Legacy.</h1>
+          <h1 className="text-5xl md:text-6xl lg:text-8xl font-display mb-6 text-brand-white">Our Legacy.</h1>
           <p className="text-xl md:text-2xl text-brand-white/70 max-w-2xl mx-auto font-light leading-relaxed">
             Since 1988, Dralha Group of Industries has been a cornerstone of Bhutan's economic and sustainable development.
           </p>

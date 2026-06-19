@@ -28,7 +28,7 @@ export default function AgribusinessPage() {
             <h2 className="text-xs font-bold tracking-[0.3em] uppercase mb-6 text-brand-vibrantGreen mt-8">
               AGRICULTURE · CENTRAL BHUTAN
             </h2>
-            <h1 className="text-6xl md:text-8xl font-display leading-[1] mb-8">
+            <h1 className="text-5xl md:text-6xl lg:text-8xl font-display leading-[1] mb-8">
               Sustainable <span className="text-brand-vibrantGreen">Agribusiness.</span>
             </h1>
             <p className="text-2xl md:text-3xl font-medium text-brand-white/70 max-w-3xl mx-auto">

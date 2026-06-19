@@ -7,8 +7,8 @@ export default function Footer() {
     <footer className="bg-brand-black border-t border-brand-white/10 relative overflow-hidden group/footer">
       {/* Subtle bottom glow that reacts to footer hover */}
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 w-full max-w-4xl h-[200px] bg-brand-vibrantBlue/5 blur-[100px] group-hover/footer:bg-brand-vibrantBlue/10 transition-colors duration-700 pointer-events-none" />
-      <div className="max-w-7xl mx-auto px-6 py-20 relative z-10">
-        <div className="grid md:grid-cols-3 gap-16 text-left">
+      <div className="max-w-7xl mx-auto px-6 py-12 md:py-20 relative z-10">
+        <div className="grid md:grid-cols-3 gap-10 md:gap-16 text-left">
           
           {/* Column 1: Logo & Vision */}
           <div className="flex flex-col items-start justify-start">
@@ -34,7 +34,7 @@ export default function Footer() {
 
           {/* Column 2: Quick Links */}
           <div className="flex flex-col items-start justify-start md:pl-8">
-            <div className="grid grid-cols-2 gap-x-12 w-full">
+            <div className="grid grid-cols-2 gap-x-8 md:gap-x-12 w-full">
               <div className="flex flex-col">
                 <h4 className="text-brand-white font-display text-xl mb-6 tracking-wide">Company</h4>
                 <div className="flex flex-col space-y-4">
@@ -59,7 +59,7 @@ export default function Footer() {
           </div>
 
           {/* Column 3: Contact Info */}
-          <div className="flex flex-col items-start md:items-end justify-start">
+          <div className="flex flex-col items-start md:items-end justify-start mt-6 md:mt-0">
             <h4 className="text-brand-white font-display text-xl mb-6 tracking-wide">Contact</h4>
             <div className="space-y-6 md:text-right">
               <div>

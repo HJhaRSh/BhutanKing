@@ -47,7 +47,7 @@ export default function BambooPage() {
                 SUSTAINABILITY · COMING 2026–2027
               </span>
             </div>
-            <h1 className="text-6xl md:text-8xl font-display leading-[1] mb-8">
+            <h1 className="text-5xl md:text-6xl lg:text-8xl font-display leading-[1] mb-8">
               Bamboo <span className="text-brand-vibrantGreen">Revolution.</span>
             </h1>
             <p className="text-2xl md:text-3xl font-medium text-brand-white/70 max-w-3xl mx-auto">
