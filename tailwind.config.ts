@@ -10,22 +10,37 @@ const config: Config = {
     extend: {
       colors: {
         brand: {
-          navy: "#02040a",      // Extremely dark, almost black for high contrast
-          darkNavy: "#09090b",  // Zinc 950
-          gold: "#C5A059",      // Champagne gold, elegant and muted
-          green: "#85c9af",     // Muted sage green, elegant and non-neon
-          cream: "#F7F5F0",     // Warm editorial off-white
-          sand: "#EBE7E0",      // Slightly darker cream for subtle borders/cards
-          glassLight: "rgba(255, 255, 255, 0.08)",
+          black: "#050505",
+          white: "#FDFDFD",
+          gray: "#1A1A1A",
+          vibrantBlue: "#00E5FF",
+          vibrantPink: "#FF00AA",
+          vibrantGreen: "#00FF88",
+          vibrantOrange: "#FF5500",
+          vibrantPurple: "#9D00FF",
+          // Mapped old colors to prevent breakage
+          primary: "#050505",      
+          secondary: "#0A0A0A",    
+          gold: "#00E5FF", // Map gold to vibrant blue for a quick color swap  
+          goldLight: "#00FFFF",    
+          muted: "#888888",        
+          dark: "#000000",         
+          navy: "#0A0A0A",         
+          darkNavy: "#000000",     
+          green: "#00FF88",        
+          cream: "#FDFDFD",        
+          sand: "#E0E0E0",         
+          glassLight: "rgba(255, 255, 255, 0.05)", 
         }
       },
       fontFamily: {
-        sans: ["var(--font-inter)", "sans-serif"],
-        display: ["var(--font-display)", "sans-serif"],
+        sans: ["var(--font-outfit)", "sans-serif"],
+        display: ["var(--font-space-grotesk)", "sans-serif"],
         mono: ["ui-monospace", "SFMono-Regular", "Menlo", "Monaco", "Consolas", "monospace"],
       },
       backgroundImage: {
         'noise': "url('/noise.png')",
+        'vibrant-gradient': "linear-gradient(to right, #00E5FF, #FF00AA)",
       },
       animation: {
         'spin-slow': 'spin 12s linear infinite',

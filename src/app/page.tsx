@@ -1,330 +1,250 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
-import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
-import { ChevronDown, Leaf, Shirt, Building2, Cpu, GraduationCap, HeartPulse, ArrowRight, Truck } from "lucide-react";
-import DynamicDarkBackground from "@/components/DynamicDarkBackground";
-import GlassCard from "@/components/GlassCard";
-import SectionHeading from "@/components/SectionHeading";
+import { motion } from "framer-motion";
+import { ArrowRight, ChevronDown } from "lucide-react";
+import { useState, useEffect, useRef } from "react";
 
-// Custom hook for counting up
-const CountUp = ({ to, suffix = "", duration = 2 }: { to: number; suffix?: string; duration?: number }) => {
-  const [count, setCount] = useState(0);
+const CountUp = ({ end, duration, start = 0 }: { end: number, duration: number, start?: number }) => {
+  const [count, setCount] = useState(start);
+  const ref = useRef(null);
+  const [inView, setInView] = useState(false);
 
   useEffect(() => {
-    let startTime: number;
-    let animationFrame: number;
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) setInView(true);
+    }, { threshold: 0.1 });
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, []);
 
-    const animate = (timestamp: number) => {
-      if (!startTime) startTime = timestamp;
-      const progress = timestamp - startTime;
-      const percentage = Math.min(progress / (duration * 1000), 1);
-      
-      // Easing function (easeOutExpo)
-      const easeOut = percentage === 1 ? 1 : 1 - Math.pow(2, -10 * percentage);
-      
-      setCount(Math.floor(easeOut * to));
-
-      if (percentage < 1) {
-        animationFrame = requestAnimationFrame(animate);
-      }
+  useEffect(() => {
+    if (!inView) return;
+    let startTimestamp: number;
+    const step = (timestamp: number) => {
+      if (!startTimestamp) startTimestamp = timestamp;
+      const progress = Math.min((timestamp - startTimestamp) / (duration * 1000), 1);
+      setCount(Math.floor(progress * (end - start) + start));
+      if (progress < 1) window.requestAnimationFrame(step);
     };
+    window.requestAnimationFrame(step);
+  }, [inView, end, duration, start]);
 
-    animationFrame = requestAnimationFrame(animate);
-    return () => cancelAnimationFrame(animationFrame);
-  }, [to, duration]);
-
-  return <span>{count}{suffix}</span>;
+  return <span ref={ref}>{count}</span>;
 };
 
 export default function Home() {
-  const { scrollYProgress } = useScroll();
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
-  const opacity = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
+  const [hoveredPortfolio, setHoveredPortfolio] = useState<number | null>(null);
 
-  // Auto-rotating cards logic
-  const [activeCardIndex, setActiveCardIndex] = useState(0);
-  const rotatingCards = [
-    { title: "Agriculture", ai: "Smart Farming", desc: "Predictive yields, precision irrigation, and supply chain optimization powered by Dataviv AI." },
-    { title: "Textiles", ai: "AI Quality Control", desc: "Computer vision for defect detection and generative AI for modern Bhutanese fashion patterns." },
-    { title: "Hospitality", ai: "Personalized Guest AI", desc: "Hyper-personalized guest experiences and intelligent energy management for luxury resorts." }
+  const portfolioItems = [
+    { num: "01", title: "Hotel Dralha", desc: "3-Star award-winning hospitality in Thimphu", est: "Est. 2018", link: "/hotel", image: "/hotel/Hotel Reception.jpg", color: "text-brand-vibrantPink" },
+    { num: "02", title: "Dralha Flour Mill", desc: "Bhutan's pioneer flour mill, 100 MT/day", est: "Est. 1988", link: "/mill", image: "/mill/WhatsApp Image 2026-06-17 at 6.15.29 PM.jpeg", color: "text-brand-vibrantOrange" },
+    { num: "03", title: "Napkin Factory", desc: "Tissue & hygiene products for Bhutan", est: "Est. 2009", link: "/napkin", image: "https://images.unsplash.com/photo-1584556812952-905ffd0c611a?q=80&w=2000&auto=format&fit=crop", color: "text-brand-vibrantPurple" },
+    { num: "04", title: "Bamboo Rev.", desc: "Sustainable bamboo processing", est: "Coming 2026", link: "/bamboo", image: "/bamboo.png", color: "text-brand-vibrantGreen" },
+    { num: "05", title: "Agribusiness", desc: "Avocado & Arabica coffee, 54 acres", est: "Launching Soon", link: "/agribusiness", image: "/agri.png", color: "text-brand-vibrantGreen" },
+    { num: "06", title: "GMC Apts", desc: "Luxury living in Gelephu Mindfulness City", est: "Upcoming", link: "/gmc", image: "https://images.unsplash.com/photo-1514924013411-cbf25faa35bb?q=80&w=2000&auto=format&fit=crop", color: "text-brand-vibrantBlue" }
   ];
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveCardIndex((prev) => (prev + 1) % rotatingCards.length);
-    }, 4000);
-    return () => clearInterval(interval);
-  }, [rotatingCards.length]);
-
   return (
-    <div className="relative overflow-x-hidden">
+    <div className="w-full flex flex-col items-center bg-brand-black">
+      
       {/* HERO SECTION */}
-      <section className="relative h-screen flex flex-col items-center justify-center pt-20 overflow-hidden bg-brand-darkNavy">
-        <DynamicDarkBackground showParticles={true} />
-
-        <motion.div 
-          className="container mx-auto px-6 relative z-10 text-center"
-          style={{ y, opacity }}
-        >
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="inline-block mb-6 px-6 py-2 rounded-full border border-brand-gold/30 bg-brand-navy/50 backdrop-blur-md"
-          >
-            <span className="text-brand-gold tracking-widest text-sm font-semibold uppercase">
-              A Royal Partnership for the Future
-            </span>
-          </motion.div>
-
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-5xl md:text-7xl lg:text-8xl font-display font-bold leading-tight mb-8"
-          >
-            Empowering Bhutan <br className="hidden md:block" />
-            <span className="italic font-light text-brand-gold">
-              With Artificial Intelligence.
-            </span>
-          </motion.h1>
-
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto mb-12 font-light leading-relaxed text-balance"
-          >
-            Dataviv Technologies brings world-class AI to transform Dralha Group&apos;s businesses — 
-            from agriculture to hospitality, from textiles to smart infrastructure.
-          </motion.p>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-6"
-          >
-            <Link href="/dralha" className="group relative px-8 py-4 bg-white text-black font-sans text-xs tracking-[0.2em] uppercase font-bold rounded-none overflow-hidden transition-all hover:bg-brand-gold">
-              <span className="relative flex items-center">
-                Explore Dralha Group <ArrowRight className="ml-4 w-4 h-4 group-hover:translate-x-2 transition-transform duration-500" />
-              </span>
-            </Link>
-            <Link href="/dataviv" className="group px-8 py-4 bg-transparent border border-white/20 text-white font-sans text-xs tracking-[0.2em] uppercase rounded-none hover:border-white transition-all duration-500">
-              <span className="flex items-center">
-                See the Platform
-              </span>
-            </Link>
-          </motion.div>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 1.5 }}
-          className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10"
-        >
-          <motion.div
-            animate={{ y: [0, 10, 0] }}
-            transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
-          >
-            <ChevronDown className="text-brand-gold w-8 h-8 opacity-70" />
-          </motion.div>
-        </motion.div>
-      </section>
-
-      {/* STATS BAR */}
-      <section className="relative z-20 -mt-10 mx-6 md:mx-auto max-w-7xl">
-        <GlassCard className="py-8 px-6 md:px-12" hoverEffect={false}>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 divide-x divide-brand-glassLight">
-            <div className="text-center px-4">
-              <div className="text-3xl md:text-4xl font-display font-bold text-brand-gold mb-2">
-                <CountUp to={12} suffix="+" />
-              </div>
-              <div className="text-sm text-gray-400 font-medium uppercase tracking-wider">Industries Transformed</div>
-            </div>
-            <div className="text-center px-4">
-              <div className="text-3xl md:text-4xl font-display font-bold text-brand-green mb-2">Stanford</div>
-              <div className="text-sm text-gray-400 font-medium uppercase tracking-wider">Pedigree AI Team</div>
-            </div>
-            <div className="text-center px-4">
-              <div className="text-3xl md:text-4xl font-display font-bold text-white mb-2">
-                <CountUp to={1} />
-              </div>
-              <div className="text-sm text-gray-400 font-medium uppercase tracking-wider">Unified AI Platform</div>
-            </div>
-            <div className="text-center px-4">
-              <div className="text-3xl md:text-4xl font-display font-bold text-brand-gold mb-2">∞</div>
-              <div className="text-sm text-gray-400 font-medium uppercase tracking-wider">Possibilities for Bhutan</div>
-            </div>
-          </div>
-        </GlassCard>
-      </section>
-
-      {/* WHAT THIS IS SECTION (CONTRAST THEME) */}
-      <section className="py-32 relative bg-brand-cream text-brand-navy border-y border-brand-sand">
-        {/* Subtle noise over cream */}
-        <div className="absolute inset-0 bg-[url('/noise.png')] opacity-[0.04] mix-blend-multiply z-0 pointer-events-none" />
-        
-        <div className="container mx-auto px-6 max-w-7xl relative z-10">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <SectionHeading 
-                title="One Partnership. Infinite Potential."
-                subtitle="Dralha Group is Bhutan's leading conglomerate spanning multiple sectors. Dataviv Technologies is India's cutting-edge AI company with Stanford AI roots."
-              />
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                className="prose prose-lg mt-8"
-              >
-                <p className="text-brand-darkNavy leading-relaxed font-light">
-                  Together, this partnership will make Bhutan a model for AI-powered national development. 
-                  By integrating Dataviv&apos;s advanced AI OS across Dralha&apos;s diverse portfolio, we are building 
-                  intelligent, sustainable, and scalable solutions that preserve Bhutan&apos;s rich heritage while 
-                  embracing the future.
-                </p>
-              </motion.div>
-            </div>
-            
-            {/* Rotating Cards */}
-            <div className="relative h-[400px] flex items-center justify-center">
-              <AnimatePresence mode="popLayout">
-                {rotatingCards.map((card, index) => (
-                  index === activeCardIndex && (
-                    <motion.div
-                      key={card.title}
-                      initial={{ opacity: 0, scale: 0.8, y: 50, rotateX: -20 }}
-                      animate={{ opacity: 1, scale: 1, y: 0, rotateX: 0 }}
-                      exit={{ opacity: 0, scale: 1.1, y: -50, filter: "blur(10px)" }}
-                      transition={{ duration: 0.6, type: "spring", stiffness: 100 }}
-                      className="absolute w-full max-w-md"
-                    >
-                      <GlassCard className="p-12 border-brand-sand shadow-2xl bg-white text-brand-navy" hoverEffect={false}>
-                        <div className="text-sm font-bold tracking-widest text-brand-gold uppercase mb-4">
-                          {card.title} <ArrowRight className="inline w-4 h-4 mx-2" /> {card.ai}
-                        </div>
-                        <h3 className="text-3xl font-display font-bold text-brand-navy mb-6 leading-tight">
-                          Reimagining {card.title} with Intelligence
-                        </h3>
-                        <p className="text-brand-darkNavy/70 font-light text-lg leading-relaxed">
-                          {card.desc}
-                        </p>
-                        <div className="mt-8 flex justify-end">
-                          <Cpu className="text-brand-navy/10 w-12 h-12" />
-                        </div>
-                      </GlassCard>
-                    </motion.div>
-                  )
-                ))}
-              </AnimatePresence>
-              
-              {/* Indicators */}
-              <div className="absolute -bottom-8 flex space-x-3">
-                {rotatingCards.map((_, idx) => (
-                  <button 
-                    key={idx}
-                    onClick={() => setActiveCardIndex(idx)}
-                    className={`h-[1px] transition-all duration-700 ${idx === activeCardIndex ? "w-12 bg-brand-gold" : "w-4 bg-brand-navy/20 hover:bg-brand-navy/50"}`}
-                  />
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* SECTORS PREVIEW */}
-      <section className="py-32 bg-brand-darkNavy border-t border-white/5 relative overflow-hidden">
-        <DynamicDarkBackground />
-        <div className="container mx-auto px-6 max-w-7xl relative z-10 mb-20">
-          <SectionHeading title="Dralha's Empire, Supercharged by AI." subtitle="Transforming six core sectors with the Dataviv AI OS." />
-        </div>
-
-        {/* Horizontal Scroll Area */}
-        <div className="w-full overflow-x-auto pb-16 px-6 hide-scrollbar cursor-grab active:cursor-grabbing">
-          <div className="flex gap-px bg-white/5 border border-white/5 w-max mx-auto px-0">
-            {[
-              { name: "Agriculture", icon: Leaf, num: "01", desc: "Precision yields & automated supply chains" },
-              { name: "Textiles", icon: Shirt, num: "02", desc: "Defect detection & pattern generation" },
-              { name: "Hospitality", icon: HeartPulse, num: "03", desc: "Hyper-personalized guest experiences" },
-              { name: "Infrastructure", icon: Building2, num: "04", desc: "Predictive maintenance & smart energy" },
-              { name: "Education", icon: GraduationCap, num: "05", desc: "Adaptive learning pathways" },
-              { name: "Logistics", icon: Truck, num: "06", desc: "Real-time tracking & route optimization" },
-            ].map((sector, idx) => (
-              <motion.div 
-                key={sector.name} 
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: idx * 0.1, duration: 0.6 }}
-                className="w-80 h-[450px] flex flex-col p-10 bg-brand-navy group hover:bg-brand-gold transition-colors duration-500 relative"
-              >
-                {/* Number */}
-                <div className="font-sans font-bold text-[10px] tracking-[0.3em] text-gray-600 group-hover:text-brand-navy/40 transition-colors duration-500 uppercase">
-                  Sector {sector.num}
-                </div>
-                
-                {/* Icon */}
-                <div className="mt-12 mb-auto">
-                  <sector.icon className="w-8 h-8 text-brand-gold group-hover:text-brand-navy transition-colors duration-500" strokeWidth={1.5} />
-                </div>
-                
-                {/* Content */}
-                <div>
-                  <h4 className="text-3xl font-display font-bold text-white mb-6 group-hover:text-brand-navy transition-colors duration-500 leading-tight pr-4">
-                    {sector.name}
-                  </h4>
-                  <div className="w-12 h-[1px] bg-white/10 mb-6 group-hover:bg-brand-navy/20 transition-colors duration-500" />
-                  <p className="text-sm font-light text-gray-500 group-hover:text-brand-navy/70 transition-colors duration-500 leading-relaxed">
-                    {sector.desc}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* DATAVIV INTRO STRIP (CONTRAST THEME) */}
-      <section className="py-24 bg-brand-cream border-t border-brand-sand">
-        <div className="container mx-auto px-6 max-w-7xl">
-          <div className="grid md:grid-cols-5 relative border border-brand-sand bg-white shadow-xl">
-            
-            <div className="md:col-span-2 p-12 flex flex-col justify-center border-r border-brand-sand">
-              <div className="font-display font-bold text-3xl text-brand-navy mb-2">Dataviv Technologies</div>
-              <div className="text-brand-gold font-mono uppercase tracking-widest text-sm">Be Future Proof</div>
-            </div>
-            
-            <div className="md:col-span-3 p-12 flex flex-col justify-center bg-brand-cream/30">
-              <p className="text-2xl md:text-3xl font-light text-brand-navy/70 leading-relaxed mb-8">
-                Dataviv makes intelligent technology systems. <br />
-                <span className="font-medium text-brand-navy">We help organisations use AI in a simple way.</span>
+      <section className="relative w-full min-h-screen flex items-center pt-20 overflow-hidden bg-creative-light text-brand-black">
+        <div className="max-w-7xl mx-auto px-6 w-full relative z-10 grid md:grid-cols-2 gap-12 items-center">
+          
+          <div className="flex flex-col items-start py-20 pr-12">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+            >
+              <h2 className="text-xs font-bold tracking-[0.3em] uppercase mb-6 text-brand-black/50">
+                Established 1988 · Phuentsholing, Bhutan
+              </h2>
+              <h1 className="text-6xl md:text-8xl font-display leading-[0.9] mb-8 font-medium">
+                Building<br />
+                Bhutan's<br />
+                Future.
+              </h1>
+              <p className="text-lg mb-10 max-w-lg leading-relaxed text-brand-black/70">
+                Dralha Group of Industries is Bhutan's diversified conglomerate spanning hospitality, food manufacturing, sustainable agriculture, and real estate.
               </p>
-              <div>
-                <Link href="/dataviv" className="inline-flex items-center text-brand-gold font-bold tracking-[0.2em] uppercase text-xs hover:text-brand-navy transition-colors">
-                  Meet Dataviv <ArrowRight className="ml-2 w-5 h-5" />
+              
+              <div className="flex flex-col sm:flex-row gap-6 mt-4">
+                <Link href="#portfolio" className="group relative inline-flex items-center justify-center px-8 py-4 bg-brand-vibrantBlue text-brand-black font-bold uppercase tracking-widest text-sm hover:bg-brand-white transition-all duration-300 overflow-hidden rounded-full">
+                  <span className="relative z-10">Explore Portfolio</span>
+                </Link>
+                <Link href="/about" className="group inline-flex items-center justify-center px-8 py-4 border border-brand-black text-brand-black font-bold uppercase tracking-widest text-sm hover:bg-brand-black hover:text-brand-vibrantBlue transition-all duration-300 rounded-full">
+                  Our Story <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </div>
+            </motion.div>
+          </div>
+
+          <div className="hidden md:block h-full border-l border-brand-black/10 relative">
+             <div className="absolute inset-y-10 inset-x-10 bg-[url('https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80')] bg-cover bg-center rounded-2xl shadow-2xl shadow-brand-vibrantBlue/20" />
+          </div>
+
+        </div>
+
+        <motion.div 
+          animate={{ y: [0, 10, 0] }}
+          transition={{ repeat: Infinity, duration: 2 }}
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center"
+        >
+          <div className="w-[1px] h-12 bg-brand-black/20 mb-4" />
+          <ChevronDown className="w-6 h-6 text-brand-black" />
+        </motion.div>
+      </section>
+
+      {/* STATS */}
+      <section className="w-full bg-brand-black text-brand-white border-y border-brand-white/20 py-24 relative overflow-hidden">
+        {/* Subtle background glow */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[300px] bg-brand-vibrantBlue/5 rounded-full blur-[100px] pointer-events-none" />
+        
+        <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-y-16 text-center relative z-10">
+          <motion.div 
+            whileHover={{ scale: 1.05 }}
+            className="group flex flex-col items-center justify-center border-brand-white/10 md:border-r last:border-0 cursor-default"
+          >
+            <span className="font-display text-6xl mb-2 group-hover:text-brand-vibrantBlue transition-colors duration-500">
+              <CountUp start={1900} end={1988} duration={2} />
+            </span>
+            <span className="text-xs tracking-[0.2em] text-brand-white/50 uppercase group-hover:text-brand-white transition-colors duration-500">Established</span>
+          </motion.div>
+          
+          <motion.div 
+            whileHover={{ scale: 1.05 }}
+            className="group flex flex-col items-center justify-center border-brand-white/10 md:border-r last:border-0 cursor-default"
+          >
+            <span className="font-display text-6xl mb-2 group-hover:text-brand-vibrantPink transition-colors duration-500">
+              <CountUp end={6} duration={2} />+
+            </span>
+            <span className="text-xs tracking-[0.2em] text-brand-white/50 uppercase group-hover:text-brand-white transition-colors duration-500">Divisions</span>
+          </motion.div>
+          
+          <motion.div 
+            whileHover={{ scale: 1.05 }}
+            className="group flex flex-col items-center justify-center border-brand-white/10 md:border-r last:border-0 cursor-default"
+          >
+            <span className="font-display text-6xl mb-2 group-hover:text-brand-vibrantGreen transition-colors duration-500">
+              <CountUp end={100} duration={2} /><span className="text-3xl ml-1">MT</span>
+            </span>
+            <span className="text-xs tracking-[0.2em] text-brand-white/50 uppercase group-hover:text-brand-white transition-colors duration-500">Daily Capacity</span>
+          </motion.div>
+          
+          <motion.div 
+            whileHover={{ scale: 1.05 }}
+            className="group flex flex-col items-center justify-center cursor-default"
+          >
+            <span className="font-display text-6xl mb-2 group-hover:text-brand-vibrantOrange transition-colors duration-500">
+              <CountUp start={2000} end={2025} duration={2} />
+            </span>
+            <span className="text-xs tracking-[0.2em] text-brand-white/50 uppercase group-hover:text-brand-white transition-colors duration-500">SATA Winner</span>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* PORTFOLIO (NO CARDS) */}
+      <section id="portfolio" className="w-full bg-brand-black text-brand-white py-32">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="mb-20">
+            <h3 className="text-brand-vibrantBlue text-xs font-bold tracking-[0.3em] uppercase mb-4 pb-4">Our Portfolio</h3>
+            <h2 className="text-5xl md:text-7xl font-display leading-tight">Diversified<br/><span className="text-vibrant-gradient">Excellence.</span></h2>
+          </div>
+
+          <div className="flex flex-col border-t border-brand-white/20">
+            {portfolioItems.map((biz, i) => {
+              const isHovered = hoveredPortfolio === i;
+              return (
+                <div 
+                  key={biz.title}
+                  className="relative w-full border-b border-brand-white/20 transition-all duration-700 ease-in-out cursor-pointer overflow-hidden group"
+                  onMouseEnter={() => setHoveredPortfolio(i)}
+                  onMouseLeave={() => setHoveredPortfolio(null)}
+                  style={{ height: isHovered ? "400px" : "120px" }}
+                >
+                  {/* Background Image */}
+                  <div 
+                    className={`absolute inset-0 bg-cover bg-center transition-all duration-700 ease-in-out ${isHovered ? 'opacity-90 scale-105' : 'opacity-0 scale-100'}`}
+                    style={{ backgroundImage: `url('${biz.image}')`, filter: 'grayscale(0%)' }}
+                  />
+                  {/* Gradient Overlay for Readability */}
+                  <div className={`absolute inset-0 bg-gradient-to-r from-brand-black via-brand-black/70 to-transparent transition-opacity duration-700 ${isHovered ? 'opacity-90' : 'opacity-100'}`} />
+
+                  {/* Content Wrapper */}
+                  <div className="relative z-10 w-full h-full flex flex-col px-6 md:px-12">
+                    
+                    {/* Header Row - Fixed Height 120px */}
+                    <div className="h-[120px] flex items-center justify-between w-full">
+                      <div className="flex items-center gap-8 md:gap-12 flex-1">
+                        <span className={`text-2xl font-bold transition-colors duration-500 ${isHovered ? biz.color : 'text-brand-white/30'}`}>{biz.num}</span>
+                        <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-12 flex-1">
+                          <h3 className={`text-3xl md:text-5xl font-display transition-colors duration-500 min-w-[280px] ${isHovered ? 'text-brand-white' : 'text-brand-white/80'}`}>{biz.title}</h3>
+                          <p className={`text-sm tracking-widest uppercase transition-colors duration-500 ${isHovered ? 'text-brand-white/80' : 'text-brand-white/50'}`}>{biz.desc}</p>
+                        </div>
+                      </div>
+                      <div className={`hidden md:block text-xs tracking-widest font-bold uppercase transition-colors duration-500 text-right ${isHovered ? biz.color : 'text-brand-white/30'}`}>
+                        {biz.est}
+                      </div>
+                    </div>
+
+                    {/* Expanded Content */}
+                    <div className={`flex items-end pb-12 transition-all duration-700 ease-in-out h-full ${isHovered ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 translate-y-8 pointer-events-none'}`}>
+                      <Link href={biz.link} className={`inline-flex items-center gap-4 px-8 py-4 border-2 transition-colors duration-300 rounded-full font-bold uppercase tracking-widest text-sm bg-brand-black hover:bg-brand-white hover:text-brand-black hover:border-brand-white ${biz.color.replace('text-', 'border-')}`}>
+                        <span className={biz.color}>Explore</span> <ArrowRight className={`w-5 h-5 ${biz.color}`} />
+                      </Link>
+                    </div>
+
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* PHILOSOPHY (WHITE) */}
+      <section className="w-full bg-creative-light text-brand-black py-32 border-y border-brand-black/10">
+        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-20 items-center">
+          <div className="relative">
+            <span className="absolute -top-10 -left-10 text-[10rem] font-display text-brand-black/5 leading-none">"</span>
+            <h3 className="font-display text-4xl md:text-5xl leading-[1.2] relative z-10">
+              In alignment with the vision of His Majesty the King and the national philosophy of Gross National Happiness.
+            </h3>
+          </div>
+          <div className="flex flex-col space-y-12 border-l border-brand-black/20 pl-10">
+            <div>
+              <h4 className="text-sm font-bold tracking-[0.2em] uppercase mb-2">Sustainability</h4>
+              <p className="text-brand-black/70">Every business decision aligned with Bhutan's environmental principles.</p>
+            </div>
+            <div>
+              <h4 className="text-sm font-bold tracking-[0.2em] uppercase mb-2">Excellence</h4>
+              <p className="text-brand-black/70">Award-winning quality across all hospitality and manufacturing divisions.</p>
+            </div>
+            <div>
+              <h4 className="text-sm font-bold tracking-[0.2em] uppercase mb-2">Community</h4>
+              <p className="text-brand-black/70">Contributing to Bhutan's national economic growth and employment.</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Add hide-scrollbar utility locally */}
-      <style dangerouslySetInnerHTML={{__html: `
-        .hide-scrollbar::-webkit-scrollbar {
-          display: none;
-        }
-        .hide-scrollbar {
-          -ms-overflow-style: none;
-          scrollbar-width: none;
-        }
-      `}} />
+      {/* AI PARTNERSHIP */}
+      <section className="w-full bg-brand-black text-brand-white py-32">
+        <div className="max-w-7xl mx-auto px-6 flex flex-col items-center text-center">
+          <h3 className="text-xs font-bold tracking-[0.3em] uppercase mb-6 text-brand-vibrantPink pb-4 inline-block">The Future</h3>
+          <h2 className="text-5xl md:text-7xl font-display mb-8 max-w-4xl">Powered by <span className="text-brand-vibrantBlue">Artificial Intelligence.</span></h2>
+          <p className="text-brand-white/70 mb-12 max-w-2xl text-lg">
+            Dralha Group has partnered with Dataviv Technologies to transform every division with the power of the DATAVIV AI OS.
+          </p>
+          <Link href="/ai-partnership" className="px-10 py-5 bg-brand-vibrantBlue text-brand-black font-bold tracking-widest uppercase text-sm hover:bg-brand-white transition-colors rounded-full shadow-lg shadow-brand-vibrantBlue/20 mt-4">
+            Discover the OS
+          </Link>
+        </div>
+      </section>
+
     </div>
   );
 }

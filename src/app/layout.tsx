@@ -1,16 +1,24 @@
 import type { Metadata } from "next";
-import { Inter, Outfit } from "next/font/google";
+import { Outfit, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import GlobalPolish from "@/components/GlobalPolish";
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
-const outfit = Outfit({ subsets: ["latin"], variable: "--font-display" });
+const outfit = Outfit({ 
+  subsets: ["latin"], 
+  variable: "--font-outfit" 
+});
+
+const spaceGrotesk = Space_Grotesk({ 
+  subsets: ["latin"], 
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-space-grotesk" 
+});
 
 export const metadata: Metadata = {
-  title: "Dralha x Dataviv: The Future of Bhutan",
-  description: "A partnership between Dralha Group and Dataviv Technologies to transform Bhutan with Artificial Intelligence.",
+  title: "Dralha Group of Industries",
+  description: "Bhutan's diversified conglomerate spanning hospitality, food manufacturing, sustainable agriculture, and real estate.",
 };
 
 export default function RootLayout({
@@ -20,8 +28,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark scroll-smooth">
-      <body className={`${inter.variable} ${outfit.variable} font-sans bg-brand-navy text-white antialiased selection:bg-brand-gold selection:text-black relative`}>
-        {/* Subtle noise texture over the entire site */}
+      <body className={`${outfit.variable} ${spaceGrotesk.variable} font-sans bg-brand-black text-brand-white antialiased selection:bg-brand-vibrantBlue selection:text-white relative`}>
+        {/* Subtle noise texture */}
         <div className="fixed inset-0 pointer-events-none opacity-[0.03] z-[9999]" style={{ backgroundImage: "url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E')" }} />
         
         <GlobalPolish />

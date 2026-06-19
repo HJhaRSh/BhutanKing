@@ -1,56 +1,78 @@
-import Image from "next/image";
 import Link from "next/link";
-import DynamicDarkBackground from "./DynamicDarkBackground";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-brand-darkNavy border-t border-white/5 relative overflow-hidden">
-      <DynamicDarkBackground />
-      <div className="container mx-auto px-8 py-32 max-w-7xl relative z-10">
+    <footer className="bg-brand-black border-t border-brand-white/10 relative overflow-hidden group/footer">
+      {/* Subtle bottom glow that reacts to footer hover */}
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 w-full max-w-4xl h-[200px] bg-brand-vibrantBlue/5 blur-[100px] group-hover/footer:bg-brand-vibrantBlue/10 transition-colors duration-700 pointer-events-none" />
+      <div className="max-w-7xl mx-auto px-6 py-20 relative z-10">
         <div className="grid md:grid-cols-3 gap-16 text-left">
           
-          {/* Column 1: Logo & Presented To */}
+          {/* Column 1: Logo & Vision */}
           <div className="flex flex-col items-start justify-start">
-            <Link href="/" className="block relative w-48 h-12 md:w-56 md:h-14 group mb-10">
-              <Image 
-                src="/dralha-dataviv-logo-v2.png" 
-                alt="Dralha x Dataviv Logo" 
-                fill 
-                className="object-contain object-left opacity-90 group-hover:opacity-100 transition-opacity duration-500" 
-              />
+            <Link href="/" className="flex items-center gap-4 mb-6 group">
+              <img src="/logo-transparent.png" alt="Dralha Logo" className="w-14 h-14 object-contain opacity-90 group-hover:opacity-100 transition-opacity" />
+              <div className="flex flex-col">
+                <span className="font-display text-4xl tracking-wide text-brand-white group-hover:text-[#FFD700] transition-colors duration-500 leading-none mb-1">
+                  DRALHA
+                </span>
+                <span className="text-xs tracking-[0.2em] text-brand-white/50 uppercase font-medium leading-none mt-1">
+                  Group of Industries
+                </span>
+              </div>
             </Link>
-            <div className="inline-flex items-center px-4 py-2 border border-brand-gold/20 bg-brand-gold/5">
-              <span className="text-[10px] font-sans font-bold text-brand-gold uppercase tracking-[0.2em]">Presented to His Majesty</span>
-            </div>
-            <p className="mt-4 text-white font-display text-2xl tracking-wide max-w-xs leading-relaxed">
-              The King of Bhutan
+            <p className="text-brand-white/50 text-sm font-medium uppercase tracking-widest mb-4">
+              Est. 1988
+            </p>
+            <p className="mt-4 text-brand-white font-sans text-sm leading-relaxed border-l border-brand-white/20 pl-4 py-1">
+              Aligned with His Majesty the King's <br />
+              Vision for a Sustainable Bhutan
             </p>
           </div>
 
           {/* Column 2: Quick Links */}
-          <div className="flex flex-col items-start justify-start">
-            <h4 className="text-white font-bold mb-8 tracking-[0.2em] text-[10px] uppercase">Navigation</h4>
-            <ul className="space-y-4">
-              {["Home", "Dralha Group", "Dataviv Technologies", "The Transformation", "Contact"].map(name => (
-                <li key={name}>
-                  <Link href={name === "Home" ? "/" : `/${name.split(' ')[0].toLowerCase()}`} className="text-gray-400 hover:text-white transition-colors text-sm font-light">
-                    {name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+          <div className="flex flex-col items-start justify-start md:pl-8">
+            <div className="grid grid-cols-2 gap-x-12 w-full">
+              <div className="flex flex-col">
+                <h4 className="text-brand-white font-display text-xl mb-6 tracking-wide">Company</h4>
+                <div className="flex flex-col space-y-4">
+                  <Link href="/about" className="text-brand-white/50 hover:text-brand-vibrantBlue transition-colors text-sm font-medium tracking-wide">About</Link>
+                  <Link href="/leadership" className="text-brand-white/50 hover:text-brand-vibrantBlue transition-colors text-sm font-medium tracking-wide">Leadership</Link>
+                  <Link href="/milestones" className="text-brand-white/50 hover:text-brand-vibrantBlue transition-colors text-sm font-medium tracking-wide">Milestones</Link>
+                  <Link href="/contact" className="text-brand-white/50 hover:text-brand-vibrantBlue transition-colors text-sm font-medium tracking-wide">Contact</Link>
+                </div>
+              </div>
+              <div className="flex flex-col">
+                <h4 className="text-brand-white font-display text-xl mb-6 tracking-wide">Businesses</h4>
+                <div className="flex flex-col space-y-4">
+                  <Link href="/hotel" className="text-brand-white/50 hover:text-brand-vibrantPink transition-colors text-sm font-medium tracking-wide">Hotel Dralha</Link>
+                  <Link href="/mill" className="text-brand-white/50 hover:text-brand-vibrantOrange transition-colors text-sm font-medium tracking-wide">Flour Mill</Link>
+                  <Link href="/napkin" className="text-brand-white/50 hover:text-brand-vibrantPurple transition-colors text-sm font-medium tracking-wide">Napkin Factory</Link>
+                  <Link href="/bamboo" className="text-brand-white/50 hover:text-brand-vibrantGreen transition-colors text-sm font-medium tracking-wide">Bamboo Rev.</Link>
+                  <Link href="/agribusiness" className="text-brand-white/50 hover:text-brand-vibrantGreen transition-colors text-sm font-medium tracking-wide">Agribusiness</Link>
+                  <Link href="/gmc" className="text-brand-white/50 hover:text-brand-vibrantBlue transition-colors text-sm font-medium tracking-wide">GMC Apts</Link>
+                </div>
+              </div>
+            </div>
           </div>
 
-          {/* Column 3: Dataviv Info */}
+          {/* Column 3: Contact Info */}
           <div className="flex flex-col items-start md:items-end justify-start">
-            <h4 className="text-white font-bold mb-8 tracking-[0.2em] text-[10px] uppercase">Platform</h4>
-            <a href="https://dataviv.in" target="_blank" rel="noreferrer" className="text-xl font-display font-bold text-gray-300 hover:text-white transition-colors mb-6">
-              dataviv.in
-            </a>
-            <div className="px-3 py-1 border border-white/10 text-gray-400 text-[10px] tracking-[0.2em] uppercase rounded">
-              BE FUTURE PROOF
+            <h4 className="text-brand-white font-display text-xl mb-6 tracking-wide">Contact</h4>
+            <div className="space-y-6 md:text-right">
+              <div>
+                <h5 className="text-brand-white text-sm font-bold mb-2 uppercase tracking-wider">Dralha Head Office</h5>
+                <p className="text-brand-white/50 text-sm hover:text-brand-white transition-colors cursor-default">+975 05 2522 84</p>
+                <p className="text-brand-white/50 text-sm hover:text-brand-white transition-colors cursor-default">+975 17 6373 84</p>
+                <a href="mailto:dralhaflourmill@gmail.com" className="block text-brand-vibrantBlue/80 text-sm mt-1 hover:text-brand-vibrantBlue transition-colors">dralhaflourmill@gmail.com</a>
+              </div>
+              <div>
+                <h5 className="text-brand-white text-sm font-bold mb-2 uppercase tracking-wider">Hotel Dralha</h5>
+                <p className="text-brand-white/50 text-sm hover:text-brand-white transition-colors cursor-default">+975 2341 414</p>
+                <a href="mailto:info@hoteldralha.com" className="block text-brand-vibrantPink/80 text-sm mt-1 hover:text-brand-vibrantPink transition-colors">info@hoteldralha.com</a>
+              </div>
             </div>
           </div>
 
@@ -58,9 +80,9 @@ export default function Footer() {
       </div>
 
       {/* Bottom Strip */}
-      <div className="border-t border-white/5 bg-black relative z-10">
-        <div className="container mx-auto px-8 py-8 flex flex-col md:flex-row items-center justify-between text-xs text-gray-500 font-light uppercase tracking-[0.2em]">
-          <span className="mb-4 md:mb-0">&copy; {currentYear} Dataviv Technologies.</span>
+      <div className="border-t border-brand-white/10 bg-brand-black relative z-10">
+        <div className="max-w-7xl mx-auto px-6 py-6 flex flex-col md:flex-row items-center justify-between text-xs text-brand-white/50 font-light tracking-wide">
+          <span className="mb-4 md:mb-0">&copy; {currentYear} Dralha Group of Industries. Phuentsholing, Bhutan.</span>
           <span>All Rights Reserved.</span>
         </div>
       </div>
