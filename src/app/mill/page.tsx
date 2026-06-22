@@ -1,4 +1,5 @@
 "use client";
+import AuroraLayer from "@/components/AuroraLayer";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -11,10 +12,12 @@ import { CountUp } from "@/components/animations/CountUp";
 export default function MillPage() {
   return (
     <div className="w-full flex flex-col items-center bg-brand-black text-brand-white">
+        <AuroraLayer />
       
       {/* HERO SECTION */}
-      <section className="relative w-full h-screen flex items-center justify-center overflow-hidden border-b border-brand-white/20">
+      <section className="relative w-full h-screen flex items-center justify-center overflow-hidden border-b border-brand-orchid/20">
         <div className="absolute inset-0 z-0 bg-brand-black">
+        <AuroraLayer />
           <Image 
             src="/mill/hero-bg.png"
             alt="Dralha Flour Mill"
@@ -53,7 +56,7 @@ export default function MillPage() {
       </section>
 
       {/* OVERVIEW SECTION */}
-      <section className="w-full py-32 border-b border-brand-white/20">
+      <section className="w-full py-32 border-b border-brand-orchid/20">
         <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-20 items-center">
           <ScrollReveal>
             <h2 className="text-4xl md:text-6xl font-display mb-8 leading-tight">
@@ -62,7 +65,7 @@ export default function MillPage() {
             <p className="text-brand-white/70 text-lg leading-relaxed mb-6">
               Established in 1988, Dralha Flour Mill stands as the pioneering and sole flour mill in Bhutan. Starting with an original capacity of 60 Tons Per Day (TPD), we successfully expanded to 100 TPD in 2010 to meet the growing demands of our nation.
             </p>
-            <p className="text-brand-white/70 text-lg leading-relaxed border-l border-brand-white/20 pl-6 mt-8 italic">
+            <p className="text-brand-white/70 text-lg leading-relaxed border-l border-brand-orchid/20 pl-6 mt-8 italic">
               Currently located in the Phuentsholing Industrial Estate, we are preparing for a major strategic relocation in June 2026 to Dam Dum Samtse.
             </p>
           </ScrollReveal>
@@ -72,33 +75,33 @@ export default function MillPage() {
               <span className="text-5xl font-display mb-2 text-brand-vibrantOrange">
                 <CountUp end={1988} duration={1.5} />
               </span>
-              <span className="text-[0.65rem] tracking-[0.2em] text-brand-black/50 group-hover:text-brand-black font-bold uppercase transition-colors">Founded</span>
+              <span className="text-[0.65rem] tracking-[0.2em] text-brand-saffron font-bold group-hover:text-brand-black font-bold uppercase transition-colors">Founded</span>
             </HoverCard>
             <HoverCard colorClass="bg-brand-vibrantBlue" gradientClass="from-brand-vibrantBlue/10 to-transparent">
               <span className="text-5xl font-display mb-2 text-brand-vibrantBlue">
                 <CountUp end={100} />
                 <span className="text-2xl ml-1">MT</span>
               </span>
-              <span className="text-[0.65rem] tracking-[0.2em] text-brand-black/50 group-hover:text-brand-black font-bold uppercase transition-colors">Capacity</span>
+              <span className="text-[0.65rem] tracking-[0.2em] text-brand-saffron font-bold group-hover:text-brand-black font-bold uppercase transition-colors">Capacity</span>
             </HoverCard>
             <HoverCard colorClass="bg-brand-vibrantPink" gradientClass="from-brand-vibrantPink/10 to-transparent">
               <span className="text-5xl font-display mb-2 text-brand-vibrantPink">
                 <CountUp end={2010} duration={1.5} />
               </span>
-              <span className="text-[0.65rem] tracking-[0.2em] text-brand-black/50 group-hover:text-brand-black font-bold uppercase transition-colors">Expanded</span>
+              <span className="text-[0.65rem] tracking-[0.2em] text-brand-saffron font-bold group-hover:text-brand-black font-bold uppercase transition-colors">Expanded</span>
             </HoverCard>
             <HoverCard colorClass="bg-brand-vibrantGreen" gradientClass="from-brand-vibrantGreen/10 to-transparent">
               <span className="text-5xl font-display mb-2 text-brand-vibrantGreen">
                 <CountUp end={1.4} duration={2} />
               </span>
-              <span className="text-[0.65rem] tracking-[0.2em] text-brand-black/50 group-hover:text-brand-black font-bold uppercase transition-colors">Acres (New)</span>
+              <span className="text-[0.65rem] tracking-[0.2em] text-brand-saffron font-bold group-hover:text-brand-black font-bold uppercase transition-colors">Acres (New)</span>
             </HoverCard>
           </ScrollReveal>
         </div>
       </section>
 
       {/* RELOCATION NEWS */}
-      <section className="w-full bg-creative-light text-brand-black py-24 border-b border-brand-black/20">
+      <section className="w-full bg-creative-light text-brand-black py-24 border-b border-brand-saffron/20">
         <ScrollReveal className="max-w-4xl mx-auto px-6 text-center">
           <h3 className="text-sm font-bold tracking-[0.2em] uppercase mb-8 flex items-center justify-center gap-4">
             <MapPin className="w-6 h-6" /> Relocation Update — June 2026
@@ -110,35 +113,35 @@ export default function MillPage() {
       </section>
 
       {/* PRODUCTS SECTION */}
-      <section className="w-full py-32 border-b border-brand-white/20">
+      <section className="w-full py-32 border-b border-brand-orchid/20">
         <div className="max-w-7xl mx-auto px-6">
           <div className="mb-24 text-center">
             <h2 className="text-5xl md:text-7xl font-display">Our Core Products.</h2>
           </div>
 
           <div className="grid md:grid-cols-4 gap-x-12 gap-y-16">
-            <div className="flex flex-col items-center text-center border-t border-brand-white/20 pt-12">
+            <div className="flex flex-col items-center text-center border-t border-brand-orchid/20 pt-12">
               <Wheat className="w-16 h-16 mb-8 stroke-1" />
               <h3 className="font-display text-4xl mb-4">Atta</h3>
               <span className="text-xs tracking-widest uppercase mb-6 text-brand-white/50">Whole Wheat Flour</span>
               <p className="text-brand-white/70 text-lg leading-relaxed">Stone-ground whole wheat for traditional cooking and healthy diets.</p>
             </div>
             
-            <div className="flex flex-col items-center text-center border-t border-brand-white/20 pt-12">
+            <div className="flex flex-col items-center text-center border-t border-brand-orchid/20 pt-12">
               <Box className="w-16 h-16 mb-8 stroke-1" />
               <h3 className="font-display text-4xl mb-4">Maida</h3>
               <span className="text-xs tracking-widest uppercase mb-6 text-brand-white/50">Refined Flour</span>
               <p className="text-brand-white/70 text-lg leading-relaxed">Fine-milled refined flour perfect for baking, pastries, and confectionery.</p>
             </div>
 
-            <div className="flex flex-col items-center text-center border-t border-brand-white/20 pt-12">
+            <div className="flex flex-col items-center text-center border-t border-brand-orchid/20 pt-12">
               <Wheat className="w-16 h-16 mb-8 stroke-1 transform rotate-45" />
               <h3 className="font-display text-4xl mb-4">Suji</h3>
               <span className="text-xs tracking-widest uppercase mb-6 text-brand-white/50">Semolina</span>
               <p className="text-brand-white/70 text-lg leading-relaxed">Coarsely milled semolina ideal for traditional desserts and savory dishes.</p>
             </div>
 
-            <div className="flex flex-col items-center text-center border-t border-brand-white/20 pt-12">
+            <div className="flex flex-col items-center text-center border-t border-brand-orchid/20 pt-12">
               <Leaf className="w-16 h-16 mb-8 stroke-1" />
               <h3 className="font-display text-4xl mb-4">Wheat Bran</h3>
               <span className="text-xs tracking-widest uppercase mb-6 text-brand-white/50">Nutritious By-Product</span>
@@ -149,32 +152,32 @@ export default function MillPage() {
       </section>
 
       {/* PROCESS SECTION */}
-      <section className="w-full bg-creative-light text-brand-black py-32 border-b border-brand-black/20">
+      <section className="w-full bg-creative-light text-brand-black py-32 border-b border-brand-saffron/20">
         <div className="max-w-7xl mx-auto px-6">
           <div className="mb-24 text-center">
             <h2 className="text-5xl md:text-7xl font-display">From Wheat to Table.</h2>
           </div>
 
           <div className="grid md:grid-cols-4 gap-12">
-            <div className="flex flex-col items-start border-l border-brand-black/20 pl-8">
+            <div className="flex flex-col items-start border-l border-brand-saffron/20 pl-8">
               <Map className="w-12 h-12 mb-6 stroke-1" />
               <h4 className="font-display text-3xl mb-4">1. Sourcing</h4>
               <p className="text-brand-black/70 text-lg leading-relaxed">Premium quality wheat sourced from the best fields in Bihar & West Bengal, India.</p>
             </div>
 
-            <div className="flex flex-col items-start border-l border-brand-black/20 pl-8">
+            <div className="flex flex-col items-start border-l border-brand-saffron/20 pl-8">
               <ShieldCheck className="w-12 h-12 mb-6 stroke-1" />
               <h4 className="font-display text-3xl mb-4">2. Cleaning & Tempering</h4>
               <p className="text-brand-black/70 text-lg leading-relaxed">Meticulous preparation and cleaning of wheat kernels to ensure absolute purity.</p>
             </div>
 
-            <div className="flex flex-col items-start border-l border-brand-black/20 pl-8">
+            <div className="flex flex-col items-start border-l border-brand-saffron/20 pl-8">
               <Factory className="w-12 h-12 mb-6 stroke-1" />
               <h4 className="font-display text-3xl mb-4">3. Grinding</h4>
               <p className="text-brand-black/70 text-lg leading-relaxed">Specialized roller systems for precise milling, preserving nutritional value.</p>
             </div>
 
-            <div className="flex flex-col items-start border-l border-brand-black/20 pl-8">
+            <div className="flex flex-col items-start border-l border-brand-saffron/20 pl-8">
               <Package className="w-12 h-12 mb-6 stroke-1" />
               <h4 className="font-display text-3xl mb-4">4. Packaging</h4>
               <p className="text-brand-black/70 text-lg leading-relaxed">Careful processing, quality control, and secure retail packaging for delivery.</p>
@@ -184,19 +187,22 @@ export default function MillPage() {
       </section>
 
       {/* MARKETS */}
-      <section className="w-full py-32 border-b border-brand-white/20">
+      <section className="w-full py-32 border-b border-brand-orchid/20">
         <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-12">
-          <div className="border border-brand-white/10 bg-brand-white/5 rounded-2xl p-12 text-center hover:border-brand-vibrantOrange/50 transition-colors duration-300">
+          <div className="border border-brand-orchid/20 bg-gradient-to-br from-brand-gray/80 to-brand-royalViolet/10 border border-brand-orchid/20 hover:border-brand-saffron/60 shadow-lg shadow-brand-royalViolet/10 relative overflow-hidden rounded-2xl p-12 text-center hover:border-brand-vibrantOrange/50 transition-colors duration-300">
+        <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-brand-saffron via-brand-orchid to-brand-skyBlue rounded-t-xl" />
             <span className="text-7xl mb-8 block">🇧🇹</span>
             <h4 className="font-display text-3xl mb-4">Domestic Market</h4>
             <p className="text-brand-white/70 text-lg">Sole flour supplier to Bhutan's national market, ensuring food security.</p>
           </div>
-          <div className="border border-brand-white/10 bg-brand-white/5 rounded-2xl p-12 text-center hover:border-brand-vibrantBlue/50 transition-colors duration-300">
+          <div className="border border-brand-orchid/20 bg-gradient-to-br from-brand-gray/80 to-brand-royalViolet/10 border border-brand-orchid/20 hover:border-brand-saffron/60 shadow-lg shadow-brand-royalViolet/10 relative overflow-hidden rounded-2xl p-12 text-center hover:border-brand-vibrantBlue/50 transition-colors duration-300">
+        <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-brand-saffron via-brand-orchid to-brand-skyBlue rounded-t-xl" />
             <span className="text-7xl mb-8 block">🇮🇳</span>
             <h4 className="font-display text-3xl mb-4">India Exports</h4>
             <p className="text-brand-white/70 text-lg">Strong export relationships with extensive Indian markets across the border.</p>
           </div>
-          <div className="border border-brand-white/10 bg-brand-white/5 rounded-2xl p-12 text-center hover:border-brand-vibrantGreen/50 transition-colors duration-300">
+          <div className="border border-brand-orchid/20 bg-gradient-to-br from-brand-gray/80 to-brand-royalViolet/10 border border-brand-orchid/20 hover:border-brand-saffron/60 shadow-lg shadow-brand-royalViolet/10 relative overflow-hidden rounded-2xl p-12 text-center hover:border-brand-vibrantGreen/50 transition-colors duration-300">
+        <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-brand-saffron via-brand-orchid to-brand-skyBlue rounded-t-xl" />
             <span className="text-7xl mb-8 block">🇧🇩</span>
             <h4 className="font-display text-3xl mb-4">Bangladesh</h4>
             <p className="text-brand-white/70 text-lg">A rapidly growing regional export presence supplying quality flour products.</p>
@@ -208,11 +214,11 @@ export default function MillPage() {
       <section className="w-full bg-creative-light text-brand-black py-32">
         <div className="max-w-7xl mx-auto px-6">
           <div className="mb-24">
-            <h3 className="text-xs font-bold tracking-[0.3em] uppercase mb-4 text-brand-black/50 border-b border-brand-black/20 pb-4 inline-block">Strategic Expansion</h3>
+            <h3 className="text-xs font-bold tracking-[0.3em] uppercase mb-4 text-brand-saffron font-bold border-b border-brand-saffron/20 pb-4 inline-block">Strategic Expansion</h3>
             <h2 className="text-5xl md:text-7xl font-display">Future Lines.</h2>
           </div>
 
-          <div className="flex flex-col border-t border-brand-black/20">
+          <div className="flex flex-col border-t border-brand-saffron/20">
             {[
               { num: "01", title: "Wheat-Based Cookies & Biscuits", desc: "Premium baked goods utilizing our own high-quality milled flour." },
               { num: "02", title: "Healthy Cereal Products", desc: "Nutritious breakfast cereals catering to health-conscious consumers." },
@@ -220,7 +226,7 @@ export default function MillPage() {
               { num: "04", title: "Noodle Production Facility", desc: "Instant and fresh noodle manufacturing using our refined flour." },
               { num: "05", title: "Increased Overall Capacity", desc: "Scaling up operations at the new Samtse facility to meet regional demands." }
             ].map((plan) => (
-              <div key={plan.num} className="border-b border-brand-black/20 py-8 flex flex-col md:flex-row md:items-center justify-between group">
+              <div key={plan.num} className="border-b border-brand-saffron/20 py-8 flex flex-col md:flex-row md:items-center justify-between group">
                 <div className="flex items-center gap-8 md:w-2/3 mb-4 md:mb-0">
                   <span className="text-2xl font-display text-brand-black/30 group-hover:text-brand-black transition-colors">{plan.num}</span>
                   <h4 className="text-3xl md:text-5xl font-display">{plan.title}</h4>
@@ -235,7 +241,7 @@ export default function MillPage() {
       </section>
 
       {/* BOTTOM CTA */}
-      <section className="w-full bg-brand-vibrantOrange text-brand-black py-32 border-t border-brand-white/20 text-center">
+      <section className="w-full bg-brand-vibrantOrange text-brand-black py-32 border-t border-brand-orchid/20 text-center">
         <h2 className="text-5xl md:text-7xl font-display mb-12">Intelligent Manufacturing.</h2>
         <Link href="/ai-partnership" className="inline-block px-10 py-5 border-2 border-brand-black text-brand-black font-bold tracking-widest uppercase text-sm hover:bg-brand-black hover:text-brand-vibrantOrange transition-colors rounded-full">
           AI Transformation Plan

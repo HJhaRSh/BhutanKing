@@ -1,12 +1,13 @@
 import Link from "next/link";
+import AuroraLayer from "@/components/AuroraLayer";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-brand-black border-t border-brand-white/10 relative overflow-hidden group/footer">
+    <footer className="bg-brand-black border-t border-brand-orchid/20 relative overflow-hidden group/footer">
       {/* Subtle bottom glow that reacts to footer hover */}
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 w-full max-w-4xl h-[200px] bg-brand-vibrantBlue/5 blur-[100px] group-hover/footer:bg-brand-vibrantBlue/10 transition-colors duration-700 pointer-events-none" />
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 w-full max-w-4xl h-[200px] bg-brand-saffron/5 blur-[100px] group-hover/footer:bg-brand-saffron/10 transition-colors duration-700 pointer-events-none" />
       <div className="max-w-7xl mx-auto px-6 py-12 md:py-20 relative z-10">
         <div className="grid md:grid-cols-3 gap-10 md:gap-16 text-left">
           
@@ -26,7 +27,7 @@ export default function Footer() {
             <p className="text-brand-white/50 text-sm font-medium uppercase tracking-widest mb-4">
               Est. 1988
             </p>
-            <p className="mt-4 text-brand-white font-sans text-sm leading-relaxed border-l border-brand-white/20 pl-4 py-1">
+            <p className="mt-4 text-brand-white font-sans text-sm leading-relaxed border-l border-brand-orchid/20 pl-4 py-1">
               Aligned with His Majesty the King's <br />
               Vision for a Sustainable Bhutan
             </p>
@@ -38,21 +39,21 @@ export default function Footer() {
               <div className="flex flex-col">
                 <h4 className="text-brand-white font-display text-xl mb-6 tracking-wide">Company</h4>
                 <div className="flex flex-col space-y-4">
-                  <Link href="/about" className="text-brand-white/50 hover:text-brand-vibrantBlue transition-colors text-sm font-medium tracking-wide">About</Link>
-                  <Link href="/leadership" className="text-brand-white/50 hover:text-brand-vibrantBlue transition-colors text-sm font-medium tracking-wide">Leadership</Link>
-                  <Link href="/milestones" className="text-brand-white/50 hover:text-brand-vibrantBlue transition-colors text-sm font-medium tracking-wide">Milestones</Link>
-                  <Link href="/contact" className="text-brand-white/50 hover:text-brand-vibrantBlue transition-colors text-sm font-medium tracking-wide">Contact</Link>
+                  <Link href="/about" className="text-brand-white/50 hover:text-brand-saffron transition-colors text-sm font-medium tracking-wide">About</Link>
+                  <Link href="/leadership" className="text-brand-white/50 hover:text-brand-saffron transition-colors text-sm font-medium tracking-wide">Leadership</Link>
+                  <Link href="/milestones" className="text-brand-white/50 hover:text-brand-saffron transition-colors text-sm font-medium tracking-wide">Milestones</Link>
+                  <Link href="/contact" className="text-brand-white/50 hover:text-brand-saffron transition-colors text-sm font-medium tracking-wide">Contact</Link>
                 </div>
               </div>
               <div className="flex flex-col">
                 <h4 className="text-brand-white font-display text-xl mb-6 tracking-wide">Businesses</h4>
                 <div className="flex flex-col space-y-4">
-                  <Link href="/hotel" className="text-brand-white/50 hover:text-brand-vibrantPink transition-colors text-sm font-medium tracking-wide">Hotel Dralha</Link>
-                  <Link href="/mill" className="text-brand-white/50 hover:text-brand-vibrantOrange transition-colors text-sm font-medium tracking-wide">Flour Mill</Link>
-                  <Link href="/napkin" className="text-brand-white/50 hover:text-brand-vibrantPurple transition-colors text-sm font-medium tracking-wide">Napkin Factory</Link>
-                  <Link href="/bamboo" className="text-brand-white/50 hover:text-brand-vibrantGreen transition-colors text-sm font-medium tracking-wide">Bamboo Rev.</Link>
-                  <Link href="/agribusiness" className="text-brand-white/50 hover:text-brand-vibrantGreen transition-colors text-sm font-medium tracking-wide">Agribusiness</Link>
-                  <Link href="/gmc" className="text-brand-white/50 hover:text-brand-vibrantBlue transition-colors text-sm font-medium tracking-wide">GMC Apts</Link>
+                  <Link href="/hotel" className="text-brand-white/50 hover:text-brand-orchid transition-colors text-sm font-medium tracking-wide">Hotel Dralha</Link>
+                  <Link href="/mill" className="text-brand-white/50 hover:text-brand-dragonRed transition-colors text-sm font-medium tracking-wide">Flour Mill</Link>
+                  <Link href="/napkin" className="text-brand-white/50 hover:text-brand-orchid transition-colors text-sm font-medium tracking-wide">Napkin Factory</Link>
+                  <Link href="/bamboo" className="text-brand-white/50 hover:text-brand-forestGreen transition-colors text-sm font-medium tracking-wide">Bamboo Rev.</Link>
+                  <Link href="/agribusiness" className="text-brand-white/50 hover:text-brand-forestGreen transition-colors text-sm font-medium tracking-wide">Agribusiness</Link>
+                  <Link href="/gmc" className="text-brand-white/50 hover:text-brand-saffron transition-colors text-sm font-medium tracking-wide">GMC Apts</Link>
                 </div>
               </div>
             </div>
@@ -66,12 +67,12 @@ export default function Footer() {
                 <h5 className="text-brand-white text-sm font-bold mb-2 uppercase tracking-wider">Dralha Head Office</h5>
                 <p className="text-brand-white/50 text-sm hover:text-brand-white transition-colors cursor-default">+975 05 2522 84</p>
                 <p className="text-brand-white/50 text-sm hover:text-brand-white transition-colors cursor-default">+975 17 6373 84</p>
-                <a href="mailto:dralhaflourmill@gmail.com" className="block text-brand-vibrantBlue/80 text-sm mt-1 hover:text-brand-vibrantBlue transition-colors">dralhaflourmill@gmail.com</a>
+                <a href="mailto:dralhaflourmill@gmail.com" className="block text-brand-saffron/80 text-sm mt-1 hover:text-brand-saffron transition-colors">dralhaflourmill@gmail.com</a>
               </div>
               <div>
                 <h5 className="text-brand-white text-sm font-bold mb-2 uppercase tracking-wider">Hotel Dralha</h5>
                 <p className="text-brand-white/50 text-sm hover:text-brand-white transition-colors cursor-default">+975 2341 414</p>
-                <a href="mailto:info@hoteldralha.com" className="block text-brand-vibrantPink/80 text-sm mt-1 hover:text-brand-vibrantPink transition-colors">info@hoteldralha.com</a>
+                <a href="mailto:info@hoteldralha.com" className="block text-brand-orchid/80 text-sm mt-1 hover:text-brand-orchid transition-colors">info@hoteldralha.com</a>
               </div>
             </div>
           </div>
@@ -80,7 +81,9 @@ export default function Footer() {
       </div>
 
       {/* Bottom Strip */}
-      <div className="border-t border-brand-white/10 bg-brand-black relative z-10">
+      <div className="border-t border-brand-orchid/20 bg-brand-black relative z-10">
+        <AuroraLayer />
+        <AuroraLayer />
         <div className="max-w-7xl mx-auto px-6 py-6 flex flex-col md:flex-row items-center justify-between text-xs text-brand-white/50 font-light tracking-wide">
           <span className="mb-4 md:mb-0">&copy; {currentYear} Dralha Group of Industries. Phuentsholing, Bhutan.</span>
           <span>All Rights Reserved.</span>

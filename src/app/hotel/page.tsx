@@ -1,4 +1,5 @@
 "use client";
+import AuroraLayer from "@/components/AuroraLayer";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -11,9 +12,10 @@ import { CountUp } from "@/components/animations/CountUp";
 export default function HotelPage() {
   return (
     <div className="w-full flex flex-col items-center bg-brand-black text-brand-white">
+        <AuroraLayer />
       
       {/* HERO SECTION */}
-      <section className="relative w-full h-screen flex items-center justify-center overflow-hidden border-b border-brand-white/20">
+      <section className="relative w-full h-screen flex items-center justify-center overflow-hidden border-b border-brand-orchid/20">
         <div className="absolute inset-0 z-0">
           <Image 
             src="/hotel/Hotel Reception.jpg"
@@ -51,7 +53,7 @@ export default function HotelPage() {
       </section>
 
       {/* OVERVIEW SECTION */}
-      <section className="w-full py-32 border-b border-brand-white/20">
+      <section className="w-full py-32 border-b border-brand-orchid/20">
         <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-20 items-center">
           <ScrollReveal>
             <h2 className="text-4xl md:text-6xl font-display mb-8 leading-tight">
@@ -62,11 +64,11 @@ export default function HotelPage() {
             </p>
             
             <div className="space-y-4 text-brand-white/50 font-medium">
-              <div className="flex items-center gap-6 border-b border-brand-white/10 pb-4">
+              <div className="flex items-center gap-6 border-b border-brand-orchid/20 pb-4">
                 <span className="text-xs tracking-widest uppercase">Web</span>
                 <a href="https://hoteldralha.com" className="text-brand-white hover:text-brand-vibrantPink transition-colors">hoteldralha.com</a>
               </div>
-              <div className="flex items-center gap-6 border-b border-brand-white/10 pb-4">
+              <div className="flex items-center gap-6 border-b border-brand-orchid/20 pb-4">
                 <span className="text-xs tracking-widest uppercase">Mail</span>
                 <a href="mailto:info@hoteldralha.com" className="text-brand-white hover:text-brand-vibrantPink transition-colors">info@hoteldralha.com</a>
               </div>
@@ -82,32 +84,32 @@ export default function HotelPage() {
               <span className="text-5xl font-display mb-2 text-brand-vibrantPink">
                 <CountUp end={32} />
               </span>
-              <span className="text-[0.65rem] tracking-[0.2em] text-brand-black/50 group-hover:text-brand-black font-bold uppercase transition-colors">Rooms</span>
+              <span className="text-[0.65rem] tracking-[0.2em] text-brand-saffron font-bold group-hover:text-brand-black font-bold uppercase transition-colors">Rooms</span>
             </HoverCard>
             <HoverCard colorClass="bg-brand-vibrantBlue" gradientClass="from-brand-vibrantBlue/10 to-transparent">
               <span className="text-5xl font-display mb-2 text-brand-vibrantBlue">
                 <CountUp end={12} />
               </span>
-              <span className="text-[0.65rem] tracking-[0.2em] text-brand-black/50 group-hover:text-brand-black font-bold uppercase transition-colors">Suites</span>
+              <span className="text-[0.65rem] tracking-[0.2em] text-brand-saffron font-bold group-hover:text-brand-black font-bold uppercase transition-colors">Suites</span>
             </HoverCard>
             <HoverCard colorClass="bg-brand-vibrantOrange" gradientClass="from-brand-vibrantOrange/10 to-transparent">
               <span className="text-5xl font-display mb-2 text-brand-vibrantOrange">
                 <CountUp end={2018} duration={1.5} />
               </span>
-              <span className="text-[0.65rem] tracking-[0.2em] text-brand-black/50 group-hover:text-brand-black font-bold uppercase transition-colors">Est.</span>
+              <span className="text-[0.65rem] tracking-[0.2em] text-brand-saffron font-bold group-hover:text-brand-black font-bold uppercase transition-colors">Est.</span>
             </HoverCard>
             <HoverCard colorClass="bg-brand-vibrantGreen" gradientClass="from-brand-vibrantGreen/10 to-transparent">
               <span className="text-5xl font-display mb-2 text-brand-vibrantGreen">
                 <CountUp end={3} suffix="★" />
               </span>
-              <span className="text-[0.65rem] tracking-[0.2em] text-brand-black/50 group-hover:text-brand-black font-bold uppercase transition-colors">Rating</span>
+              <span className="text-[0.65rem] tracking-[0.2em] text-brand-saffron font-bold group-hover:text-brand-black font-bold uppercase transition-colors">Rating</span>
             </HoverCard>
           </ScrollReveal>
         </div>
       </section>
 
       {/* ROOMS & ACCOMMODATIONS */}
-      <section className="w-full bg-creative-light text-brand-black py-32 border-b border-brand-black/20">
+      <section className="w-full bg-creative-light text-brand-black py-32 border-b border-brand-saffron/20">
         <div className="max-w-7xl mx-auto px-6">
           <ScrollReveal className="mb-20">
             <h2 className="text-5xl md:text-7xl font-display">Accommodations.</h2>
@@ -125,8 +127,8 @@ export default function HotelPage() {
             </div>
           </ScrollReveal>
 
-          <ScrollReveal delay={0.3} className="grid md:grid-cols-2 gap-12 border-t border-brand-black/20 pt-12">
-            <div className="flex flex-col items-start pr-8 md:border-r border-brand-black/20">
+          <ScrollReveal delay={0.3} className="grid md:grid-cols-2 gap-12 border-t border-brand-saffron/20 pt-12">
+            <div className="flex flex-col items-start pr-8 md:border-r border-brand-saffron/20">
               <Bed className="w-8 h-8 mb-6" />
               <h3 className="text-3xl font-display mb-4">Standard Rooms</h3>
               <p className="text-brand-black/70 leading-relaxed text-lg">
@@ -145,7 +147,7 @@ export default function HotelPage() {
       </section>
 
       {/* DINING - THE LITTLE KITCHEN */}
-      <section className="w-full py-32 border-b border-brand-white/20">
+      <section className="w-full py-32 border-b border-brand-orchid/20">
         <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-20 items-center">
           <ScrollReveal className="order-2 md:order-1 relative h-[600px] w-full rounded-3xl overflow-hidden shadow-2xl shadow-brand-vibrantOrange/10">
              <Image src="/hotel/Little Kitchen.jpg" alt="The Little Kitchen" fill className="object-cover hover:scale-105 transition-transform duration-700" />
@@ -161,7 +163,7 @@ export default function HotelPage() {
       </section>
 
       {/* ROOFTOP - THE ATTIC */}
-      <section className="w-full py-32 border-b border-brand-white/20">
+      <section className="w-full py-32 border-b border-brand-orchid/20">
         <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-20 items-center">
           <div>
             <h3 className="text-xs font-bold tracking-[0.3em] uppercase mb-4 text-brand-white/50">Rooftop Lounge</h3>
@@ -170,7 +172,7 @@ export default function HotelPage() {
               Sip cocktails while taking in panoramic views of Thimphu and the iconic Buddha Dordenma statue. The Attic is Thimphu's most stylish rooftop destination.
             </p>
             
-            <div className="space-y-6 border-l border-brand-white/20 pl-8">
+            <div className="space-y-6 border-l border-brand-orchid/20 pl-8">
               <div className="flex items-center gap-4 text-lg">
                 <GlassWater className="w-6 h-6" />
                 <span>Craft Cocktails</span>
@@ -192,7 +194,7 @@ export default function HotelPage() {
       </section>
 
       {/* BUSINESS & EVENTS */}
-      <section className="w-full bg-creative-light text-brand-black py-32 border-b border-brand-black/20">
+      <section className="w-full bg-creative-light text-brand-black py-32 border-b border-brand-saffron/20">
         <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-20 items-center">
           <ScrollReveal delay={0.2} className="order-2 md:order-1 relative h-[500px] w-full rounded-3xl overflow-hidden shadow-2xl shadow-brand-black/20">
              <Image src="/hotel/Hotel Reception.jpg" alt="Business & Events" fill className="object-cover hover:scale-105 transition-transform duration-700" />
@@ -222,22 +224,22 @@ export default function HotelPage() {
           </ScrollReveal>
           
           <ScrollReveal delay={0.2} className="grid md:grid-cols-4 gap-8 pt-8">
-            <HoverCard colorClass="bg-brand-vibrantPink" gradientClass="from-brand-vibrantPink/20 to-transparent" className="p-12 border border-brand-white/10 !bg-brand-black/50 backdrop-blur-sm">
+            <HoverCard colorClass="bg-brand-vibrantPink" gradientClass="from-brand-vibrantPink/20 to-transparent" className="p-12 border border-brand-orchid/20 !bg-brand-black/50 backdrop-blur-sm">
               <span className="font-display text-8xl mb-6 text-brand-white/20 group-hover:text-brand-vibrantPink transition-colors duration-500">01</span>
               <p className="text-xl font-display text-brand-white">Upgrade to 4-Star property</p>
             </HoverCard>
             
-            <HoverCard colorClass="bg-brand-vibrantBlue" gradientClass="from-brand-vibrantBlue/20 to-transparent" className="p-12 border border-brand-white/10 !bg-brand-black/50 backdrop-blur-sm">
+            <HoverCard colorClass="bg-brand-vibrantBlue" gradientClass="from-brand-vibrantBlue/20 to-transparent" className="p-12 border border-brand-orchid/20 !bg-brand-black/50 backdrop-blur-sm">
               <span className="font-display text-8xl mb-6 text-brand-white/20 group-hover:text-brand-vibrantBlue transition-colors duration-500">02</span>
               <p className="text-xl font-display text-brand-white">Spa & Wellness facilities</p>
             </HoverCard>
             
-            <HoverCard colorClass="bg-brand-vibrantOrange" gradientClass="from-brand-vibrantOrange/20 to-transparent" className="p-12 border border-brand-white/10 !bg-brand-black/50 backdrop-blur-sm">
+            <HoverCard colorClass="bg-brand-vibrantOrange" gradientClass="from-brand-vibrantOrange/20 to-transparent" className="p-12 border border-brand-orchid/20 !bg-brand-black/50 backdrop-blur-sm">
               <span className="font-display text-8xl mb-6 text-brand-white/20 group-hover:text-brand-vibrantOrange transition-colors duration-500">03</span>
               <p className="text-xl font-display text-brand-white">Expand to Paro, Punakha, Phuentsholing & Bumthang</p>
             </HoverCard>
             
-            <HoverCard colorClass="bg-brand-vibrantGreen" gradientClass="from-brand-vibrantGreen/20 to-transparent" className="p-12 border border-brand-white/10 !bg-brand-black/50 backdrop-blur-sm">
+            <HoverCard colorClass="bg-brand-vibrantGreen" gradientClass="from-brand-vibrantGreen/20 to-transparent" className="p-12 border border-brand-orchid/20 !bg-brand-black/50 backdrop-blur-sm">
               <span className="font-display text-8xl mb-6 text-brand-white/20 group-hover:text-brand-vibrantGreen transition-colors duration-500">04</span>
               <p className="text-xl font-display text-brand-white">Flagship 5-Star luxury property</p>
             </HoverCard>
@@ -246,7 +248,7 @@ export default function HotelPage() {
       </section>
 
       {/* BOTTOM CTA */}
-      <section className="w-full py-32 border-t border-brand-white/20 text-center bg-brand-vibrantBlue text-brand-black">
+      <section className="w-full py-32 border-t border-brand-orchid/20 text-center bg-brand-vibrantBlue text-brand-black">
         <h2 className="text-5xl md:text-7xl font-display mb-12">Experience Bhutan.</h2>
         <div className="flex flex-col sm:flex-row justify-center items-center gap-6">
           <a href="https://hoteldralha.com" target="_blank" rel="noreferrer" className="px-10 py-5 bg-brand-black text-brand-white font-bold tracking-widest uppercase text-sm hover:bg-brand-black/80 transition-colors rounded-full">

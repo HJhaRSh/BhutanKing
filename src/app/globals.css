@@ -4,12 +4,16 @@
 
 @layer base {
   :root {
-    --background: #050505;
-    --foreground: #FDFDFD;
+    --background: #08051A;
+    --foreground: #FFF5E4;
   }
-  
+
   body {
     @apply bg-brand-black text-brand-white;
+    background-image:
+      radial-gradient(ellipse 80% 50% at 10% 0%, rgba(255,140,0,0.12) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 40% at 90% 100%, rgba(124,77,255,0.15) 0%, transparent 60%);
+    background-attachment: fixed;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -21,49 +25,72 @@
   @keyframes spin-slow {
     100% { transform: rotate(360deg); }
   }
+
   @keyframes morph {
     0%, 100% { border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; }
-    34% { border-radius: 70% 30% 50% 50% / 30% 30% 70% 70%; }
-    67% { border-radius: 100% 60% 60% 100% / 100% 100% 60% 60%; }
+    34%       { border-radius: 70% 30% 50% 50% / 30% 30% 70% 70%; }
+    67%       { border-radius: 100% 60% 60% 100% / 100% 100% 60% 60%; }
   }
 
+  @keyframes aurora-shift {
+    0%   { background-position: 0% 50%;   filter: hue-rotate(0deg); }
+    50%  { background-position: 100% 50%; filter: hue-rotate(30deg); }
+    100% { background-position: 0% 50%;   filter: hue-rotate(0deg); }
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% { opacity: 0.6; transform: scale(1); }
+    50%       { opacity: 1.0; transform: scale(1.05); }
+  }
+
+  /* LIGHT HERO SECTIONS — warm parchment with vivid colour blobs */
   .bg-creative-light {
-    @apply bg-brand-white relative overflow-hidden;
+    background-color: #FFF5E4;
+    position: relative;
+    overflow: hidden;
     isolation: isolate;
   }
 
+  /* Giant saffron-gold orb — top left */
   .bg-creative-light::before {
     content: '';
     position: absolute;
-    top: -10%;
-    left: 10%;
-    width: 60vw;
-    height: 60vw;
+    top: -20%;
+    left: -5%;
+    width: 70vw;
+    height: 70vw;
     min-width: 600px;
     min-height: 600px;
-    border: 1px solid rgba(0, 0, 0, 0.08);
-    background: linear-gradient(135deg, rgba(0,0,0,0.03), transparent);
-    animation: morph 20s ease-in-out infinite, spin-slow 40s linear infinite;
+    background: radial-gradient(circle at 40% 40%,
+      rgba(255, 140, 0, 0.45) 0%,
+      rgba(255, 45, 26, 0.30) 35%,
+      rgba(224, 64, 251, 0.10) 65%,
+      transparent 80%
+    );
+    animation: morph 18s ease-in-out infinite, spin-slow 36s linear infinite;
     z-index: -1;
     pointer-events: none;
-    transform-origin: center center;
   }
 
+  /* Electric orchid-violet orb — bottom right */
   .bg-creative-light::after {
     content: '';
     position: absolute;
-    bottom: -10%;
+    bottom: -20%;
     right: -10%;
-    width: 70vw;
-    height: 70vw;
-    min-width: 700px;
-    min-height: 700px;
-    border: 1px solid rgba(0, 0, 0, 0.05);
-    background: linear-gradient(to top right, rgba(0,0,0,0.02), transparent);
-    animation: morph 25s ease-in-out infinite reverse, spin-slow 50s linear infinite reverse;
+    width: 75vw;
+    height: 75vw;
+    min-width: 650px;
+    min-height: 650px;
+    background: radial-gradient(circle at 60% 60%,
+      rgba(124, 77, 255, 0.35) 0%,
+      rgba(0, 212, 255, 0.25) 40%,
+      rgba(0, 230, 118, 0.10) 65%,
+      transparent 80%
+    );
+    animation: morph 22s ease-in-out infinite reverse, spin-slow 45s linear infinite reverse;
     z-index: -1;
     pointer-events: none;
-    transform-origin: center center;
   }
 
   .bg-creative-light > * {
@@ -73,31 +100,32 @@
 }
 
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
-  
-  .glass-card {
-    /* Temporary shim to prevent breakage while refactoring components */
-    @apply p-8;
-  }
-  
+  .text-balance { text-wrap: balance; }
+
+  .glass-card { @apply p-8; }
+
+  /* Saffron → Red → Orchid gradient text */
   .text-vibrant-gradient {
-    @apply bg-clip-text text-transparent bg-vibrant-gradient;
+    background: linear-gradient(135deg, #FF8C00, #FF2D1A, #E040FB, #7C4DFF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Gold → Saffron gradient text for hero titles */
+  .text-gold-gradient {
+    background: linear-gradient(135deg, #FFD000, #FF8C00);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 }
 
-/* Custom Scrollbar for Vibrant theme */
-::-webkit-scrollbar { 
-  width: 8px; 
+/* Scrollbar */
+::-webkit-scrollbar       { width: 8px; }
+::-webkit-scrollbar-track { background: #08051A; }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #FF8C00, #E040FB);
+  border-radius: 4px;
 }
-::-webkit-scrollbar-track { 
-  background: #050505; 
-}
-::-webkit-scrollbar-thumb { 
-  background: #333333; 
-  border-radius: 4px; 
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #00E5FF;
-}
+::-webkit-scrollbar-thumb:hover { background: #FF8C00; }

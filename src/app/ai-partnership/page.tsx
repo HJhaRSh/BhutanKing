@@ -1,4 +1,5 @@
 "use client";
+import AuroraLayer from "@/components/AuroraLayer";
 
 import { motion } from "framer-motion";
 import { CheckCircle, ChevronRight } from "lucide-react";
@@ -115,9 +116,10 @@ export default function AIPartnershipPage() {
 
   return (
     <div className="w-full flex flex-col items-center bg-brand-black text-brand-white">
+        <AuroraLayer />
       
       {/* HERO SECTION */}
-      <section className="relative w-full h-screen flex flex-col justify-center items-center overflow-hidden border-b border-brand-white/20">
+      <section className="relative w-full h-screen flex flex-col justify-center items-center overflow-hidden border-b border-brand-orchid/20">
         {/* Background Network Animation */}
         <div className="absolute inset-0 z-0 opacity-20">
           <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
@@ -173,8 +175,8 @@ export default function AIPartnershipPage() {
 
       {/* DATAVIV INTRO STRIP */}
       <section className="w-full max-w-6xl mx-auto px-6 -mt-20 relative z-20">
-        <ScrollReveal className="bg-brand-black border border-brand-white/10 border-l-4 border-l-brand-vibrantGreen p-10 flex flex-col md:flex-row items-center gap-12 shadow-2xl shadow-brand-vibrantGreen/10 hover:shadow-brand-vibrantGreen/30 hover:border-brand-vibrantGreen/50 transition-all duration-500">
-          <div className="flex-1 border-b md:border-b-0 md:border-r border-brand-white/10 pb-8 md:pb-0 md:pr-12">
+        <ScrollReveal className="bg-brand-black border border-brand-orchid/20 border-l-4 border-l-brand-vibrantGreen p-10 flex flex-col md:flex-row items-center gap-12 shadow-2xl shadow-brand-vibrantGreen/10 hover:shadow-brand-vibrantGreen/30 hover:border-brand-vibrantGreen/50 transition-all duration-500">
+          <div className="flex-1 border-b md:border-b-0 md:border-r border-brand-orchid/20 pb-8 md:pb-0 md:pr-12">
             <div className="relative h-16 w-64 mb-6">
               <Image 
                 src="/dataviv logo.jpeg" 
@@ -206,7 +208,7 @@ export default function AIPartnershipPage() {
       </section>
 
       {/* WHAT IS DATAVIV AI OS */}
-      <section className="w-full py-32 border-b border-brand-white/20">
+      <section className="w-full py-32 border-b border-brand-orchid/20">
         <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-20 items-center">
           <ScrollReveal>
             <h2 className="text-xs font-bold tracking-[0.4em] uppercase mb-4 text-brand-vibrantGreen">THE PLATFORM</h2>
@@ -219,21 +221,21 @@ export default function AIPartnershipPage() {
             <div className="flex flex-col lg:flex-row items-center gap-4 text-sm font-bold uppercase tracking-wider text-brand-white mt-12 w-full">
               <motion.div 
                 onHoverStart={() => setActiveLayer(0)} onHoverEnd={() => setActiveLayer(null)}
-                className={`px-6 py-4 border rounded cursor-pointer transition-all duration-300 ${activeLayer === 0 ? 'border-brand-white bg-brand-white/20 shadow-[0_0_15px_rgba(255,255,255,0.3)] scale-105' : activeLayer === null ? 'border-brand-white/20 bg-brand-white/5' : 'border-brand-white/10 bg-transparent opacity-50'}`}
+                className={`px-6 py-4 border rounded cursor-pointer transition-all duration-300 ${activeLayer === 0 ? 'border-brand-white bg-brand-white/20 shadow-[0_0_15px_rgba(255,255,255,0.3)] scale-105' : activeLayer === null ? 'border-brand-orchid/20 bg-gradient-to-br from-brand-gray/80 to-brand-royalViolet/10 border border-brand-orchid/20 hover:border-brand-saffron/60 shadow-lg shadow-brand-royalViolet/10 relative overflow-hidden' : 'border-brand-orchid/20 bg-transparent opacity-50'}`}
               >
                 Collect Data
               </motion.div>
               <ChevronRight className={`w-5 h-5 hidden lg:block transition-opacity duration-300 ${activeLayer === 1 ? 'text-brand-vibrantGreen opacity-100' : 'text-brand-white/20'}`} />
               <motion.div 
                 onHoverStart={() => setActiveLayer(1)} onHoverEnd={() => setActiveLayer(null)}
-                className={`px-6 py-4 border rounded cursor-pointer transition-all duration-300 ${activeLayer === 1 ? 'border-brand-vibrantGreen bg-brand-vibrantGreen/20 text-brand-vibrantGreen shadow-[0_0_15px_rgba(0,255,136,0.5)] scale-105' : activeLayer === null ? 'border-brand-vibrantGreen/50 bg-brand-vibrantGreen/10 text-brand-vibrantGreen' : 'border-brand-white/10 text-brand-white/30 bg-transparent opacity-50'}`}
+                className={`px-6 py-4 border rounded cursor-pointer transition-all duration-300 ${activeLayer === 1 ? 'border-brand-vibrantGreen bg-brand-vibrantGreen/20 text-brand-vibrantGreen shadow-[0_0_15px_rgba(0,255,136,0.5)] scale-105' : activeLayer === null ? 'border-brand-vibrantGreen/50 bg-brand-vibrantGreen/10 text-brand-vibrantGreen' : 'border-brand-orchid/20 text-brand-white/30 bg-transparent opacity-50'}`}
               >
                 AI Analysis
               </motion.div>
               <ChevronRight className={`w-5 h-5 hidden lg:block transition-opacity duration-300 ${activeLayer === 2 ? 'text-brand-vibrantBlue opacity-100' : 'text-brand-white/20'}`} />
               <motion.div 
                 onHoverStart={() => setActiveLayer(2)} onHoverEnd={() => setActiveLayer(null)}
-                className={`px-6 py-4 border rounded cursor-pointer transition-all duration-300 ${activeLayer === 2 ? 'border-brand-vibrantBlue bg-brand-vibrantBlue/20 text-brand-vibrantBlue shadow-[0_0_15px_rgba(0,229,255,0.5)] scale-105' : activeLayer === null ? 'border-brand-vibrantBlue/50 bg-brand-vibrantBlue/10 text-brand-vibrantBlue' : 'border-brand-white/10 text-brand-white/30 bg-transparent opacity-50'}`}
+                className={`px-6 py-4 border rounded cursor-pointer transition-all duration-300 ${activeLayer === 2 ? 'border-brand-vibrantBlue bg-brand-vibrantBlue/20 text-brand-vibrantBlue shadow-[0_0_15px_rgba(0,229,255,0.5)] scale-105' : activeLayer === null ? 'border-brand-vibrantBlue/50 bg-brand-vibrantBlue/10 text-brand-vibrantBlue' : 'border-brand-orchid/20 text-brand-white/30 bg-transparent opacity-50'}`}
               >
                 Insights & Actions
               </motion.div>
@@ -293,19 +295,19 @@ export default function AIPartnershipPage() {
       </section>
 
       {/* SECTOR TRANSFORMATIONS */}
-      <section className="w-full py-32 border-b border-brand-white/20">
+      <section className="w-full py-32 border-b border-brand-orchid/20">
         <div className="max-w-7xl mx-auto px-6">
           <ScrollReveal className="text-center mb-24">
             <h2 className="text-5xl md:text-7xl font-display mb-6">Sector Transformations.</h2>
           </ScrollReveal>
 
-          <div className="flex flex-col border-t border-brand-white/10">
+          <div className="flex flex-col border-t border-brand-orchid/20">
             {sectors.map((sector, i) => {
               const isHovered = hoveredIndex === i;
               return (
                 <div 
                   key={sector.id} 
-                  className="relative w-full border-b border-brand-white/10 transition-all duration-700 ease-in-out cursor-pointer overflow-hidden group"
+                  className="relative w-full border-b border-brand-orchid/20 transition-all duration-700 ease-in-out cursor-pointer overflow-hidden group"
                   onMouseEnter={() => setHoveredIndex(i)}
                   onMouseLeave={() => setHoveredIndex(null)}
                   style={{ height: isHovered ? "450px" : "120px" }}
@@ -339,7 +341,7 @@ export default function AIPartnershipPage() {
                     <div className={`flex flex-col md:flex-row gap-12 transition-all duration-700 ease-in-out pb-8 ${isHovered ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 translate-y-8 pointer-events-none'}`}>
                       {/* Today */}
                       <div className="flex-1">
-                        <h4 className="text-xl font-bold text-brand-white/40 mb-6 pb-2 border-b border-brand-white/10">Today — Without AI</h4>
+                        <h4 className="text-xl font-bold text-brand-gold mb-6 pb-2 border-b border-brand-orchid/20">Today — Without AI</h4>
                         <ul className="space-y-4 text-brand-white/60 text-lg">
                           {sector.today.map((item, idx) => (
                             <li key={idx} className="flex gap-3"><span>✕</span> {item}</li>
@@ -366,7 +368,7 @@ export default function AIPartnershipPage() {
       </section>
 
       {/* IMPACT SECTION */}
-      <section className="w-full py-32 border-b border-brand-white/20">
+      <section className="w-full py-32 border-b border-brand-orchid/20">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-10 text-center">
           <div>
             <div className="text-6xl md:text-8xl font-display text-brand-vibrantGreen mb-4"><CountUp end={6} duration={2} /></div>

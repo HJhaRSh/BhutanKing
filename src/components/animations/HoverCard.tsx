@@ -7,21 +7,21 @@ import clsx from "clsx";
 interface HoverCardProps {
   children: ReactNode;
   className?: string;
-  colorClass?: string; // e.g. "bg-brand-vibrantBlue"
-  gradientClass?: string; // e.g. "from-brand-vibrantBlue/5 to-transparent"
+  colorClass?: string; // e.g. "bg-brand-saffron"
+  gradientClass?: string; // e.g. "from-brand-saffron/5 to-transparent"
 }
 
 export function HoverCard({ 
   children, 
   className = "", 
-  colorClass = "bg-brand-vibrantBlue", 
-  gradientClass = "from-brand-vibrantBlue/5 to-transparent" 
+  colorClass = "bg-brand-saffron", 
+  gradientClass = "from-brand-saffron/5 to-transparent" 
 }: HoverCardProps) {
   return (
     <motion.div 
       whileHover={{ y: -8, scale: 1.02 }}
       className={clsx(
-        "relative bg-brand-white p-6 md:p-10 rounded-3xl border border-brand-black/5 shadow-2xl shadow-brand-black/5 flex flex-col items-center justify-center text-center group overflow-hidden",
+        "relative bg-brand-white p-6 md:p-10 rounded-3xl border border-brand-black/5 shadow-2xl shadow-brand-royalViolet/15 flex flex-col items-center justify-center text-center group overflow-hidden",
         className
       )}
     >

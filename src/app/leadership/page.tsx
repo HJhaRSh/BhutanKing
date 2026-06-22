@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import AuroraLayer from "@/components/AuroraLayer";
 
 const leaders = [
   {
@@ -53,15 +54,30 @@ const leaders = [
 export default function LeadershipPage() {
   return (
     <div className="w-full flex flex-col items-center bg-brand-black text-brand-white">
+        <AuroraLayer />
+        <AuroraLayer />
       
       {/* HERO SECTION */}
-      <section className="w-full pt-40 pb-32 px-6 text-center border-b border-brand-white/20">
+      <section className="w-full pt-40 pb-32 px-6 text-center border-b border-brand-orchid/20">
+
+        {/* Bhutan Aurora Background */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
+          {/* Saffron glow — top right */}
+          <div className="absolute -top-32 -right-32 w-[700px] h-[700px] rounded-full"
+               style={{ background: 'radial-gradient(circle, rgba(255,149,0,0.15) 0%, transparent 65%)' }} />
+          {/* Dragon red glow — centre */}
+          <div className="absolute top-1/3 left-1/4 w-[500px] h-[500px] rounded-full"
+               style={{ background: 'radial-gradient(circle, rgba(232,41,28,0.10) 0%, transparent 65%)' }} />
+          {/* Orchid glow — bottom left */}
+          <div className="absolute -bottom-32 -left-32 w-[600px] h-[600px] rounded-full"
+               style={{ background: 'radial-gradient(circle, rgba(200,80,192,0.12) 0%, transparent 65%)' }} />
+        </div>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="text-xs font-bold tracking-[0.3em] uppercase mb-6 text-brand-vibrantBlue pb-4 inline-block">
+          <h2 className="text-xs font-bold tracking-[0.3em] uppercase mb-6 text-brand-saffron pb-4 inline-block">
             Our People
           </h2>
           <h1 className="text-6xl md:text-8xl font-display leading-[1.1] mb-6">
@@ -84,12 +100,12 @@ export default function LeadershipPage() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: i * 0.1 }}
               whileHover={{ y: -8 }}
-              className="flex flex-col bg-[#0a0a0a] border border-brand-white/20 rounded-none p-10 group hover:bg-brand-white hover:border-brand-white transition-colors duration-500 shadow-2xl shadow-brand-black/50"
+              className="flex flex-col bg-[#0a0a0a] border border-brand-orchid/20 rounded-none p-10 group hover:bg-brand-white hover:border-brand-white transition-colors duration-500 shadow-2xl shadow-brand-royalViolet/150"
             >
-              <div className="flex-grow flex flex-col items-start border-l-4 border-brand-vibrantBlue pl-6 mb-8">
-                <span className="text-[10px] tracking-widest text-brand-vibrantPink uppercase font-bold mb-4">{leader.badge}</span>
+              <div className="flex-grow flex flex-col items-start border-l-4 border-brand-saffron pl-6 mb-8">
+                <span className="text-[10px] tracking-widest text-brand-orchid uppercase font-bold mb-4">{leader.badge}</span>
                 <h3 className="text-3xl font-display mb-2 text-brand-white group-hover:text-brand-black transition-colors duration-500">{leader.name}</h3>
-                <p className="text-sm font-bold tracking-wider text-brand-vibrantBlue uppercase">{leader.title}</p>
+                <p className="text-sm font-bold tracking-wider text-brand-saffron uppercase">{leader.title}</p>
               </div>
 
               <div className="flex flex-col flex-grow">
@@ -98,14 +114,14 @@ export default function LeadershipPage() {
                 </p>
 
                 {(leader.email || leader.phone) && (
-                  <div className="flex flex-col gap-4 pt-6 border-t border-brand-white/10 group-hover:border-brand-black/10 transition-colors duration-500 mt-auto">
+                  <div className="flex flex-col gap-4 pt-6 border-t border-brand-orchid/20 group-hover:border-brand-saffron/20 transition-colors duration-500 mt-auto">
                     {leader.email && (
-                      <a href={`mailto:${leader.email}`} className="text-xs font-bold tracking-widest uppercase text-brand-white/50 group-hover:text-brand-black/50 hover:!text-brand-vibrantBlue transition-colors flex items-center gap-2">
+                      <a href={`mailto:${leader.email}`} className="text-xs font-bold tracking-widest uppercase text-brand-white/50 group-hover:text-brand-saffron font-bold hover:!text-brand-saffron transition-colors flex items-center gap-2">
                         <span>Email</span> <span className="lowercase font-normal text-brand-white/80 group-hover:text-brand-black/80 transition-colors">{leader.email}</span>
                       </a>
                     )}
                     {leader.phone && (
-                      <a href={`tel:${leader.phone.replace(/\s+/g, '')}`} className="text-xs font-bold tracking-widest uppercase text-brand-white/50 group-hover:text-brand-black/50 hover:!text-brand-vibrantGreen transition-colors flex items-center gap-2">
+                      <a href={`tel:${leader.phone.replace(/\s+/g, '')}`} className="text-xs font-bold tracking-widest uppercase text-brand-white/50 group-hover:text-brand-saffron font-bold hover:!text-brand-forestGreen transition-colors flex items-center gap-2">
                         <span>Call</span> <span className="font-normal text-brand-white/80 group-hover:text-brand-black/80 transition-colors">{leader.phone}</span>
                       </a>
                     )}
