@@ -89,7 +89,7 @@ export default function Home() {
               <h2 className="text-[11px] font-bold tracking-[0.4em] uppercase mb-6 text-brand-saffron">
                 Established 1988 · Phuentsholing, Bhutan
               </h2>
-              <h1 className="text-6xl md:text-7xl lg:text-[5.5rem] font-display leading-[1.05] mb-8 font-bold tracking-tight text-brand-black">
+              <h1 className="text-4xl md:text-6xl lg:text-7xl lg:text-[5.5rem] font-display leading-[1.05] mb-8 font-bold tracking-tight text-brand-black">
                 Building<br />
                 Bhutan's<br />
                 Future.
@@ -189,11 +189,11 @@ export default function Home() {
       </section>
 
       {/* PORTFOLIO (NO CARDS) */}
-      <section id="portfolio" className="w-full bg-brand-white text-brand-black py-32 border-b border-brand-saffron/10">
+      <section id="portfolio" className="w-full bg-brand-white text-brand-black py-16 md:py-32 border-b border-brand-saffron/10">
         <div className="max-w-7xl mx-auto px-6">
           <div className="mb-20">
             <h3 className="text-brand-saffron text-[11px] font-bold tracking-[0.4em] uppercase mb-4 pb-4">Our Portfolio</h3>
-            <h2 className="text-5xl md:text-7xl font-display leading-tight font-bold tracking-tight text-brand-black">Diversified<br/><span className="text-transparent bg-clip-text bg-vibrant-gradient drop-shadow-sm">Excellence.</span></h2>
+            <h2 className="text-4xl md:text-6xl lg:text-7xl font-display leading-tight font-bold tracking-tight text-brand-black">Diversified<br/><span className="text-transparent bg-clip-text bg-vibrant-gradient drop-shadow-sm">Excellence.</span></h2>
           </div>
 
           <div className="flex flex-col border-t border-brand-saffron/20">
@@ -248,7 +248,7 @@ export default function Home() {
       </section>
 
       {/* PHILOSOPHY (VIBRANT RED) */}
-      <section className="relative w-full bg-brand-dragonRed text-brand-white py-32 border-y border-brand-saffron/30 overflow-hidden">
+      <section className="relative w-full bg-brand-dragonRed text-brand-white py-16 md:py-32 border-y border-brand-saffron/30 overflow-hidden">
         {/* Saffron/Gold Blobs Background */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute -left-[20%] -top-[20%] w-[60%] h-[140%] bg-brand-saffron rounded-full blur-[140px] opacity-50" />
@@ -256,7 +256,7 @@ export default function Home() {
           <div className="absolute left-[30%] bottom-[-20%] w-[40%] h-[80%] bg-brand-royalViolet rounded-full blur-[120px] opacity-40" />
         </div>
 
-        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-20 items-center relative z-10">
+        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 md:gap-20 items-center relative z-10">
           <div className="relative">
             <span className="absolute -top-16 -left-12 text-[12rem] font-serif text-brand-saffron/30 leading-none select-none drop-shadow-md">"</span>
             <h3 className="font-display font-bold text-4xl md:text-[46px] leading-[1.15] relative z-10 tracking-tight text-brand-white drop-shadow-lg">
@@ -281,11 +281,11 @@ export default function Home() {
       </section>
 
       {/* AI PARTNERSHIP */}
-      <section className="w-full bg-brand-black text-brand-white py-32 border-t border-brand-saffron/20 relative overflow-hidden">
+      <section className="w-full bg-brand-black text-brand-white py-16 md:py-32 border-t border-brand-saffron/20 relative overflow-hidden">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-brand-skyBlue/10 rounded-full blur-[120px] pointer-events-none" />
         <div className="max-w-7xl mx-auto px-6 flex flex-col items-center text-center relative z-10">
           <h3 className="text-[11px] font-bold tracking-[0.4em] uppercase mb-6 text-brand-skyBlue pb-4 inline-block drop-shadow-[0_0_10px_rgba(0,212,255,0.5)]">The Future</h3>
-          <h2 className="text-5xl md:text-7xl font-display font-bold mb-8 max-w-4xl tracking-tight text-brand-white">Powered by <span className="text-transparent bg-clip-text bg-aurora-gradient drop-shadow-[0_0_15px_rgba(224,64,251,0.4)]">Artificial Intelligence.</span></h2>
+          <h2 className="text-4xl md:text-6xl lg:text-7xl font-display font-bold mb-8 max-w-4xl tracking-tight text-brand-white">Powered by <span className="text-transparent bg-clip-text bg-aurora-gradient drop-shadow-[0_0_15px_rgba(224,64,251,0.4)]">Artificial Intelligence.</span></h2>
           <p className="text-brand-white/80 mb-12 max-w-2xl text-lg font-light leading-relaxed">
             Dralha Group has partnered with Dataviv Technologies to transform every division with the power of the DATAVIV AI OS.
           </p>
@@ -296,7 +296,7 @@ export default function Home() {
       </section>
 
       {/* PARTNERS & ASSOCIATIONS */}
-      <section className="relative w-full bg-brand-white text-brand-black py-32 border-t border-brand-saffron/20 overflow-hidden">
+      <section className="relative w-full bg-brand-white text-brand-black py-16 md:py-32 border-t border-brand-saffron/20 overflow-hidden">
         {/* Vibrant Bhutanese Blobs Background */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute -right-[20%] -bottom-[20%] w-[60%] h-[140%] bg-brand-dragonRed rounded-full blur-[140px] opacity-10" />

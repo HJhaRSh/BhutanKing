@@ -30,7 +30,7 @@ export default function GMCPage() {
           <div className="absolute inset-0 bg-gradient-to-br from-brand-black via-brand-black to-brand-saffron/20" />
         </div>
 
-        <div className="max-w-6xl mx-auto px-6 w-full relative z-10 text-center mt-20">
+        <div className="max-w-6xl mx-auto px-6 w-full relative z-10 text-center mt-12 md:mt-20">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -39,7 +39,7 @@ export default function GMCPage() {
             <h2 className="text-xs font-bold tracking-[0.4em] uppercase mb-6 text-brand-saffron">
               REAL ESTATE · GELEPHU MINDFULNESS CITY
             </h2>
-            <h1 className="text-5xl md:text-6xl lg:text-8xl font-display leading-[1.1] mb-6 font-light tracking-tight">
+            <h1 className="text-4xl md:text-6xl lg:text-8xl font-display leading-[1.1] mb-6 font-light tracking-tight">
               The Dralha <br/><span className="font-bold text-vibrant-gradient">GMC Residences</span>
             </h1>
             <p className="text-xl md:text-2xl mb-8 font-medium text-brand-white/70 max-w-2xl mx-auto">
@@ -50,7 +50,7 @@ export default function GMCPage() {
       </section>
 
       {/* GMC EXPLAINER */}
-      <section className="w-full py-32 border-b border-brand-orchid/20 relative z-20 bg-creative-light text-brand-black">
+      <section className="w-full py-16 md:py-32 border-b border-brand-orchid/20 relative z-20 bg-creative-light text-brand-black">
         <div className="max-w-5xl mx-auto px-6">
           <ScrollReveal className="relative pt-12">
             <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 px-6 py-2 bg-brand-black text-brand-saffron text-xs uppercase tracking-widest flex items-center gap-2 rounded-full shadow-lg shadow-brand-saffron/20">
@@ -66,8 +66,8 @@ export default function GMCPage() {
       </section>
 
       {/* THE OPPORTUNITY */}
-      <section className="w-full py-32 border-b border-brand-orchid/20">
-        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-20 items-center">
+      <section className="w-full py-16 md:py-32 border-b border-brand-orchid/20">
+        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 md:gap-20 items-center">
           <ScrollReveal>
             <h2 className="text-4xl md:text-6xl font-display mb-8">A Global Magnet.</h2>
             <p className="text-brand-white/70 text-xl leading-relaxed mb-8">
@@ -76,15 +76,15 @@ export default function GMCPage() {
           </ScrollReveal>
           <ScrollReveal delay={0.2} className="flex flex-col gap-8 border-l border-brand-orchid/20 pl-12">
             <div className="flex flex-col">
-              <span className="text-5xl md:text-7xl font-display text-brand-saffron mb-2">2,500<span className="text-3xl ml-1">sq km</span></span>
+              <span className="text-4xl md:text-6xl lg:text-7xl font-display text-brand-saffron mb-2">2,500<span className="text-3xl ml-1">sq km</span></span>
               <span className="text-sm font-bold tracking-[0.2em] text-brand-white/70 uppercase">Total Size</span>
             </div>
             <div className="flex flex-col border-t border-brand-orchid/20 pt-8">
-              <span className="text-5xl md:text-7xl font-display text-brand-orchid mb-2">SAR</span>
+              <span className="text-4xl md:text-6xl lg:text-7xl font-display text-brand-orchid mb-2">SAR</span>
               <span className="text-sm font-bold tracking-[0.2em] text-brand-white/70 uppercase">Special Admin Region</span>
             </div>
             <div className="flex flex-col border-t border-brand-orchid/20 pt-8">
-              <span className="text-5xl md:text-7xl font-display text-brand-forestGreen mb-2">Royal Charter</span>
+              <span className="text-4xl md:text-6xl lg:text-7xl font-display text-brand-forestGreen mb-2">Royal Charter</span>
               <span className="text-sm font-bold tracking-[0.2em] text-brand-white/70 uppercase">Established by His Majesty</span>
             </div>
           </ScrollReveal>
@@ -92,10 +92,10 @@ export default function GMCPage() {
       </section>
 
       {/* THE DRALHA PROPOSITION */}
-      <section className="w-full py-32">
+      <section className="w-full py-16 md:py-32">
         <div className="max-w-7xl mx-auto px-6">
           <ScrollReveal className="text-center mb-24">
-            <h2 className="text-5xl md:text-7xl font-display mb-6">The Dralha Proposition.</h2>
+            <h2 className="text-4xl md:text-6xl lg:text-7xl font-display mb-6">The Dralha Proposition.</h2>
           </ScrollReveal>
 
           <ScrollReveal delay={0.2} className="grid md:grid-cols-3 gap-12">

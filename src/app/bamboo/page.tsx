@@ -63,7 +63,7 @@ export default function BambooPage() {
                 SUSTAINABILITY · COMING 2026–2027
               </span>
             </div>
-            <h1 className="text-5xl md:text-6xl lg:text-8xl font-display leading-[1] mb-8">
+            <h1 className="text-4xl md:text-6xl lg:text-8xl font-display leading-[1] mb-8">
               Bamboo <span className="text-brand-forestGreen">Revolution.</span>
             </h1>
             <p className="text-2xl md:text-3xl font-medium text-brand-white/70 max-w-3xl mx-auto">
@@ -74,7 +74,7 @@ export default function BambooPage() {
       </section>
 
       {/* OVERVIEW SECTION */}
-      <section className="w-full bg-creative-light text-brand-black py-32 border-b border-brand-saffron/20">
+      <section className="w-full bg-creative-light text-brand-black py-16 md:py-32 border-b border-brand-saffron/20">
         <ScrollReveal className="max-w-5xl mx-auto px-6 text-center">
           <h2 className="text-4xl md:text-6xl font-display mb-8">A Visionary Project in Samtse.</h2>
           <p className="text-brand-black/70 text-xl leading-relaxed">
@@ -84,7 +84,7 @@ export default function BambooPage() {
       </section>
 
       {/* THREE PILLARS */}
-      <section className="w-full py-32 border-b border-brand-orchid/20">
+      <section className="w-full py-16 md:py-32 border-b border-brand-orchid/20">
         <div className="max-w-7xl mx-auto px-6">
           <ScrollReveal delay={0.2} className="grid md:grid-cols-3 gap-12">
             <div className="flex flex-col items-start border-t-2 border-brand-forestGreen pt-12 group">
@@ -115,7 +115,7 @@ export default function BambooPage() {
       </section>
 
       {/* STATUS BAR */}
-      <section className="w-full py-32 bg-creative-light text-brand-black">
+      <section className="w-full py-16 md:py-32 bg-creative-light text-brand-black">
         <div className="max-w-5xl mx-auto px-6">
           <div className="border-y border-brand-black py-16 flex flex-col md:flex-row items-center justify-between gap-12">
             <div className="flex flex-col items-center text-center">

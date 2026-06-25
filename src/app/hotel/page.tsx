@@ -35,7 +35,7 @@ export default function HotelPage() {
             <h2 className="text-xs font-bold tracking-[0.3em] uppercase mb-6 text-brand-vibrantPink pb-4 inline-block">
               Hospitality · Thimphu, Bhutan
             </h2>
-            <h1 className="text-5xl md:text-6xl lg:text-8xl font-display leading-[1] mb-6">
+            <h1 className="text-4xl md:text-6xl lg:text-8xl font-display leading-[1] mb-6">
               Hotel <span className="text-brand-vibrantBlue">Dralha.</span>
             </h1>
             <p className="text-xl md:text-2xl mb-12 font-medium text-brand-white/70">
@@ -53,8 +53,8 @@ export default function HotelPage() {
       </section>
 
       {/* OVERVIEW SECTION */}
-      <section className="w-full py-32 border-b border-brand-orchid/20">
-        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-20 items-center">
+      <section className="w-full py-16 md:py-32 border-b border-brand-orchid/20">
+        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 md:gap-20 items-center">
           <ScrollReveal>
             <h2 className="text-4xl md:text-6xl font-display mb-8 leading-tight">
               Bhutanese Warmth. <br /> Modern Comfort.
@@ -109,10 +109,10 @@ export default function HotelPage() {
       </section>
 
       {/* ROOMS & ACCOMMODATIONS */}
-      <section className="w-full bg-creative-light text-brand-black py-32 border-b border-brand-saffron/20">
+      <section className="w-full bg-creative-light text-brand-black py-16 md:py-32 border-b border-brand-saffron/20">
         <div className="max-w-7xl mx-auto px-6">
           <ScrollReveal className="mb-20">
-            <h2 className="text-5xl md:text-7xl font-display">Accommodations.</h2>
+            <h2 className="text-4xl md:text-6xl lg:text-7xl font-display">Accommodations.</h2>
           </ScrollReveal>
 
           <ScrollReveal delay={0.2} className="columns-1 md:columns-3 gap-6 space-y-6 mb-20">
@@ -147,14 +147,14 @@ export default function HotelPage() {
       </section>
 
       {/* DINING - THE LITTLE KITCHEN */}
-      <section className="w-full py-32 border-b border-brand-orchid/20">
-        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-20 items-center">
+      <section className="w-full py-16 md:py-32 border-b border-brand-orchid/20">
+        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 md:gap-20 items-center">
           <ScrollReveal className="order-2 md:order-1 relative h-[600px] w-full rounded-3xl overflow-hidden shadow-2xl shadow-brand-vibrantOrange/10">
              <Image src="/hotel/Little Kitchen.jpg" alt="The Little Kitchen" fill className="object-cover hover:scale-105 transition-transform duration-700" />
           </ScrollReveal>
           <ScrollReveal delay={0.2} className="order-1 md:order-2">
             <h3 className="text-xs font-bold tracking-[0.3em] uppercase mb-4 text-brand-vibrantOrange">Dining</h3>
-            <h2 className="text-5xl md:text-7xl font-display mb-8">The Little Kitchen</h2>
+            <h2 className="text-4xl md:text-6xl lg:text-7xl font-display mb-8">The Little Kitchen</h2>
             <p className="text-brand-white/70 text-lg leading-relaxed">
               An authentic Indian restaurant led by an experienced chef from India, offering a rich menu of Indian, Bhutanese, Indo-Chinese, and Continental cuisine. A favorite with hotel guests and Thimphu locals alike.
             </p>
@@ -163,11 +163,11 @@ export default function HotelPage() {
       </section>
 
       {/* ROOFTOP - THE ATTIC */}
-      <section className="w-full py-32 border-b border-brand-orchid/20">
-        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-20 items-center">
+      <section className="w-full py-16 md:py-32 border-b border-brand-orchid/20">
+        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 md:gap-20 items-center">
           <div>
             <h3 className="text-xs font-bold tracking-[0.3em] uppercase mb-4 text-brand-white/50">Rooftop Lounge</h3>
-            <h2 className="text-5xl md:text-7xl font-display mb-8">The Attic</h2>
+            <h2 className="text-4xl md:text-6xl lg:text-7xl font-display mb-8">The Attic</h2>
             <p className="text-brand-white/70 text-lg leading-relaxed mb-12">
               Sip cocktails while taking in panoramic views of Thimphu and the iconic Buddha Dordenma statue. The Attic is Thimphu's most stylish rooftop destination.
             </p>
@@ -194,13 +194,13 @@ export default function HotelPage() {
       </section>
 
       {/* BUSINESS & EVENTS */}
-      <section className="w-full bg-creative-light text-brand-black py-32 border-b border-brand-saffron/20">
-        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-20 items-center">
+      <section className="w-full bg-creative-light text-brand-black py-16 md:py-32 border-b border-brand-saffron/20">
+        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 md:gap-20 items-center">
           <ScrollReveal delay={0.2} className="order-2 md:order-1 relative h-[500px] w-full rounded-3xl overflow-hidden shadow-2xl shadow-brand-black/20">
              <Image src="/hotel/Hotel Reception.jpg" alt="Business & Events" fill className="object-cover hover:scale-105 transition-transform duration-700" />
           </ScrollReveal>
           <ScrollReveal className="order-1 md:order-2">
-            <h2 className="text-5xl md:text-7xl font-display mb-8">Business & Events</h2>
+            <h2 className="text-4xl md:text-6xl lg:text-7xl font-display mb-8">Business & Events</h2>
             <p className="text-brand-black/70 text-lg leading-relaxed mb-12">
               Fully equipped conference facilities for corporate meetings, workshops, and professional events. Featuring modern audio-visual equipment and comfortable seating configurations.
             </p>
@@ -214,7 +214,7 @@ export default function HotelPage() {
       </section>
 
       {/* FUTURE PLANS */}
-      <section className="w-full py-32 relative overflow-hidden">
+      <section className="w-full py-16 md:py-32 relative overflow-hidden">
         {/* Background gradient for this section to make it pop */}
         <div className="absolute inset-0 bg-gradient-to-b from-brand-black to-brand-vibrantPink/5 pointer-events-none" />
         <div className="max-w-7xl mx-auto px-6 relative z-10">
@@ -248,8 +248,8 @@ export default function HotelPage() {
       </section>
 
       {/* BOTTOM CTA */}
-      <section className="w-full py-32 border-t border-brand-orchid/20 text-center bg-brand-vibrantBlue text-brand-black">
-        <h2 className="text-5xl md:text-7xl font-display mb-12">Experience Bhutan.</h2>
+      <section className="w-full py-16 md:py-32 border-t border-brand-orchid/20 text-center bg-brand-vibrantBlue text-brand-black">
+        <h2 className="text-4xl md:text-6xl lg:text-7xl font-display mb-12">Experience Bhutan.</h2>
         <div className="flex flex-col sm:flex-row justify-center items-center gap-6">
           <a href="https://hoteldralha.com" target="_blank" rel="noreferrer" className="px-10 py-5 bg-brand-black text-brand-white font-bold tracking-widest uppercase text-sm hover:bg-brand-black/80 transition-colors rounded-full">
             Visit hoteldralha.com

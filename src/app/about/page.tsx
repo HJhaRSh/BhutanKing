@@ -23,7 +23,7 @@ export default function AboutPage() {
         <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
           <motion.h1 
             initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1 }}
-            className="text-6xl md:text-7xl lg:text-9xl font-display mb-8 text-transparent bg-clip-text bg-gradient-to-b from-brand-white to-brand-white/70 font-bold tracking-tight drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)]"
+            className="text-4xl md:text-6xl lg:text-7xl lg:text-9xl font-display mb-8 text-transparent bg-clip-text bg-gradient-to-b from-brand-white to-brand-white/70 font-bold tracking-tight drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)]"
           >
             Our Legacy.
           </motion.h1>
@@ -37,8 +37,8 @@ export default function AboutPage() {
       </section>
 
       {/* THE STORY */}
-      <section className="w-full py-32 bg-brand-white text-brand-black">
-        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-20 items-center">
+      <section className="w-full py-16 md:py-32 bg-brand-white text-brand-black">
+        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 md:gap-20 items-center">
           <div>
             <h2 className="text-xs font-bold tracking-[0.3em] uppercase mb-4 text-brand-saffron">The Beginning</h2>
             <h3 className="text-5xl md:text-6xl font-display mb-8">Decades of Excellence.</h3>
@@ -99,7 +99,7 @@ export default function AboutPage() {
       </section>
 
       {/* CORE VALUES */}
-      <section className="w-full py-32 bg-brand-black text-brand-white border-y border-brand-saffron/20 relative overflow-hidden">
+      <section className="w-full py-16 md:py-32 bg-brand-black text-brand-white border-y border-brand-saffron/20 relative overflow-hidden">
         {/* Vibrant Blobs */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute left-[20%] top-[10%] w-[40%] h-[80%] bg-brand-saffron rounded-full blur-[160px] opacity-10" />
@@ -158,7 +158,7 @@ export default function AboutPage() {
       </section>
 
       {/* PARTNERS & ASSOCIATIONS */}
-      <section className="relative w-full bg-brand-white text-brand-black py-32 border-t border-brand-saffron/20 overflow-hidden">
+      <section className="relative w-full bg-brand-white text-brand-black py-16 md:py-32 border-t border-brand-saffron/20 overflow-hidden">
         {/* Vibrant Bhutanese Blobs Background */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute -right-[20%] -bottom-[20%] w-[60%] h-[140%] bg-brand-dragonRed rounded-full blur-[140px] opacity-10" />
@@ -200,7 +200,7 @@ export default function AboutPage() {
       </section>
 
       {/* CALL TO ACTION */}
-      <section className="w-full py-32 bg-flag-gradient text-brand-white text-center">
+      <section className="w-full py-16 md:py-32 bg-flag-gradient text-brand-white text-center">
         <div className="max-w-4xl mx-auto px-6 drop-shadow-[0_0_15px_rgba(0,0,0,0.3)]">
           <h2 className="text-4xl md:text-6xl font-display font-bold tracking-tight mb-8">Explore Our Impact.</h2>
           <p className="text-xl text-brand-white/90 mb-12 font-medium">

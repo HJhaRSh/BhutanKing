@@ -74,7 +74,7 @@ export default function LeadershipPage() {
           <h2 className="text-sm font-bold tracking-[0.4em] uppercase mb-6 text-brand-saffron pb-4 inline-block drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
             Our People
           </h2>
-          <h1 className="text-6xl md:text-7xl lg:text-9xl font-display leading-[1.1] mb-6 text-transparent bg-clip-text bg-gradient-to-b from-brand-white to-brand-white/80 drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)]">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl lg:text-9xl font-display leading-[1.1] mb-6 text-transparent bg-clip-text bg-gradient-to-b from-brand-white to-brand-white/80 drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)]">
             Leadership.
           </h1>
           <p className="text-xl md:text-3xl font-medium text-brand-white/90 max-w-3xl mx-auto drop-shadow-lg">
@@ -84,7 +84,7 @@ export default function LeadershipPage() {
       </section>
 
       {/* LEADERSHIP LIST */}
-      <section className="w-full bg-creative-light py-32 relative z-10">
+      <section className="w-full bg-creative-light py-16 md:py-32 relative z-10">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {leaders.map((leader, i) => (
             <motion.div

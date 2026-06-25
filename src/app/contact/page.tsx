@@ -28,7 +28,7 @@ export default function ContactPage() {
           <h2 className="text-sm font-bold tracking-[0.4em] uppercase mb-6 text-brand-saffron drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
             Connect
           </h2>
-          <h1 className="text-6xl md:text-8xl lg:text-9xl font-display leading-[1.1] mb-6 font-bold drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)]">
+          <h1 className="text-4xl md:text-6xl lg:text-8xl lg:text-9xl font-display leading-[1.1] mb-6 font-bold drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)]">
             Let's <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-saffron to-brand-gold">Talk.</span>
           </h1>
           <p className="text-xl md:text-3xl font-medium text-brand-white/80 leading-relaxed drop-shadow-lg">
@@ -38,14 +38,14 @@ export default function ContactPage() {
       </section>
 
       {/* TWO COLUMN LAYOUT */}
-      <section className="w-full bg-brand-black py-32 relative z-10 overflow-hidden border-b border-brand-saffron/20">
+      <section className="w-full bg-brand-black py-16 md:py-32 relative z-10 overflow-hidden border-b border-brand-saffron/20">
 
         {/* Subtle Ambient Depth */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[100%] bg-brand-white rounded-full blur-[160px] opacity-[0.03]" />
         </div>
 
-        <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-24 relative z-10">
+        <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 md:gap-24 relative z-10">
           
           {/* Left - Contact Form (Minimalist) */}
           <ScrollReveal delay={0.2}>

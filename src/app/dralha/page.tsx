@@ -98,7 +98,7 @@ export default function DralhaPage() {
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className="inline-block mb-10 text-gray-500 tracking-[0.3em] text-xs font-semibold uppercase">
             The Kingdom&apos;s Conglomerate
           </motion.div>
-          <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2 }} className="text-6xl md:text-8xl font-display font-bold text-white mb-8 tracking-tight">
+          <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2 }} className="text-4xl md:text-6xl lg:text-8xl font-display font-bold text-white mb-8 tracking-tight">
             Dralha Group.
           </motion.h1>
           <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.4 }} className="text-xl md:text-2xl text-gray-400 max-w-2xl mx-auto font-light leading-relaxed">
@@ -108,9 +108,9 @@ export default function DralhaPage() {
       </section>
 
       {/* WHO IS DRALHA (CONTRAST THEME) */}
-      <section className="py-32 bg-brand-cream text-brand-navy border-y border-brand-sand">
+      <section className="py-16 md:py-32 bg-brand-cream text-brand-navy border-y border-brand-sand">
         <div className="container mx-auto px-6 max-w-7xl">
-          <div className="grid md:grid-cols-2 gap-24 items-center">
+          <div className="grid md:grid-cols-2 gap-12 md:gap-24 items-center">
             <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="relative h-[500px] w-full rounded-none border border-brand-sand bg-brand-navy flex items-center justify-center overflow-hidden">
               <Image 
                 src="/dralha_heritage.png"
@@ -135,11 +135,11 @@ export default function DralhaPage() {
       </section>
 
       {/* MANAGEMENT TEAM (CONTRAST THEME) */}
-      <section className="py-32 bg-brand-cream text-brand-navy border-b border-brand-sand">
+      <section className="py-16 md:py-32 bg-brand-cream text-brand-navy border-b border-brand-sand">
         <div className="container mx-auto px-6 max-w-7xl">
           <SectionHeading title="Leadership That Drives Bhutan Forward" centered />
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-24">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12 md:mt-24">
             {managementTeam.map((member, idx) => (
               <motion.div 
                 key={member.name}
@@ -172,12 +172,12 @@ export default function DralhaPage() {
       </section>
 
       {/* CURRENT BUSINESS SECTORS */}
-      <section className="py-32 bg-brand-darkNavy border-t border-white/5 relative overflow-hidden">
+      <section className="py-16 md:py-32 bg-brand-darkNavy border-t border-white/5 relative overflow-hidden">
         <DynamicDarkBackground />
         <div className="container mx-auto px-6 max-w-7xl relative z-10">
           <SectionHeading title="Dralha's Portfolio Today" centered />
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-white/5 border border-white/5 mt-24">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-white/5 border border-white/5 mt-12 md:mt-24">
             {sectors.map((sector, idx) => (
               <div 
                 key={sector.name} 
@@ -204,11 +204,11 @@ export default function DralhaPage() {
       </section>
 
       {/* CHALLENGES SECTION */}
-      <section className="py-32 bg-black border-t border-white/5">
+      <section className="py-16 md:py-32 bg-black border-t border-white/5">
         <div className="container mx-auto px-6 max-w-5xl">
           <SectionHeading title="Where Dralha Can Grow" centered subtitle="Operational hurdles scaling across the conglomerate." />
           
-          <div className="mt-24 grid md:grid-cols-3 gap-4">
+          <div className="mt-12 md:mt-24 grid md:grid-cols-3 gap-4">
             {challenges.map((challenge, idx) => (
               <motion.div 
                 key={challenge.title} 
@@ -241,7 +241,7 @@ export default function DralhaPage() {
 
       {/* THE OPPORTUNITY BANNER */}
       <section className="bg-brand-gold border-t border-white/5">
-        <div className="container mx-auto px-6 py-32 text-center">
+        <div className="container mx-auto px-6 py-16 md:py-32 text-center">
           <h2 className="text-3xl md:text-6xl font-display font-bold text-black mb-12 max-w-4xl mx-auto leading-tight tracking-tight">
             Every challenge above has an AI solution. <br />
             <span className="font-light italic text-black/70">And Dataviv has built it.</span>

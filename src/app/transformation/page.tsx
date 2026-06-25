@@ -253,7 +253,7 @@ export default function TransformationPage() {
       </section>
 
       {/* THE AI OS IN ACTION (Hexagonal Ecosystem Diagram) */}
-      <section className="py-32 border-y border-brand-sand bg-brand-cream text-brand-navy overflow-hidden relative min-h-[900px]">
+      <section className="py-16 md:py-32 border-y border-brand-sand bg-brand-cream text-brand-navy overflow-hidden relative min-h-[900px]">
         {/* Dynamic Background Elements */}
         
         {/* Animated Grid */}
@@ -402,7 +402,7 @@ export default function TransformationPage() {
       </section>
 
       {/* IMPACT NUMBERS */}
-      <section className="py-32 bg-brand-navy border-b border-white/5 relative overflow-hidden">
+      <section className="py-16 md:py-32 bg-brand-navy border-b border-white/5 relative overflow-hidden">
         <DynamicDarkBackground />
         <div className="container mx-auto px-6 max-w-7xl relative z-10">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-white/5 border border-white/5">
@@ -428,7 +428,7 @@ export default function TransformationPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-32 container mx-auto px-6 text-center">
+      <section className="py-16 md:py-32 container mx-auto px-6 text-center">
         <h2 className="text-4xl md:text-5xl font-display font-bold text-white mb-16 tracking-tight">
           Ready to begin the transformation?
         </h2>
@@ -462,7 +462,7 @@ function StatBox({ number, label }: { number: string, label: string }) {
       viewport={{ once: true }}
       className="p-10 h-[300px] bg-brand-navy flex flex-col items-center justify-center group hover:bg-white transition-colors duration-500 cursor-pointer"
     >
-      <div className="text-6xl md:text-8xl font-display font-bold text-white mb-6 group-hover:text-brand-navy transition-colors duration-500">{number}</div>
+      <div className="text-4xl md:text-6xl lg:text-8xl font-display font-bold text-white mb-6 group-hover:text-brand-navy transition-colors duration-500">{number}</div>
       <div className="w-8 h-[1px] bg-white/20 mb-6 group-hover:bg-brand-navy/20 transition-colors duration-500" />
       <div className="text-[10px] font-sans font-bold text-gray-500 group-hover:text-brand-navy/70 uppercase tracking-[0.2em] text-center px-4">{label}</div>
     </motion.div>

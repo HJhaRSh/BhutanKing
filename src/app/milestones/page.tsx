@@ -44,7 +44,7 @@ export default function MilestonesPage() {
           <h2 className="text-sm font-bold tracking-[0.4em] uppercase mb-6 text-brand-saffron pb-4 inline-block drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
             History
           </h2>
-          <h1 className="text-6xl md:text-7xl lg:text-9xl font-display leading-[1.1] mb-6 text-transparent bg-clip-text bg-gradient-to-b from-brand-white to-brand-white/80 drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)]">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl lg:text-9xl font-display leading-[1.1] mb-6 text-transparent bg-clip-text bg-gradient-to-b from-brand-white to-brand-white/80 drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)]">
             Our Journey.
           </h1>
           <p className="text-xl md:text-2xl font-medium text-brand-white/70 max-w-3xl mx-auto">
@@ -54,7 +54,7 @@ export default function MilestonesPage() {
       </section>
 
       {/* MILESTONES GRID */}
-      <section className="w-full bg-creative-light py-32 relative z-10">
+      <section className="w-full bg-creative-light py-16 md:py-32 relative z-10">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {milestones.map((m, i) => {
             const Icon = m.icon;
@@ -83,10 +83,10 @@ export default function MilestonesPage() {
       </section>
 
       {/* VISION SECTION */}
-      <section className="w-full bg-brand-black text-brand-white py-32 mt-20 border-t border-brand-saffron/20 relative overflow-hidden">
+      <section className="w-full bg-brand-black text-brand-white py-16 md:py-32 mt-12 md:mt-20 border-t border-brand-saffron/20 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <div className="text-center mb-24">
-            <h2 className="text-5xl md:text-7xl font-display mb-6">The Next 10–25 Years.</h2>
+            <h2 className="text-4xl md:text-6xl lg:text-7xl font-display mb-6">The Next 10–25 Years.</h2>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">

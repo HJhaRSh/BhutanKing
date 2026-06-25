@@ -38,7 +38,7 @@ export default function MillPage() {
             <h2 className="text-xs font-bold tracking-[0.3em] uppercase mb-6 text-brand-vibrantOrange pb-4 inline-block">
               Food Manufacturing · Bhutan's First
             </h2>
-            <h1 className="text-5xl md:text-6xl lg:text-8xl font-display leading-[1] mb-6">
+            <h1 className="text-4xl md:text-6xl lg:text-8xl font-display leading-[1] mb-6">
               Dralha Flour <span className="text-brand-vibrantOrange">Mill.</span>
             </h1>
             <p className="text-xl md:text-2xl mb-12 font-medium text-brand-white/70">
@@ -56,8 +56,8 @@ export default function MillPage() {
       </section>
 
       {/* OVERVIEW SECTION */}
-      <section className="w-full py-32 border-b border-brand-orchid/20">
-        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-20 items-center">
+      <section className="w-full py-16 md:py-32 border-b border-brand-orchid/20">
+        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 md:gap-20 items-center">
           <ScrollReveal>
             <h2 className="text-4xl md:text-6xl font-display mb-8 leading-tight">
               A Legacy of Quality and Trust.
@@ -113,10 +113,10 @@ export default function MillPage() {
       </section>
 
       {/* PRODUCTS SECTION */}
-      <section className="w-full py-32 border-b border-brand-orchid/20">
+      <section className="w-full py-16 md:py-32 border-b border-brand-orchid/20">
         <div className="max-w-7xl mx-auto px-6">
           <div className="mb-24 text-center">
-            <h2 className="text-5xl md:text-7xl font-display">Our Core Products.</h2>
+            <h2 className="text-4xl md:text-6xl lg:text-7xl font-display">Our Core Products.</h2>
           </div>
 
           <div className="grid md:grid-cols-4 gap-x-12 gap-y-16">
@@ -152,10 +152,10 @@ export default function MillPage() {
       </section>
 
       {/* PROCESS SECTION */}
-      <section className="w-full bg-creative-light text-brand-black py-32 border-b border-brand-saffron/20">
+      <section className="w-full bg-creative-light text-brand-black py-16 md:py-32 border-b border-brand-saffron/20">
         <div className="max-w-7xl mx-auto px-6">
           <div className="mb-24 text-center">
-            <h2 className="text-5xl md:text-7xl font-display">From Wheat to Table.</h2>
+            <h2 className="text-4xl md:text-6xl lg:text-7xl font-display">From Wheat to Table.</h2>
           </div>
 
           <div className="grid md:grid-cols-4 gap-12">
@@ -187,7 +187,7 @@ export default function MillPage() {
       </section>
 
       {/* MARKETS */}
-      <section className="w-full py-32 border-b border-brand-orchid/20">
+      <section className="w-full py-16 md:py-32 border-b border-brand-orchid/20">
         <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-12">
           <div className="border border-brand-orchid/20 bg-gradient-to-br from-brand-gray/80 to-brand-royalViolet/10 border border-brand-orchid/20 hover:border-brand-saffron/60 shadow-lg shadow-brand-royalViolet/10 relative overflow-hidden rounded-2xl p-12 text-center hover:border-brand-vibrantOrange/50 transition-colors duration-300">
         <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-brand-saffron via-brand-orchid to-brand-skyBlue rounded-t-xl" />
@@ -211,11 +211,11 @@ export default function MillPage() {
       </section>
 
       {/* FUTURE PLANS */}
-      <section className="w-full bg-creative-light text-brand-black py-32">
+      <section className="w-full bg-creative-light text-brand-black py-16 md:py-32">
         <div className="max-w-7xl mx-auto px-6">
           <div className="mb-24">
             <h3 className="text-xs font-bold tracking-[0.3em] uppercase mb-4 text-brand-saffron font-bold border-b border-brand-saffron/20 pb-4 inline-block">Strategic Expansion</h3>
-            <h2 className="text-5xl md:text-7xl font-display">Future Lines.</h2>
+            <h2 className="text-4xl md:text-6xl lg:text-7xl font-display">Future Lines.</h2>
           </div>
 
           <div className="flex flex-col border-t border-brand-saffron/20">
@@ -241,8 +241,8 @@ export default function MillPage() {
       </section>
 
       {/* BOTTOM CTA */}
-      <section className="w-full bg-brand-vibrantOrange text-brand-black py-32 border-t border-brand-orchid/20 text-center">
-        <h2 className="text-5xl md:text-7xl font-display mb-12">Intelligent Manufacturing.</h2>
+      <section className="w-full bg-brand-vibrantOrange text-brand-black py-16 md:py-32 border-t border-brand-orchid/20 text-center">
+        <h2 className="text-4xl md:text-6xl lg:text-7xl font-display mb-12">Intelligent Manufacturing.</h2>
         <Link href="/ai-partnership" className="inline-block px-10 py-5 border-2 border-brand-black text-brand-black font-bold tracking-widest uppercase text-sm hover:bg-brand-black hover:text-brand-vibrantOrange transition-colors rounded-full">
           AI Transformation Plan
         </Link>

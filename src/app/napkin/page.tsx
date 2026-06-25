@@ -47,7 +47,7 @@ export default function NapkinPage() {
             <h2 className="text-xs font-bold tracking-[0.3em] uppercase mb-6 text-brand-orchid pb-4 inline-block">
               Manufacturing · Est. 2009
             </h2>
-            <h1 className="text-5xl md:text-6xl lg:text-8xl font-display leading-[1] mb-6">
+            <h1 className="text-4xl md:text-6xl lg:text-8xl font-display leading-[1] mb-6">
               Napkin <span className="text-brand-orchid">Factory.</span>
             </h1>
             <p className="text-xl md:text-2xl font-medium text-brand-black/70">
@@ -58,7 +58,7 @@ export default function NapkinPage() {
       </section>
 
       {/* OVERVIEW SECTION */}
-      <section className="w-full py-32 border-b border-brand-saffron/20">
+      <section className="w-full py-16 md:py-32 border-b border-brand-saffron/20">
         <ScrollReveal className="max-w-5xl mx-auto px-6 text-center">
           <h2 className="text-4xl md:text-6xl font-display mb-8">From Cottage to Commercial Scale.</h2>
           <p className="text-brand-black/70 text-xl leading-relaxed">
@@ -68,12 +68,12 @@ export default function NapkinPage() {
       </section>
 
       {/* PRODUCTS SECTION */}
-      <section className="w-full bg-brand-black text-brand-white py-32">
+      <section className="w-full bg-brand-black text-brand-white py-16 md:py-32">
         <AuroraLayer />
         <AuroraLayer />
         <div className="max-w-7xl mx-auto px-6">
           <ScrollReveal className="mb-24 text-center">
-            <h2 className="text-5xl md:text-7xl font-display">Our Products.</h2>
+            <h2 className="text-4xl md:text-6xl lg:text-7xl font-display">Our Products.</h2>
           </ScrollReveal>
 
           <ScrollReveal delay={0.2} className="grid md:grid-cols-3 gap-x-12 gap-y-16 border-t border-brand-orchid/20 pt-16 mb-24">
@@ -132,7 +132,7 @@ export default function NapkinPage() {
       </section>
 
       {/* GALLERY SECTION */}
-      <section className="w-full py-32 bg-gradient-to-br from-brand-gray/80 to-brand-royalViolet/10 border border-brand-orchid/20 hover:border-brand-saffron/60 shadow-lg shadow-brand-royalViolet/10 relative overflow-hidden border-b border-brand-orchid/20">
+      <section className="w-full py-16 md:py-32 bg-gradient-to-br from-brand-gray/80 to-brand-royalViolet/10 border border-brand-orchid/20 hover:border-brand-saffron/60 shadow-lg shadow-brand-royalViolet/10 relative overflow-hidden border-b border-brand-orchid/20">
         <div className="max-w-7xl mx-auto px-6">
           <ScrollReveal className="text-center mb-16">
             <h2 className="text-4xl md:text-6xl font-display mb-6">Facility Showcase.</h2>
@@ -150,7 +150,7 @@ export default function NapkinPage() {
       </section>
 
       {/* CUSTOMERS SECTION */}
-      <section className="w-full py-32 border-b border-brand-saffron/20">
+      <section className="w-full py-16 md:py-32 border-b border-brand-saffron/20">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-6xl font-display mb-6">Our Customers.</h2>
@@ -171,10 +171,10 @@ export default function NapkinPage() {
       </section>
 
       {/* FUTURE PLANS */}
-      <section className="w-full bg-brand-orchid text-brand-white py-32">
+      <section className="w-full bg-brand-orchid text-brand-white py-16 md:py-32">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <Factory className="w-20 h-20 mx-auto mb-12 stroke-1" />
-          <h2 className="text-5xl md:text-7xl font-display mb-10">Modernization Program.</h2>
+          <h2 className="text-4xl md:text-6xl lg:text-7xl font-display mb-10">Modernization Program.</h2>
           <p className="text-brand-white/70 text-xl leading-relaxed">
             We are embarking on an ambitious modernization journey to increase our production capacity. This includes integrating new, state-of-the-art machinery for facial tissues, kitchen rolls, and M-Fold hard paper tailored for hospital standards.
           </p>

@@ -44,7 +44,7 @@ export default function AgribusinessPage() {
             <h2 className="text-xs font-bold tracking-[0.3em] uppercase mb-6 text-brand-forestGreen mt-8">
               AGRICULTURE · CENTRAL BHUTAN
             </h2>
-            <h1 className="text-5xl md:text-6xl lg:text-8xl font-display leading-[1] mb-8">
+            <h1 className="text-4xl md:text-6xl lg:text-8xl font-display leading-[1] mb-8">
               Sustainable <span className="text-brand-forestGreen">Agribusiness.</span>
             </h1>
             <p className="text-2xl md:text-3xl font-medium text-brand-white/70 max-w-3xl mx-auto">
@@ -55,9 +55,9 @@ export default function AgribusinessPage() {
       </section>
 
       {/* TWO CROPS */}
-      <section className="w-full py-32 border-b border-brand-orchid/20">
+      <section className="w-full py-16 md:py-32 border-b border-brand-orchid/20">
         <div className="max-w-7xl mx-auto px-6">
-          <ScrollReveal className="grid md:grid-cols-2 gap-20">
+          <ScrollReveal className="grid md:grid-cols-2 gap-12 md:gap-20">
             
             {/* Avocados */}
             <div className="flex flex-col items-start group">
@@ -82,10 +82,10 @@ export default function AgribusinessPage() {
       </section>
 
       {/* INTEGRATED PIPELINE */}
-      <section className="w-full py-32 bg-creative-light text-brand-black">
+      <section className="w-full py-16 md:py-32 bg-creative-light text-brand-black">
         <div className="max-w-7xl mx-auto px-6">
           <ScrollReveal className="text-center mb-24">
-            <h2 className="text-5xl md:text-7xl font-display mb-6">Integrated Value Chain.</h2>
+            <h2 className="text-4xl md:text-6xl lg:text-7xl font-display mb-6">Integrated Value Chain.</h2>
             <p className="text-brand-black/70 text-xl max-w-2xl mx-auto">From seed to global markets.</p>
           </ScrollReveal>
 

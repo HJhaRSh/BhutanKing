@@ -42,7 +42,7 @@ export default function DatavivPage() {
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className="inline-block mb-10 text-gray-500 tracking-[0.3em] text-xs font-semibold uppercase">
             Be Future Proof
           </motion.div>
-          <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2 }} className="text-6xl md:text-8xl font-display font-bold text-white mb-8 tracking-tight">
+          <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2 }} className="text-4xl md:text-6xl lg:text-8xl font-display font-bold text-white mb-8 tracking-tight">
             Dataviv Technologies.
           </motion.h1>
           <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.4 }} className="text-xl md:text-2xl text-gray-400 max-w-4xl mx-auto font-light leading-relaxed mb-16">
@@ -60,12 +60,12 @@ export default function DatavivPage() {
       </section>
 
       {/* PEDIGREE SECTION */}
-      <section className="py-32 bg-brand-darkNavy border-y border-white/5 relative overflow-hidden">
+      <section className="py-16 md:py-32 bg-brand-darkNavy border-y border-white/5 relative overflow-hidden">
         <DynamicDarkBackground />
         <div className="container mx-auto px-6 max-w-7xl relative z-10">
           <SectionHeading title="Why Trust Dataviv?" centered />
           
-          <div className="grid md:grid-cols-3 gap-px bg-white/5 border border-white/5 mt-24">
+          <div className="grid md:grid-cols-3 gap-px bg-white/5 border border-white/5 mt-12 md:mt-24">
             {[
               { num: "TRST-01", title: "Stanford Roots", desc: "Our core team holds MS in Artificial Intelligence from Stanford University, with research under Andrew Ng, founder of Google Brain and Chief Scientist at Baidu." },
               { num: "TRST-02", title: "Global Experience", desc: "Early team members worked at Coursera (Billion-dollar Edtech) and Earnin (Fintech), supporting growth and product at scale." },
@@ -106,13 +106,13 @@ export default function DatavivPage() {
       </section>
 
       {/* DATAVIV AI OS (CONTRAST THEME) */}
-      <section className="py-32 bg-brand-cream border-y border-brand-sand relative">
+      <section className="py-16 md:py-32 bg-brand-cream border-y border-brand-sand relative">
         
         <div className="container mx-auto px-6 max-w-7xl relative z-10">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
               <div className="text-brand-gold text-[10px] font-sans font-bold uppercase tracking-[0.2em] mb-6">Flagship Platform</div>
-              <h2 className="text-5xl md:text-7xl font-display font-bold text-brand-navy mb-4 leading-tight tracking-tight">
+              <h2 className="text-4xl md:text-6xl lg:text-7xl font-display font-bold text-brand-navy mb-4 leading-tight tracking-tight">
                 DATAVIV AI OS
               </h2>
               <h3 className="text-2xl text-brand-navy/70 font-light mb-8">
@@ -228,10 +228,10 @@ export default function DatavivPage() {
       </section>
 
       {/* PRODUCT SHOWCASE */}
-      <section className="py-32 container mx-auto px-6 max-w-7xl">
+      <section className="py-16 md:py-32 container mx-auto px-6 max-w-7xl">
         <SectionHeading title="What Dataviv Builds" centered />
         
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-px bg-white/5 border border-white/5 mt-24">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-px bg-white/5 border border-white/5 mt-12 md:mt-24">
           {products.map((prod, idx) => (
             <motion.div 
               key={prod.name}
@@ -277,7 +277,7 @@ export default function DatavivPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-32 bg-black border-t border-white/5 text-center">
+      <section className="py-16 md:py-32 bg-black border-t border-white/5 text-center">
         <div className="container mx-auto px-6 max-w-4xl">
           <h2 className="text-4xl md:text-6xl font-display font-bold text-white mb-16 tracking-tight leading-tight">
             Ready to see how Dataviv transforms Dralha Group?
