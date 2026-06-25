@@ -42,7 +42,6 @@ type Message = {
 
 export default function DrukAvatar() {
   const [isOpen, setIsOpen] = useState(false);
-  const [isHovered, setIsHovered] = useState(false);
   const [input, setInput] = useState("");
   const [messages, setMessages] = useState<Message[]>([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -242,64 +241,20 @@ export default function DrukAvatar() {
       </AnimatePresence>
 
       {/* Avatar Button */}
-      <div
-        className="relative flex items-center justify-center"
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
-      >
-        <AnimatePresence>
-          {isHovered && !isOpen && (
-            <motion.div
-              initial={{ opacity: 0, y: 10, scale: 0.9 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, y: 5, scale: 0.9 }}
-              className="absolute -top-10 whitespace-nowrap rounded-full bg-[#E8A020] px-3 py-1 text-[11px] font-medium text-white shadow-lg"
-            >
-              Ask Druk
-            </motion.div>
-          )}
-        </AnimatePresence>
-
-        {/* Pulsing rings */}
-        <div className="absolute inset-0 z-0 pointer-events-none flex items-center justify-center">
-            <motion.div
-              animate={{
-                scale: [1, 1.5, 2],
-                opacity: [0.4, 0.2, 0],
-              }}
-              transition={{
-                duration: 2.5,
-                repeat: Infinity,
-                ease: "easeOut",
-              }}
-              className="absolute h-full w-full rounded-full bg-[#E8A020]"
-            />
-            <motion.div
-              animate={{
-                scale: [1, 1.5, 2],
-                opacity: [0.4, 0.2, 0],
-              }}
-              transition={{
-                duration: 2.5,
-                repeat: Infinity,
-                ease: "easeOut",
-                delay: 1.25,
-              }}
-              className="absolute h-full w-full rounded-full bg-[#E8A020]"
-            />
-        </div>
-
+      <div className="relative flex items-center justify-center">
         <motion.button
           onClick={() => setIsOpen(!isOpen)}
-          animate={{ y: [0, -8, 0] }}
-          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-          className="relative z-10 flex h-[88px] w-[88px] items-center justify-center rounded-full overflow-hidden transition-all duration-300 hover:scale-110 hover:shadow-[0_0_30px_rgba(232,160,32,0.8)]"
-          style={{
-            boxShadow: "0 10px 25px -5px rgba(232, 160, 32, 0.5), 0 0 20px rgba(107, 33, 168, 0.6)",
-            border: "2px solid rgba(232, 160, 32, 0.4)",
-          }}
+          whileHover={{ scale: 1.05, y: -2 }}
+          whileTap={{ scale: 0.95 }}
+          className="relative z-10 flex items-center gap-3 px-6 py-4 rounded-[30px] overflow-hidden backdrop-blur-xl bg-[#0c0c0c]/90 border border-brand-saffron/30 shadow-[0_10px_30px_rgba(255,140,0,0.15)] hover:border-brand-saffron hover:shadow-[0_15px_40px_rgba(255,140,0,0.3)] transition-all duration-300 group"
         >
-          <img src="/druk.png" alt="Druk AI Concierge" className="h-full w-full object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-r from-brand-saffron/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+          
+          <div className="flex items-center justify-center w-7 h-7 rounded-full overflow-hidden border border-brand-saffron/30 shadow-[0_0_10px_rgba(255,140,0,0.2)]">
+            <img src="/druk.png" alt="Druk" className="w-full h-full object-cover" />
+          </div>
+          
+          <span className="text-brand-white font-bold text-sm tracking-widest uppercase mt-[2px] group-hover:text-brand-saffron transition-colors">Ask Druk</span>
         </motion.button>
       </div>
     </div>
