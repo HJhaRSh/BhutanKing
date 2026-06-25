@@ -5,7 +5,7 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-brand-black border-t border-brand-orchid/20 relative overflow-hidden group/footer">
+    <footer className="bg-brand-black border-t-2 border-brand-saffron/30 relative overflow-hidden group/footer">
       {/* Subtle bottom glow that reacts to footer hover */}
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 w-full max-w-4xl h-[200px] bg-brand-saffron/5 blur-[100px] group-hover/footer:bg-brand-saffron/10 transition-colors duration-700 pointer-events-none" />
       <div className="max-w-7xl mx-auto px-6 py-12 md:py-20 relative z-10">
@@ -16,7 +16,7 @@ export default function Footer() {
             <Link href="/" className="flex items-center gap-4 mb-6 group">
               <img src="/logo-transparent.png" alt="Dralha Logo" className="w-14 h-14 object-contain opacity-90 group-hover:opacity-100 transition-opacity" />
               <div className="flex flex-col">
-                <span className="font-display text-4xl tracking-wide text-brand-white group-hover:text-[#FFD700] transition-colors duration-500 leading-none mb-1">
+                <span className="font-display text-4xl tracking-wide text-brand-white group-hover:text-brand-gold transition-colors duration-500 leading-none mb-1">
                   DRALHA
                 </span>
                 <span className="text-xs tracking-[0.2em] text-brand-white/50 uppercase font-medium leading-none mt-1">
@@ -27,7 +27,7 @@ export default function Footer() {
             <p className="text-brand-white/50 text-sm font-medium uppercase tracking-widest mb-4">
               Est. 1988
             </p>
-            <p className="mt-4 text-brand-white font-sans text-sm leading-relaxed border-l border-brand-orchid/20 pl-4 py-1">
+            <p className="mt-4 text-brand-white font-sans text-sm leading-relaxed border-l-2 border-brand-saffron/40 pl-4 py-1">
               Aligned with His Majesty the King's <br />
               Vision for a Sustainable Bhutan
             </p>
@@ -48,9 +48,9 @@ export default function Footer() {
               <div className="flex flex-col">
                 <h4 className="text-brand-white font-display text-xl mb-6 tracking-wide">Businesses</h4>
                 <div className="flex flex-col space-y-4">
-                  <Link href="/hotel" className="text-brand-white/50 hover:text-brand-orchid transition-colors text-sm font-medium tracking-wide">Hotel Dralha</Link>
-                  <Link href="/mill" className="text-brand-white/50 hover:text-brand-dragonRed transition-colors text-sm font-medium tracking-wide">Flour Mill</Link>
-                  <Link href="/napkin" className="text-brand-white/50 hover:text-brand-orchid transition-colors text-sm font-medium tracking-wide">Napkin Factory</Link>
+                  <Link href="/hotel" className="text-brand-white/50 hover:text-brand-dragonRed transition-colors text-sm font-medium tracking-wide">Hotel Dralha</Link>
+                  <Link href="/mill" className="text-brand-white/50 hover:text-brand-saffron transition-colors text-sm font-medium tracking-wide">Flour Mill</Link>
+                  <Link href="/napkin" className="text-brand-white/50 hover:text-brand-skyBlue transition-colors text-sm font-medium tracking-wide">Napkin Factory</Link>
                   <Link href="/bamboo" className="text-brand-white/50 hover:text-brand-forestGreen transition-colors text-sm font-medium tracking-wide">Bamboo Rev.</Link>
                   <Link href="/agribusiness" className="text-brand-white/50 hover:text-brand-forestGreen transition-colors text-sm font-medium tracking-wide">Agribusiness</Link>
                   <Link href="/gmc" className="text-brand-white/50 hover:text-brand-saffron transition-colors text-sm font-medium tracking-wide">GMC Apts</Link>
@@ -72,7 +72,7 @@ export default function Footer() {
               <div>
                 <h5 className="text-brand-white text-sm font-bold mb-2 uppercase tracking-wider">Hotel Dralha</h5>
                 <p className="text-brand-white/50 text-sm hover:text-brand-white transition-colors cursor-default">+975 2341 414</p>
-                <a href="mailto:info@hoteldralha.com" className="block text-brand-orchid/80 text-sm mt-1 hover:text-brand-orchid transition-colors">info@hoteldralha.com</a>
+                <a href="mailto:info@hoteldralha.com" className="block text-brand-dragonRed/80 text-sm mt-1 hover:text-brand-dragonRed transition-colors">info@hoteldralha.com</a>
               </div>
             </div>
           </div>
@@ -81,10 +81,10 @@ export default function Footer() {
       </div>
 
       {/* Bottom Strip */}
-      <div className="border-t border-brand-orchid/20 bg-brand-black relative z-10">
-        <AuroraLayer />
-        <AuroraLayer />
-        <div className="max-w-7xl mx-auto px-6 py-6 flex flex-col md:flex-row items-center justify-between text-xs text-brand-white/50 font-light tracking-wide">
+      <div className="border-t border-brand-saffron/20 bg-brand-black relative z-10 overflow-hidden">
+        {/* Subtle Bhutanese glow instead of Aurora */}
+        <div className="absolute inset-0 bg-gradient-to-r from-brand-dragonRed/5 via-brand-saffron/5 to-brand-gold/5" />
+        <div className="max-w-7xl mx-auto px-6 py-6 flex flex-col md:flex-row items-center justify-between text-xs text-brand-white/50 font-light tracking-wide relative z-10">
           <span className="mb-4 md:mb-0">&copy; {currentYear} Dralha Group of Industries. Phuentsholing, Bhutan.</span>
           <span>All Rights Reserved.</span>
         </div>

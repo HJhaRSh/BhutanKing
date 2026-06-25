@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import GlobalPolish from "@/components/GlobalPolish";
+import DrukAvatar from "@/components/DrukAvatar";
 
 const outfit = Outfit({ 
   subsets: ["latin"], 
@@ -36,6 +37,7 @@ export default function RootLayout({
         <Navbar />
         <main>{children}</main>
         <Footer />
+        <DrukAvatar />
       </body>
     </html>
   );

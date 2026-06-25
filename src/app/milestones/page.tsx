@@ -23,34 +23,28 @@ const milestones = [
 
 export default function MilestonesPage() {
   return (
-    <div className="w-full flex flex-col items-center bg-brand-black text-brand-white overflow-x-hidden">
-        <AuroraLayer />
-        <AuroraLayer />
+    <div className="w-full flex flex-col items-center bg-brand-black text-brand-white overflow-x-hidden min-h-screen">
       
       {/* HERO SECTION */}
-      <section className="w-full pt-40 pb-32 px-6 text-center border-b border-brand-orchid/20">
-
-        {/* Bhutan Aurora Background */}
-        <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
-          {/* Saffron glow — top right */}
-          <div className="absolute -top-32 -right-32 w-[700px] h-[700px] rounded-full"
-               style={{ background: 'radial-gradient(circle, rgba(255,149,0,0.15) 0%, transparent 65%)' }} />
-          {/* Dragon red glow — centre */}
-          <div className="absolute top-1/3 left-1/4 w-[500px] h-[500px] rounded-full"
-               style={{ background: 'radial-gradient(circle, rgba(232,41,28,0.10) 0%, transparent 65%)' }} />
-          {/* Orchid glow — bottom left */}
-          <div className="absolute -bottom-32 -left-32 w-[600px] h-[600px] rounded-full"
-               style={{ background: 'radial-gradient(circle, rgba(200,80,192,0.12) 0%, transparent 65%)' }} />
-        </div>
+      <section className="relative w-full h-[70vh] min-h-[600px] flex flex-col items-center justify-center text-center border-b border-brand-saffron/20 pt-20 overflow-hidden bg-brand-black">
+        {/* Majestic Background Image (Agri/Journey) */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-40"
+          style={{ backgroundImage: "url('/agri.png')", backgroundAttachment: "fixed" }}
+        />
+        {/* Premium Gradient Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-t from-brand-black via-transparent to-brand-black/80" />
+        
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          className="relative z-10 max-w-4xl mx-auto px-6"
+          initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="text-xs font-bold tracking-[0.3em] uppercase mb-6 text-brand-saffron pb-4 inline-block">
+          <h2 className="text-sm font-bold tracking-[0.4em] uppercase mb-6 text-brand-saffron pb-4 inline-block drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
             History
           </h2>
-          <h1 className="text-6xl md:text-8xl font-display leading-[1.1] mb-6">
+          <h1 className="text-6xl md:text-7xl lg:text-9xl font-display leading-[1.1] mb-6 text-transparent bg-clip-text bg-gradient-to-b from-brand-white to-brand-white/80 drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)]">
             Our Journey.
           </h1>
           <p className="text-xl md:text-2xl font-medium text-brand-white/70 max-w-3xl mx-auto">
@@ -60,28 +54,28 @@ export default function MilestonesPage() {
       </section>
 
       {/* MILESTONES GRID */}
-      <section className="w-full max-w-7xl mx-auto px-6 py-32">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+      <section className="w-full bg-creative-light py-32 relative z-10">
+        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {milestones.map((m, i) => {
             const Icon = m.icon;
             return (
               <ScrollReveal key={i} delay={i * 0.05} className="h-full">
-                <HoverCard className="h-full p-8 flex flex-col justify-between !items-start text-left border-brand-saffron/20 hover:border-brand-black/30 group">
-                  <div>
+                <div className="h-full p-8 flex flex-col justify-between items-start text-left bg-brand-white rounded-3xl shadow-[0_20px_50px_-10px_rgba(0,0,0,0.3)] border-b-4 border-brand-saffron hover:-translate-y-2 transition-transform duration-300 group">
+                  <div className="w-full">
                     <div className="flex justify-between items-start mb-12 w-full">
-                      <span className={`text-5xl font-display ${m.color} opacity-80 group-hover:opacity-100 transition-opacity`}>
+                      <span className={`text-5xl font-display ${m.color} transition-opacity`}>
                         {m.year}
                       </span>
-                      <Icon className={`w-8 h-8 stroke-1 ${m.color} opacity-50 group-hover:opacity-100 transition-opacity`} />
+                      <Icon className={`w-8 h-8 stroke-1 ${m.color} transition-transform group-hover:scale-110`} />
                     </div>
-                    <h3 className="text-2xl font-display mb-4 text-brand-black group-hover:text-brand-black transition-colors">
+                    <h3 className="text-2xl font-display mb-4 text-brand-black">
                       {m.title}
                     </h3>
                   </div>
-                  <p className="text-brand-black/70 text-sm leading-relaxed group-hover:text-brand-black transition-colors">
+                  <p className="text-brand-black/70 text-sm font-medium leading-relaxed">
                     {m.desc}
                   </p>
-                </HoverCard>
+                </div>
               </ScrollReveal>
             );
           })}
@@ -89,30 +83,75 @@ export default function MilestonesPage() {
       </section>
 
       {/* VISION SECTION */}
-      <section className="w-full bg-creative-light text-brand-black py-32 mt-20 border-t border-brand-orchid/20">
-        <div className="max-w-7xl mx-auto px-6">
+      <section className="w-full bg-brand-black text-brand-white py-32 mt-20 border-t border-brand-saffron/20 relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
           <div className="text-center mb-24">
             <h2 className="text-5xl md:text-7xl font-display mb-6">The Next 10–25 Years.</h2>
           </div>
 
-          <div className="grid md:grid-cols-4 gap-12">
-            <div className="flex flex-col items-center text-center border-t-2 border-brand-dragonRed pt-12 group">
-              <Factory className="w-16 h-16 text-brand-dragonRed mb-8 stroke-1 group-hover:scale-110 transition-transform" />
-              <h3 className="text-2xl font-display font-bold">Agri-Food Manufacturing Leadership</h3>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            
+            {/* Card 1: Manufacturing */}
+            <div className="group relative h-[420px] rounded-[32px] overflow-hidden cursor-pointer shadow-[0_20px_40px_-10px_rgba(0,0,0,0.5)] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_30px_60px_-15px_rgba(232,41,28,0.3)]">
+              <div 
+                className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+                style={{ backgroundImage: "url('/mill/hero-bg.png')" }}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-brand-black via-brand-black/50 to-transparent opacity-90 group-hover:opacity-95 transition-opacity duration-300" />
+              <div className="absolute inset-0 p-8 flex flex-col justify-end">
+                <div className="w-16 h-16 rounded-2xl bg-brand-dragonRed/20 border border-brand-dragonRed/30 backdrop-blur-md flex items-center justify-center mb-6">
+                  <Factory className="w-8 h-8 text-brand-dragonRed drop-shadow-[0_0_8px_rgba(232,41,28,0.8)]" />
+                </div>
+                <h3 className="text-2xl font-display font-bold text-brand-white leading-snug">Agri-Food Manufacturing Leadership</h3>
+              </div>
             </div>
-            <div className="flex flex-col items-center text-center border-t-2 border-brand-forestGreen pt-12 group">
-              <Coffee className="w-16 h-16 text-brand-forestGreen mb-8 stroke-1 group-hover:scale-110 transition-transform" />
-              <h3 className="text-2xl font-display font-bold">High-Value Cash Crop Agriculture</h3>
-              <p className="text-sm text-brand-black/70 mt-4">(54 acres, avocado + coffee)</p>
+
+            {/* Card 2: Agriculture */}
+            <div className="group relative h-[420px] rounded-[32px] overflow-hidden cursor-pointer shadow-[0_20px_40px_-10px_rgba(0,0,0,0.5)] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_30px_60px_-15px_rgba(34,139,34,0.3)]">
+              <div 
+                className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+                style={{ backgroundImage: "url('/agri.png')" }}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-brand-black via-brand-black/50 to-transparent opacity-90 group-hover:opacity-95 transition-opacity duration-300" />
+              <div className="absolute inset-0 p-8 flex flex-col justify-end">
+                <div className="w-16 h-16 rounded-2xl bg-brand-forestGreen/20 border border-brand-forestGreen/30 backdrop-blur-md flex items-center justify-center mb-6">
+                  <Coffee className="w-8 h-8 text-brand-forestGreen drop-shadow-[0_0_8px_rgba(34,139,34,0.8)]" />
+                </div>
+                <h3 className="text-2xl font-display font-bold text-brand-white leading-snug">High-Value Cash Crop Agriculture</h3>
+                <p className="text-brand-white/70 mt-3 font-medium">(54 acres, avocado + coffee)</p>
+              </div>
             </div>
-            <div className="flex flex-col items-center text-center border-t-2 border-brand-saffron pt-12 group">
-              <Building2 className="w-16 h-16 text-brand-saffron mb-8 stroke-1 group-hover:scale-110 transition-transform" />
-              <h3 className="text-2xl font-display font-bold">GMC Luxury Real Estate Development</h3>
+
+            {/* Card 3: Real Estate */}
+            <div className="group relative h-[420px] rounded-[32px] overflow-hidden cursor-pointer shadow-[0_20px_40px_-10px_rgba(0,0,0,0.5)] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_30px_60px_-15px_rgba(255,149,0,0.3)]">
+              <div 
+                className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+                style={{ backgroundImage: "url('/dralha_heritage.png')" }}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-brand-black via-brand-black/50 to-transparent opacity-90 group-hover:opacity-95 transition-opacity duration-300" />
+              <div className="absolute inset-0 p-8 flex flex-col justify-end">
+                <div className="w-16 h-16 rounded-2xl bg-brand-saffron/20 border border-brand-saffron/30 backdrop-blur-md flex items-center justify-center mb-6">
+                  <Building2 className="w-8 h-8 text-brand-saffron drop-shadow-[0_0_8px_rgba(255,149,0,0.8)]" />
+                </div>
+                <h3 className="text-2xl font-display font-bold text-brand-white leading-snug">GMC Luxury Real Estate Development</h3>
+              </div>
             </div>
-            <div className="flex flex-col items-center text-center border-t-2 border-brand-orchid pt-12 group">
-              <Bed className="w-16 h-16 text-brand-orchid mb-8 stroke-1 group-hover:scale-110 transition-transform" />
-              <h3 className="text-2xl font-display font-bold">Premium Hospitality Chain Expansion</h3>
+
+            {/* Card 4: Hospitality */}
+            <div className="group relative h-[420px] rounded-[32px] overflow-hidden cursor-pointer shadow-[0_20px_40px_-10px_rgba(0,0,0,0.5)] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_30px_60px_-15px_rgba(200,80,192,0.3)]">
+              <div 
+                className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+                style={{ backgroundImage: "url('/hotel/Hotel Room 2.jpg')" }}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-brand-black via-brand-black/50 to-transparent opacity-90 group-hover:opacity-95 transition-opacity duration-300" />
+              <div className="absolute inset-0 p-8 flex flex-col justify-end">
+                <div className="w-16 h-16 rounded-2xl bg-brand-orchid/20 border border-brand-orchid/30 backdrop-blur-md flex items-center justify-center mb-6">
+                  <Bed className="w-8 h-8 text-brand-orchid drop-shadow-[0_0_8px_rgba(200,80,192,0.8)]" />
+                </div>
+                <h3 className="text-2xl font-display font-bold text-brand-white leading-snug">Premium Hospitality Chain Expansion</h3>
+              </div>
             </div>
+
           </div>
         </div>
       </section>

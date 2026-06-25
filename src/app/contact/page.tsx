@@ -9,157 +9,156 @@ import { HoverCard } from "@/components/animations/HoverCard";
 export default function ContactPage() {
   return (
     <div className="w-full flex flex-col items-center bg-brand-black text-brand-white min-h-screen">
-        <AuroraLayer />
-        <AuroraLayer />
-      
       {/* HERO SECTION */}
-      <section className="w-full h-[50vh] flex flex-col justify-center items-center text-center pt-20 px-6 border-b border-brand-orchid/20">
-
-        {/* Bhutan Aurora Background */}
-        <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
-          {/* Saffron glow — top right */}
-          <div className="absolute -top-32 -right-32 w-[700px] h-[700px] rounded-full"
-               style={{ background: 'radial-gradient(circle, rgba(255,149,0,0.15) 0%, transparent 65%)' }} />
-          {/* Dragon red glow — centre */}
-          <div className="absolute top-1/3 left-1/4 w-[500px] h-[500px] rounded-full"
-               style={{ background: 'radial-gradient(circle, rgba(232,41,28,0.10) 0%, transparent 65%)' }} />
-          {/* Orchid glow — bottom left */}
-          <div className="absolute -bottom-32 -left-32 w-[600px] h-[600px] rounded-full"
-               style={{ background: 'radial-gradient(circle, rgba(200,80,192,0.12) 0%, transparent 65%)' }} />
-        </div>
+      <section className="relative w-full h-[70vh] min-h-[600px] flex flex-col items-center justify-center text-center border-b border-brand-saffron/20 pt-20 overflow-hidden bg-brand-black">
+        {/* Majestic Background Image */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-50"
+          style={{ backgroundImage: "url('/hotel/Hotel%20Reception.jpg')", backgroundAttachment: "fixed" }}
+        />
+        {/* Premium Gradient Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-t from-brand-black via-transparent to-brand-black/80" />
+        
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          className="relative z-10 max-w-4xl mx-auto px-6"
+          initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="text-xs font-bold tracking-[0.3em] uppercase mb-6 text-brand-saffron pb-4 inline-block">
+          <h2 className="text-sm font-bold tracking-[0.4em] uppercase mb-6 text-brand-saffron drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
             Connect
           </h2>
-          <h1 className="text-6xl md:text-8xl font-display leading-[1.1] mb-4">
-            Let's <span className="text-brand-saffron">Talk.</span>
+          <h1 className="text-6xl md:text-8xl lg:text-9xl font-display leading-[1.1] mb-6 font-bold drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)]">
+            Let's <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-saffron to-brand-gold">Talk.</span>
           </h1>
-          <p className="text-xl md:text-2xl font-medium text-brand-white/70">
+          <p className="text-xl md:text-3xl font-medium text-brand-white/80 leading-relaxed drop-shadow-lg">
             Get in touch with Dralha Group of Industries
           </p>
         </motion.div>
       </section>
 
       {/* TWO COLUMN LAYOUT */}
-      <section className="w-full max-w-7xl mx-auto px-6 py-32">
-        <div className="grid md:grid-cols-2 gap-20">
+      <section className="w-full bg-brand-black py-32 relative z-10 overflow-hidden border-b border-brand-saffron/20">
+
+        {/* Subtle Ambient Depth */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[100%] bg-brand-white rounded-full blur-[160px] opacity-[0.03]" />
+        </div>
+
+        <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-24 relative z-10">
           
-          {/* Left - Contact Form */}
-          <ScrollReveal delay={0.2} className="p-12 border border-brand-orchid/20 rounded-2xl bg-gradient-to-br from-brand-gray/80 to-brand-royalViolet/10 border border-brand-orchid/20 hover:border-brand-saffron/60 shadow-lg shadow-brand-royalViolet/10 relative overflow-hidden hover:border-brand-saffron/50 transition-colors duration-500">
-            <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <div className="space-y-2">
-                  <label className="text-sm font-medium text-brand-white/70">Name</label>
-                  <input type="text" className="w-full bg-brand-black border border-brand-orchid/20 rounded-lg px-4 py-3 text-brand-white focus:outline-none focus:border-brand-saffron transition-colors" placeholder="Your name" />
+          {/* Left - Contact Form (Minimalist) */}
+          <ScrollReveal delay={0.2}>
+            <div className="mb-16">
+              <h3 className="text-5xl font-display text-brand-white mb-4">Send a Message</h3>
+              <p className="text-brand-white/50 text-xl font-medium">We'd love to hear from you. Fill out the form below.</p>
+            </div>
+            
+            <form className="space-y-12" onSubmit={(e) => e.preventDefault()}>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-12">
+                <div className="relative">
+                  <label className="text-xs font-bold text-brand-white/40 uppercase tracking-widest block mb-2">Your Name</label>
+                  <input type="text" className="w-full bg-transparent border-b border-brand-white/20 pb-4 text-brand-white focus:outline-none focus:border-brand-saffron transition-colors text-xl placeholder-brand-white/20" placeholder="John Doe" />
                 </div>
-                <div className="space-y-2">
-                  <label className="text-sm font-medium text-brand-white/70">Organisation</label>
-                  <input type="text" className="w-full bg-brand-black border border-brand-orchid/20 rounded-lg px-4 py-3 text-brand-white focus:outline-none focus:border-brand-saffron transition-colors" placeholder="Company name" />
+                <div className="relative">
+                  <label className="text-xs font-bold text-brand-white/40 uppercase tracking-widest block mb-2">Organisation</label>
+                  <input type="text" className="w-full bg-transparent border-b border-brand-white/20 pb-4 text-brand-white focus:outline-none focus:border-brand-saffron transition-colors text-xl placeholder-brand-white/20" placeholder="Company Name" />
                 </div>
               </div>
               
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <div className="space-y-2">
-                  <label className="text-sm font-medium text-brand-white/70">Email</label>
-                  <input type="email" className="w-full bg-brand-black border border-brand-orchid/20 rounded-lg px-4 py-3 text-brand-white focus:outline-none focus:border-brand-saffron transition-colors" placeholder="john@example.com" />
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-12">
+                <div className="relative">
+                  <label className="text-xs font-bold text-brand-white/40 uppercase tracking-widest block mb-2">Email Address</label>
+                  <input type="email" className="w-full bg-transparent border-b border-brand-white/20 pb-4 text-brand-white focus:outline-none focus:border-brand-saffron transition-colors text-xl placeholder-brand-white/20" placeholder="john@example.com" />
                 </div>
-                <div className="space-y-2">
-                  <label className="text-sm font-medium text-brand-white/70">Phone</label>
-                  <input type="tel" className="w-full bg-brand-black border border-brand-orchid/20 rounded-lg px-4 py-3 text-brand-white focus:outline-none focus:border-brand-saffron transition-colors" placeholder="+975 ..." />
+                <div className="relative">
+                  <label className="text-xs font-bold text-brand-white/40 uppercase tracking-widest block mb-2">Phone Number</label>
+                  <input type="tel" className="w-full bg-transparent border-b border-brand-white/20 pb-4 text-brand-white focus:outline-none focus:border-brand-saffron transition-colors text-xl placeholder-brand-white/20" placeholder="+975 ..." />
                 </div>
               </div>
 
-              <div className="space-y-2">
-                <label className="text-sm font-medium text-brand-white/70">Subject</label>
-                <select className="w-full bg-brand-black border border-brand-orchid/20 rounded-lg px-4 py-3 text-brand-white focus:outline-none focus:border-brand-saffron transition-colors appearance-none">
-                  <option>General Inquiry</option>
-                  <option>Hotel Dralha</option>
-                  <option>Flour Mill</option>
-                  <option>Napkin Factory</option>
-                  <option>Bamboo Revolution</option>
-                  <option>Agribusiness</option>
-                  <option>GMC Apartments</option>
-                  <option>AI Partnership</option>
-                  <option>Other</option>
-                </select>
+              <div className="relative">
+                <label className="text-xs font-bold text-brand-white/40 uppercase tracking-widest block mb-2">Topic of Interest</label>
+                <div className="relative">
+                  <select className="w-full bg-transparent border-b border-brand-white/20 pb-4 text-brand-white focus:outline-none focus:border-brand-saffron transition-colors text-xl appearance-none cursor-pointer">
+                    <option className="bg-brand-black text-brand-white">General Inquiry</option>
+                    <option className="bg-brand-black text-brand-white">Hotel Dralha</option>
+                    <option className="bg-brand-black text-brand-white">Flour Mill</option>
+                    <option className="bg-brand-black text-brand-white">Napkin Factory</option>
+                    <option className="bg-brand-black text-brand-white">Bamboo Revolution</option>
+                    <option className="bg-brand-black text-brand-white">Agribusiness</option>
+                    <option className="bg-brand-black text-brand-white">GMC Apartments</option>
+                    <option className="bg-brand-black text-brand-white">AI Partnership</option>
+                    <option className="bg-brand-black text-brand-white">Other</option>
+                  </select>
+                  <div className="absolute inset-y-0 right-0 flex items-center pointer-events-none text-brand-white/30 pb-4">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                  </div>
+                </div>
               </div>
 
-              <div className="space-y-2">
-                <label className="text-sm font-medium text-brand-white/70">Message</label>
-                <textarea rows={5} className="w-full bg-brand-black border border-brand-orchid/20 rounded-lg px-4 py-3 text-brand-white focus:outline-none focus:border-brand-saffron transition-colors resize-none" placeholder="How can we help you?"></textarea>
+              <div className="relative">
+                <label className="text-xs font-bold text-brand-white/40 uppercase tracking-widest block mb-2">Your Message</label>
+                <textarea rows={4} className="w-full bg-transparent border-b border-brand-white/20 pb-4 text-brand-white focus:outline-none focus:border-brand-saffron transition-colors text-xl resize-none placeholder-brand-white/20" placeholder="How can we help you today?"></textarea>
               </div>
 
-              <button className="w-full bg-gradient-to-r from-brand-saffron to-brand-dragonRed text-white hover:from-brand-dragonRed hover:to-brand-orchid shadow-lg shadow-brand-saffron/40 font-bold uppercase tracking-widest text-sm rounded-full transition-all duration-300">
-                Send Message
+              <button className="py-4 px-12 bg-brand-white text-brand-black hover:bg-brand-saffron hover:text-brand-white font-bold tracking-[0.2em] uppercase text-sm rounded-full transition-all duration-500 hover:shadow-[0_0_30px_rgba(255,140,0,0.4)]">
+                Submit Inquiry
               </button>
             </form>
           </ScrollReveal>
 
-          {/* Right - Contact Cards */}
-          <ScrollReveal delay={0.4} className="space-y-8">
-            {/* Card 1 */}
-            <motion.div whileHover={{ y: -5, scale: 1.02 }} className="p-10 border-l-4 border-l-brand-saffron border border-brand-orchid/20 rounded-r-2xl bg-gradient-to-br from-brand-gray/80 to-brand-royalViolet/10 border border-brand-orchid/20 hover:border-brand-saffron/60 shadow-lg shadow-brand-royalViolet/10 relative overflow-hidden shadow-2xl shadow-brand-royalViolet/150 hover:bg-brand-white/10 transition-colors">
-              <h3 className="text-3xl font-display text-brand-white mb-6">Dralha Head Office</h3>
-              <div className="space-y-4 text-brand-white/80 text-lg">
-                <div className="flex items-start gap-4">
-                  <Phone className="w-6 h-6 text-brand-saffron mt-1" />
-                  <div>
-                    <p>+975 05 2522 84</p>
-                    <p>+975 17 6373 84</p>
-                    <p>+975 1760 6237</p>
-                  </div>
-                </div>
-                <div className="flex items-center gap-4">
-                  <Mail className="w-6 h-6 text-brand-saffron" />
-                  <p>dralhaflourmill@gmail.com</p>
-                </div>
-                <div className="flex items-start gap-4">
-                  <MapPin className="w-6 h-6 text-brand-saffron mt-1" />
-                  <p>Industrial Estate,<br/>Phuentsholing, Bhutan</p>
-                </div>
-              </div>
-            </motion.div>
+          {/* Right - Contact Info (Typographic) */}
+          <ScrollReveal delay={0.4} className="space-y-16 lg:pl-20 border-t lg:border-t-0 lg:border-l border-brand-white/10 pt-16 lg:pt-0">
+            <div className="mb-12">
+              <h3 className="text-5xl font-display text-brand-white mb-4">Direct Contacts</h3>
+              <p className="text-brand-white/50 text-xl font-medium">Reach out to our specific divisions.</p>
+            </div>
 
-            {/* Card 2 */}
-            <motion.div whileHover={{ y: -5, scale: 1.02 }} className="p-10 border-l-4 border-l-brand-orchid border border-brand-orchid/20 rounded-r-2xl bg-gradient-to-br from-brand-gray/80 to-brand-royalViolet/10 border border-brand-orchid/20 hover:border-brand-saffron/60 shadow-lg shadow-brand-royalViolet/10 relative overflow-hidden shadow-2xl shadow-brand-royalViolet/150 hover:bg-brand-white/10 transition-colors">
-              <h3 className="text-3xl font-display text-brand-white mb-6">Hotel Dralha</h3>
-              <div className="space-y-4 text-brand-white/80 text-lg">
-                <div className="flex items-start gap-4">
-                  <Phone className="w-6 h-6 text-brand-orchid mt-1" />
-                  <div>
-                    <p>+975 2341 414</p>
-                    <p>+975 1799 9896</p>
-                  </div>
-                </div>
-                <div className="flex items-center gap-4">
-                  <Mail className="w-6 h-6 text-brand-orchid" />
-                  <p>info@hoteldralha.com</p>
-                </div>
-                <div className="flex items-center gap-4">
-                  <ExternalLink className="w-6 h-6 text-brand-orchid" />
-                  <a href="https://hoteldralha.com" target="_blank" rel="noreferrer" className="hover:text-brand-orchid transition-colors">hoteldralha.com</a>
-                </div>
-                <div className="flex items-start gap-4">
-                  <MapPin className="w-6 h-6 text-brand-orchid mt-1" />
-                  <p>Olakha, Thimphu, Bhutan</p>
-                </div>
+            {/* Location 1 */}
+            <div className="group relative">
+              <h4 className="text-3xl font-display text-brand-white mb-2 transition-colors duration-500 group-hover:text-brand-saffron">Dralha Head Office</h4>
+              <p className="text-brand-saffron/80 text-xs tracking-widest uppercase mb-6 font-bold">Industrial Estate, Phuentsholing</p>
+              
+              <div className="flex flex-col gap-3 text-brand-white/70 text-lg font-medium">
+                <p className="flex items-center gap-6 transition-colors duration-500 group-hover:text-brand-white">
+                  <span className="w-6 h-[2px] bg-brand-saffron/30 transition-all duration-500 group-hover:w-10 group-hover:bg-brand-saffron" /> +975 05 2522 84  /  +975 17 6373 84
+                </p>
+                <p className="flex items-center gap-6 transition-colors duration-500 group-hover:text-brand-white">
+                  <span className="w-6 h-[2px] bg-brand-saffron/30 transition-all duration-500 group-hover:w-10 group-hover:bg-brand-saffron" /> dralhaflourmill@gmail.com
+                </p>
               </div>
-            </motion.div>
+            </div>
 
-            {/* Card 3 */}
-            <motion.div whileHover={{ y: -5, scale: 1.02 }} className="p-10 border-l-4 border-l-brand-forestGreen border border-brand-orchid/20 rounded-r-2xl bg-gradient-to-br from-brand-gray/80 to-brand-royalViolet/10 border border-brand-orchid/20 hover:border-brand-saffron/60 shadow-lg shadow-brand-royalViolet/10 relative overflow-hidden shadow-2xl shadow-brand-royalViolet/150 hover:bg-brand-white/10 transition-colors">
-              <p className="text-brand-forestGreen text-xs tracking-widest uppercase mb-2 font-bold">Be Future Proof</p>
-              <h3 className="text-3xl font-display text-brand-white mb-4">AI Partnership — Dataviv Technologies</h3>
-              <p className="text-brand-white/70 mb-6 text-lg">Interested in transforming Dralha's businesses with AI?</p>
-              <div className="flex items-center gap-4 text-brand-white/80 text-lg">
-                <ExternalLink className="w-6 h-6 text-brand-forestGreen" />
-                <a href="https://dataviv.in" target="_blank" rel="noreferrer" className="hover:text-brand-forestGreen transition-colors">dataviv.in</a>
+            {/* Location 2 */}
+            <div className="group relative">
+              <h4 className="text-3xl font-display text-brand-white mb-2 transition-colors duration-500 group-hover:text-brand-dragonRed">Hotel Dralha</h4>
+              <p className="text-brand-dragonRed/80 text-xs tracking-widest uppercase mb-6 font-bold">Olakha, Thimphu</p>
+              
+              <div className="flex flex-col gap-3 text-brand-white/70 text-lg font-medium">
+                <p className="flex items-center gap-6 transition-colors duration-500 group-hover:text-brand-white">
+                  <span className="w-6 h-[2px] bg-brand-dragonRed/30 transition-all duration-500 group-hover:w-10 group-hover:bg-brand-dragonRed" /> +975 2341 414  /  +975 1799 9896
+                </p>
+                <p className="flex items-center gap-6 transition-colors duration-500 group-hover:text-brand-white">
+                  <span className="w-6 h-[2px] bg-brand-dragonRed/30 transition-all duration-500 group-hover:w-10 group-hover:bg-brand-dragonRed" /> info@hoteldralha.com
+                </p>
+                <a href="https://hoteldralha.com" target="_blank" rel="noreferrer" className="flex items-center gap-6 transition-colors duration-500 group-hover:text-brand-white">
+                  <span className="w-6 h-[2px] bg-brand-dragonRed/30 transition-all duration-500 group-hover:w-10 group-hover:bg-brand-dragonRed" /> hoteldralha.com
+                </a>
               </div>
-            </motion.div>
+            </div>
+
+            {/* Location 3 */}
+            <div className="group relative">
+              <h4 className="text-3xl font-display text-brand-white mb-2 transition-colors duration-500 group-hover:text-brand-vibrantBlue">AI Partnership</h4>
+              <p className="text-brand-vibrantBlue/80 text-xs tracking-widest uppercase mb-6 font-bold">Dataviv Technologies</p>
+              
+              <div className="flex flex-col gap-3 text-brand-white/70 text-lg font-medium">
+                <a href="https://dataviv.in" target="_blank" rel="noreferrer" className="flex items-center gap-6 transition-colors duration-500 group-hover:text-brand-white">
+                  <span className="w-6 h-[2px] bg-brand-vibrantBlue/30 transition-all duration-500 group-hover:w-10 group-hover:bg-brand-vibrantBlue" /> dataviv.in
+                </a>
+              </div>
+            </div>
 
           </ScrollReveal>
         </div>

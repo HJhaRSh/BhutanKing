@@ -53,45 +53,39 @@ const leaders = [
 
 export default function LeadershipPage() {
   return (
-    <div className="w-full flex flex-col items-center bg-brand-black text-brand-white">
-        <AuroraLayer />
-        <AuroraLayer />
+    <div className="w-full flex flex-col items-center bg-brand-black text-brand-white min-h-screen">
       
       {/* HERO SECTION */}
-      <section className="w-full pt-40 pb-32 px-6 text-center border-b border-brand-orchid/20">
-
-        {/* Bhutan Aurora Background */}
-        <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
-          {/* Saffron glow — top right */}
-          <div className="absolute -top-32 -right-32 w-[700px] h-[700px] rounded-full"
-               style={{ background: 'radial-gradient(circle, rgba(255,149,0,0.15) 0%, transparent 65%)' }} />
-          {/* Dragon red glow — centre */}
-          <div className="absolute top-1/3 left-1/4 w-[500px] h-[500px] rounded-full"
-               style={{ background: 'radial-gradient(circle, rgba(232,41,28,0.10) 0%, transparent 65%)' }} />
-          {/* Orchid glow — bottom left */}
-          <div className="absolute -bottom-32 -left-32 w-[600px] h-[600px] rounded-full"
-               style={{ background: 'radial-gradient(circle, rgba(200,80,192,0.12) 0%, transparent 65%)' }} />
-        </div>
+      <section className="relative w-full h-[70vh] min-h-[600px] flex flex-col items-center justify-center text-center border-b border-brand-saffron/20 pt-20 overflow-hidden bg-brand-black">
+        {/* Majestic Fully Wide Background Image */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-50"
+          style={{ backgroundImage: "url('/leadership.jpeg')", backgroundAttachment: "fixed" }}
+        />
+        {/* Premium Gradient Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-t from-brand-black via-transparent to-brand-black/80" />
+        
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          className="relative z-10 max-w-4xl mx-auto px-6"
+          initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="text-xs font-bold tracking-[0.3em] uppercase mb-6 text-brand-saffron pb-4 inline-block">
+          <h2 className="text-sm font-bold tracking-[0.4em] uppercase mb-6 text-brand-saffron pb-4 inline-block drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
             Our People
           </h2>
-          <h1 className="text-6xl md:text-8xl font-display leading-[1.1] mb-6">
+          <h1 className="text-6xl md:text-7xl lg:text-9xl font-display leading-[1.1] mb-6 text-transparent bg-clip-text bg-gradient-to-b from-brand-white to-brand-white/80 drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)]">
             Leadership.
           </h1>
-          <p className="text-xl md:text-2xl font-medium text-brand-white/70 max-w-3xl mx-auto">
-            The Team Behind Bhutan's Most Diversified Conglomerate
+          <p className="text-xl md:text-3xl font-medium text-brand-white/90 max-w-3xl mx-auto drop-shadow-lg">
+            The Visionaries Behind Bhutan's Most Diversified Conglomerate
           </p>
         </motion.div>
       </section>
 
       {/* LEADERSHIP LIST */}
-      <section className="w-full max-w-7xl mx-auto px-6 py-32">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <section className="w-full bg-creative-light py-32 relative z-10">
+        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {leaders.map((leader, i) => (
             <motion.div
               key={i}
@@ -100,29 +94,29 @@ export default function LeadershipPage() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: i * 0.1 }}
               whileHover={{ y: -8 }}
-              className="flex flex-col bg-[#0a0a0a] border border-brand-orchid/20 rounded-none p-10 group hover:bg-brand-white hover:border-brand-white transition-colors duration-500 shadow-2xl shadow-brand-royalViolet/150"
+              className="flex flex-col bg-brand-black/80 backdrop-blur-xl border border-brand-saffron/30 rounded-3xl p-10 group hover:border-brand-saffron hover:bg-brand-black/95 transition-all duration-500 hover:shadow-[0_20px_50px_-10px_rgba(255,140,0,0.2)]"
             >
-              <div className="flex-grow flex flex-col items-start border-l-4 border-brand-saffron pl-6 mb-8">
-                <span className="text-[10px] tracking-widest text-brand-orchid uppercase font-bold mb-4">{leader.badge}</span>
-                <h3 className="text-3xl font-display mb-2 text-brand-white group-hover:text-brand-black transition-colors duration-500">{leader.name}</h3>
-                <p className="text-sm font-bold tracking-wider text-brand-saffron uppercase">{leader.title}</p>
+              <div className="flex-grow flex flex-col items-start border-l-4 border-brand-saffron pl-6 mb-8 transition-colors duration-500 group-hover:border-brand-dragonRed">
+                <span className="text-[10px] tracking-widest text-brand-saffron uppercase font-bold mb-4">{leader.badge}</span>
+                <h3 className="text-3xl font-display mb-2 text-brand-white transition-colors duration-500">{leader.name}</h3>
+                <p className="text-sm font-bold tracking-wider text-brand-white/70 uppercase">{leader.title}</p>
               </div>
 
               <div className="flex flex-col flex-grow">
-                <p className="text-brand-white/70 group-hover:text-brand-black/70 transition-colors duration-500 text-base leading-relaxed mb-8 flex-grow">
+                <p className="text-brand-white/70 text-base leading-relaxed mb-8 flex-grow font-medium">
                   {leader.desc}
                 </p>
 
                 {(leader.email || leader.phone) && (
-                  <div className="flex flex-col gap-4 pt-6 border-t border-brand-orchid/20 group-hover:border-brand-saffron/20 transition-colors duration-500 mt-auto">
+                  <div className="flex flex-col gap-4 pt-6 border-t border-brand-saffron/20 transition-colors duration-500 mt-auto">
                     {leader.email && (
-                      <a href={`mailto:${leader.email}`} className="text-xs font-bold tracking-widest uppercase text-brand-white/50 group-hover:text-brand-saffron font-bold hover:!text-brand-saffron transition-colors flex items-center gap-2">
-                        <span>Email</span> <span className="lowercase font-normal text-brand-white/80 group-hover:text-brand-black/80 transition-colors">{leader.email}</span>
+                      <a href={`mailto:${leader.email}`} className="text-xs font-bold tracking-widest uppercase text-brand-white/50 hover:!text-brand-saffron transition-colors flex items-center gap-2">
+                        <span>Email</span> <span className="lowercase font-normal text-brand-white/80">{leader.email}</span>
                       </a>
                     )}
                     {leader.phone && (
-                      <a href={`tel:${leader.phone.replace(/\s+/g, '')}`} className="text-xs font-bold tracking-widest uppercase text-brand-white/50 group-hover:text-brand-saffron font-bold hover:!text-brand-forestGreen transition-colors flex items-center gap-2">
-                        <span>Call</span> <span className="font-normal text-brand-white/80 group-hover:text-brand-black/80 transition-colors">{leader.phone}</span>
+                      <a href={`tel:${leader.phone.replace(/\s+/g, '')}`} className="text-xs font-bold tracking-widest uppercase text-brand-white/50 hover:!text-brand-saffron transition-colors flex items-center gap-2">
+                        <span>Call</span> <span className="font-normal text-brand-white/80">{leader.phone}</span>
                       </a>
                     )}
                   </div>
