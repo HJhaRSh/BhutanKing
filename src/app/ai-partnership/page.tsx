@@ -192,9 +192,24 @@ export default function DatavivPage() {
           <div className="mb-8">
             <GlitchText />
           </div>
-          <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.4 }} className="text-xl md:text-2xl text-gray-400 max-w-4xl mx-auto font-light leading-relaxed mb-16">
+          <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.4 }} className="text-xl md:text-2xl text-gray-400 max-w-4xl mx-auto font-light leading-relaxed mb-12">
             India's AI-First Technology Company — Built at Stanford, Deployed Globally.
           </motion.p>
+
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.5 }} className="flex flex-col items-center justify-center mb-16 pointer-events-auto">
+            <a 
+              href="https://frontend.Instavivai.com/login" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="group relative inline-flex items-center justify-center px-10 py-4 bg-brand-gold text-brand-black font-bold uppercase tracking-widest text-xs hover:shadow-[0_0_40px_rgba(255,208,0,0.4)] transition-all duration-500 overflow-hidden rounded-full"
+            >
+              <span className="relative z-10 flex items-center gap-3">
+                Instavivai AI Portal <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </span>
+              <div className="absolute inset-0 bg-white/40 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out" />
+            </a>
+            <span className="text-[10px] uppercase tracking-widest text-gray-500 mt-4 font-bold">Powered by Sister Company Instaviv</span>
+          </motion.div>
           
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.6 }} className="flex flex-wrap justify-center gap-4 mb-16 pointer-events-auto">
             {["AI", "AR/VR", "IoT", "Cloud", "Computer Vision", "NLP"].map((badge) => (

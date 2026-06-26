@@ -329,9 +329,9 @@ export default function Home() {
               We are proud to partner with the Indian Centre for Social Transformation, working together to build sustainable, high-impact community initiatives across the region.
             </p>
             <div className="pt-4">
-              <Link href="#" className="inline-flex items-center gap-3 text-sm font-bold tracking-[0.2em] uppercase text-brand-dragonRed hover:text-brand-saffron transition-colors">
-                Learn More <ArrowRight className="w-4 h-4" />
-              </Link>
+              <a href="https://indiancst.in/courses.php" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 text-sm font-bold tracking-[0.2em] uppercase text-brand-dragonRed hover:text-brand-saffron transition-colors">
+                View Educational Courses <ArrowRight className="w-4 h-4" />
+              </a>
             </div>
           </div>
         </div>
