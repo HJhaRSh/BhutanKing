@@ -187,7 +187,40 @@ export default function DatavivPage() {
 
         <div className="container mx-auto px-6 relative z-10 text-center pointer-events-none">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className="flex justify-center mb-10 pointer-events-auto">
-            <Image src="/dataviv%20logo.jpeg" alt="Dataviv" width={200} height={80} className="object-contain rounded-lg drop-shadow-[0_0_15px_rgba(255,255,255,0.1)]" priority />
+            <div className="flex items-center gap-4 select-none drop-shadow-[0_0_20px_rgba(255,255,255,0.05)]">
+              <div className="flex flex-col items-start justify-center">
+                <span className="font-sans font-black text-4xl tracking-tight text-white leading-none mb-1.5">
+                  DATAVIV
+                </span>
+                <span className="font-sans font-medium text-[11px] tracking-[0.27em] text-gray-400 uppercase leading-none">
+                  Technologies
+                </span>
+              </div>
+              <div className="flex items-end gap-[2px]">
+                {/* Column 1 (4 squares) */}
+                <div className="flex flex-col gap-[2px]">
+                  <div className="w-[11px] h-[11px] bg-[#125828]" />
+                  <div className="w-[11px] h-[11px] bg-[#125828]" />
+                  <div className="w-[11px] h-[11px] bg-[#125828]" />
+                  <div className="w-[11px] h-[11px] bg-[#125828]" />
+                </div>
+                {/* Column 2 (3 squares) */}
+                <div className="flex flex-col gap-[2px]">
+                  <div className="w-[11px] h-[11px] bg-[#125828]" />
+                  <div className="w-[11px] h-[11px] bg-[#125828]" />
+                  <div className="w-[11px] h-[11px] bg-[#125828]" />
+                </div>
+                {/* Column 3 (2 squares) */}
+                <div className="flex flex-col gap-[2px]">
+                  <div className="w-[11px] h-[11px] bg-[#125828]" />
+                  <div className="w-[11px] h-[11px] bg-[#125828]" />
+                </div>
+                {/* Column 4 (1 square) */}
+                <div className="flex flex-col gap-[2px]">
+                  <div className="w-[11px] h-[11px] bg-[#125828]" />
+                </div>
+              </div>
+            </div>
           </motion.div>
           <div className="mb-8">
             <GlitchText />
