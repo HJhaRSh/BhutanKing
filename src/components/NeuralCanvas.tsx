@@ -17,7 +17,7 @@ export default function NeuralCanvas() {
     const connectionDistance = 150;
     const repelRadius = 150;
 
-    let mouse = { x: -1000, y: -1000 };
+    const mouse = { x: -1000, y: -1000 };
     
     class Node {
       x: number;

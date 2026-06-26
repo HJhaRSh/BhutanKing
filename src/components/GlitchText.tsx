@@ -2,8 +2,9 @@
 
 import { useEffect, useState } from "react";
 
+const words = ["Dataviv Technologies.", "AI for Bhutan.", "The Future."];
+
 export default function GlitchText() {
-  const words = ["Dataviv Technologies.", "AI for Bhutan.", "The Future."];
   const [currentIndex, setCurrentIndex] = useState(0);
   const [displayText, setDisplayText] = useState("");
   const [isTyping, setIsTyping] = useState(true);
