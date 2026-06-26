@@ -69,8 +69,7 @@ export default function Home() {
     <div className="w-full flex flex-col items-center bg-brand-black">
         <AuroraLayer />
       
-      {/* HERO SECTION */}
-      <section className="relative w-full min-h-screen flex items-center pt-20 overflow-hidden bg-brand-white text-brand-black">
+      <section className="relative w-full min-h-screen flex items-center pt-20 overflow-hidden bg-[#152A20] text-brand-white">
         {/* Vibrant Bhutanese Aurora Background */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute -left-[10%] top-[-10%] w-[50%] h-[80%] bg-brand-saffron rounded-full blur-[140px] opacity-20" />
@@ -89,12 +88,12 @@ export default function Home() {
               <h2 className="text-[11px] font-bold tracking-[0.4em] uppercase mb-6 text-brand-saffron">
                 Established 1988 · Phuentsholing, Bhutan
               </h2>
-              <h1 className="text-4xl md:text-6xl lg:text-7xl lg:text-[5.5rem] font-display leading-[1.05] mb-8 font-bold tracking-tight text-brand-black">
+              <h1 className="text-4xl md:text-6xl lg:text-7xl lg:text-[5.5rem] font-display leading-[1.05] mb-8 font-bold tracking-tight text-brand-white">
                 Building<br />
                 Bhutan's<br />
                 Future.
               </h1>
-              <p className="text-lg mb-10 max-w-lg leading-relaxed text-brand-black/80 font-medium">
+              <p className="text-lg mb-10 max-w-lg leading-relaxed text-brand-white/80 font-medium">
                 Dralha Group of Industries is Bhutan's diversified conglomerate spanning hospitality, food manufacturing, sustainable agriculture, and real estate.
               </p>
               
@@ -102,7 +101,7 @@ export default function Home() {
                 <Link href="#portfolio" className="group relative inline-flex items-center justify-center px-10 py-5 bg-flag-gradient text-brand-white font-bold uppercase tracking-[0.2em] text-xs hover:shadow-lg hover:shadow-brand-saffron/40 transition-all duration-500 overflow-hidden rounded-full">
                   <span className="relative z-10">Explore Portfolio</span>
                 </Link>
-                <Link href="/about" className="group inline-flex items-center justify-center px-10 py-5 border-2 border-brand-saffron text-brand-dragonRed font-bold uppercase tracking-[0.2em] text-xs hover:bg-brand-saffron hover:text-brand-white transition-all duration-500 rounded-full">
+                <Link href="/about" className="group inline-flex items-center justify-center px-10 py-5 border-2 border-brand-saffron text-brand-saffron font-bold uppercase tracking-[0.2em] text-xs hover:bg-brand-saffron hover:text-[#152A20] transition-all duration-500 rounded-full">
                   Our Story <ArrowRight className="ml-3 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </div>
