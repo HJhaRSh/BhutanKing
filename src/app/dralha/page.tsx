@@ -239,18 +239,7 @@ export default function DralhaPage() {
         </div>
       </section>
 
-      {/* THE OPPORTUNITY BANNER */}
-      <section className="bg-brand-gold border-t border-white/5">
-        <div className="container mx-auto px-6 py-16 md:py-32 text-center">
-          <h2 className="text-3xl md:text-6xl font-display font-bold text-black mb-12 max-w-4xl mx-auto leading-tight tracking-tight">
-            Every challenge above has an AI solution. <br />
-            <span className="font-light italic text-black/70">And Dataviv has built it.</span>
-          </h2>
-          <Link href="/transformation" className="inline-flex items-center px-10 py-5 bg-black text-white text-xs tracking-[0.2em] uppercase font-bold rounded-none hover:bg-brand-navy transition-colors duration-300 group">
-            See the Transformation Plan <ArrowRight className="ml-4 w-4 h-4 group-hover:translate-x-2 transition-transform duration-300" />
-          </Link>
-        </div>
-      </section>
+
 
       {/* Add 3D utilities */}
       <style dangerouslySetInnerHTML={{__html: `

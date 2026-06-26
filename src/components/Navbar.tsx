@@ -40,9 +40,12 @@ export default function Navbar() {
           <Link href="/" className="flex items-center gap-3 group">
             <img src="/logo-transparent.png" alt="Dralha Logo" className="w-12 h-12 object-contain opacity-90 group-hover:opacity-100 transition-opacity" />
             <div className="flex flex-col">
-              <span className="font-display font-bold text-3xl tracking-tight text-brand-white group-hover:text-[#FFD700] transition-colors duration-300 leading-none mb-1">
-                DRALHA
-              </span>
+              <div className="flex items-center gap-3 mb-1">
+                <span className="font-display font-bold text-3xl tracking-tight text-brand-white group-hover:text-green-500 transition-colors duration-300 leading-none">
+                  DRALHA
+                </span>
+                <img src="/Flag_of_Bhutan.svg.png" alt="Bhutan Flag" className="w-[30px] h-[20px] object-cover shadow-[0_0_8px_rgba(255,255,255,0.2)] rounded-none" />
+              </div>
               <span className="text-[0.6rem] tracking-[0.3em] text-brand-saffron uppercase font-medium leading-none">
                 Group of Industries
               </span>

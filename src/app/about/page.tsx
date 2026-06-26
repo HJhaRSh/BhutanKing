@@ -21,6 +21,9 @@ export default function AboutPage() {
         <div className="absolute inset-0 bg-gradient-to-t from-brand-black via-transparent to-brand-black/80" />
         
         <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
+          <motion.div initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 1 }} className="flex justify-center mb-8 pointer-events-auto">
+            <img src="/Flag_of_Bhutan.svg.png" alt="Bhutan Flag" className="w-24 h-16 md:w-32 md:h-20 object-cover shadow-[0_0_30px_rgba(255,255,255,0.3)] border border-white/30 rounded-none" />
+          </motion.div>
           <motion.h1 
             initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1 }}
             className="text-4xl md:text-6xl lg:text-7xl lg:text-9xl font-display mb-8 text-transparent bg-clip-text bg-gradient-to-b from-brand-white to-brand-white/70 font-bold tracking-tight drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)]"
@@ -71,7 +74,7 @@ export default function AboutPage() {
             >
               <div className="absolute top-0 left-0 w-full h-1.5 bg-brand-orchid transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
               <div className="absolute inset-0 bg-gradient-to-br from-brand-orchid/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-              <span className="text-5xl md:text-6xl font-display text-brand-orchid mb-3 relative z-10">6+</span>
+              <span className="text-4xl md:text-6xl font-display text-brand-orchid mb-3 relative z-10">6+</span>
               <span className="text-[0.65rem] md:text-xs uppercase tracking-widest text-brand-black/40 font-bold relative z-10 group-hover:text-brand-black transition-colors duration-300">Major Divisions</span>
             </motion.div>
 
@@ -81,7 +84,7 @@ export default function AboutPage() {
             >
               <div className="absolute top-0 left-0 w-full h-1.5 bg-brand-forestGreen transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
               <div className="absolute inset-0 bg-gradient-to-br from-brand-forestGreen/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-              <span className="text-5xl md:text-6xl font-display text-brand-forestGreen mb-3 relative z-10">100<span className="text-2xl md:text-3xl ml-1">MT</span></span>
+              <span className="text-4xl md:text-6xl font-display text-brand-forestGreen mb-3 relative z-10">100<span className="text-2xl md:text-3xl ml-1">MT</span></span>
               <span className="text-[0.65rem] md:text-xs uppercase tracking-widest text-brand-black/40 font-bold relative z-10 group-hover:text-brand-black transition-colors duration-300">Daily Capacity</span>
             </motion.div>
 
@@ -91,7 +94,7 @@ export default function AboutPage() {
             >
               <div className="absolute top-0 left-0 w-full h-1.5 bg-brand-dragonRed transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
               <div className="absolute inset-0 bg-gradient-to-br from-brand-dragonRed/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-              <span className="text-5xl md:text-6xl font-display text-brand-dragonRed mb-3 relative z-10">2025</span>
+              <span className="text-4xl md:text-6xl font-display text-brand-dragonRed mb-3 relative z-10">2025</span>
               <span className="text-[0.65rem] md:text-xs uppercase tracking-widest text-brand-black/40 font-bold relative z-10 group-hover:text-brand-black transition-colors duration-300">SATA Winner</span>
             </motion.div>
           </div>

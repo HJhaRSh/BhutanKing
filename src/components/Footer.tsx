@@ -16,7 +16,7 @@ export default function Footer() {
             <Link href="/" className="flex items-center gap-4 mb-6 group">
               <img src="/logo-transparent.png" alt="Dralha Logo" className="w-14 h-14 object-contain opacity-90 group-hover:opacity-100 transition-opacity" />
               <div className="flex flex-col">
-                <span className="font-display text-4xl tracking-wide text-brand-white group-hover:text-brand-gold transition-colors duration-500 leading-none mb-1">
+                <span className="font-display text-4xl tracking-wide text-brand-white group-hover:text-green-500 transition-colors duration-500 leading-none mb-1">
                   DRALHA
                 </span>
                 <span className="text-xs tracking-[0.2em] text-brand-white/50 uppercase font-medium leading-none mt-1">
@@ -29,7 +29,7 @@ export default function Footer() {
             </p>
             <p className="mt-4 text-brand-white font-sans text-sm leading-relaxed border-l-2 border-brand-saffron/40 pl-4 py-1">
               Aligned with His Majesty the King's <br />
-              Vision for a Sustainable Bhutan
+              <span className="flex items-center gap-2 mt-1">Vision for a Sustainable Bhutan <img src="/Flag_of_Bhutan.svg.png" alt="Bhutan Flag" className="w-[21px] h-[14px] object-cover shadow-[0_0_8px_rgba(255,255,255,0.1)] rounded-none" /></span>
             </p>
           </div>
 

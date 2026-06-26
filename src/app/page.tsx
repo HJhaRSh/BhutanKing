@@ -150,7 +150,7 @@ export default function Home() {
             whileHover={{ scale: 1.05 }}
             className="group flex flex-col items-center justify-center border-brand-white/10 md:border-r last:border-0 cursor-default"
           >
-            <span className="font-display font-bold text-6xl mb-2 text-brand-gold group-hover:text-brand-saffron transition-colors duration-500 drop-shadow-[0_0_15px_rgba(255,208,0,0.3)]">
+            <span className="font-display font-bold text-4xl md:text-6xl mb-2 text-brand-gold group-hover:text-brand-saffron transition-colors duration-500 drop-shadow-[0_0_15px_rgba(255,208,0,0.3)]">
               <CountUp end={36} duration={2} />
             </span>
             <span className="text-xs tracking-[0.2em] font-bold text-brand-white/50 uppercase group-hover:text-brand-white transition-colors duration-500">Years</span>
@@ -160,7 +160,7 @@ export default function Home() {
             whileHover={{ scale: 1.05 }}
             className="group flex flex-col items-center justify-center border-brand-white/10 md:border-r last:border-0 cursor-default"
           >
-            <span className="font-display font-bold text-6xl mb-2 text-brand-dragonRed group-hover:text-brand-saffron transition-colors duration-500 drop-shadow-[0_0_15px_rgba(255,45,26,0.3)]">
+            <span className="font-display font-bold text-4xl md:text-6xl mb-2 text-brand-dragonRed group-hover:text-brand-saffron transition-colors duration-500 drop-shadow-[0_0_15px_rgba(255,45,26,0.3)]">
               <CountUp end={6} duration={2} />+
             </span>
             <span className="text-xs tracking-[0.2em] font-bold text-brand-white/50 uppercase group-hover:text-brand-white transition-colors duration-500">Divisions</span>
@@ -170,7 +170,7 @@ export default function Home() {
             whileHover={{ scale: 1.05 }}
             className="group flex flex-col items-center justify-center border-brand-white/10 md:border-r last:border-0 cursor-default"
           >
-            <span className="font-display font-bold text-6xl mb-2 text-brand-forestGreen group-hover:text-brand-skyBlue transition-colors duration-500 drop-shadow-[0_0_15px_rgba(0,230,118,0.3)]">
+            <span className="font-display font-bold text-4xl md:text-6xl mb-2 text-brand-forestGreen group-hover:text-brand-skyBlue transition-colors duration-500 drop-shadow-[0_0_15px_rgba(0,230,118,0.3)]">
               <CountUp end={100} duration={2} /><span className="text-3xl ml-1">MT</span>
             </span>
             <span className="text-xs tracking-[0.2em] font-bold text-brand-white/50 uppercase group-hover:text-brand-white transition-colors duration-500">Daily Capacity</span>
@@ -180,7 +180,7 @@ export default function Home() {
             whileHover={{ scale: 1.05 }}
             className="group flex flex-col items-center justify-center cursor-default"
           >
-            <span className="font-display font-bold text-6xl mb-2 text-brand-skyBlue group-hover:text-brand-gold transition-colors duration-500 drop-shadow-[0_0_15px_rgba(0,212,255,0.3)]">
+            <span className="font-display font-bold text-4xl md:text-6xl mb-2 text-brand-skyBlue group-hover:text-brand-gold transition-colors duration-500 drop-shadow-[0_0_15px_rgba(0,212,255,0.3)]">
               <CountUp start={2000} end={2025} duration={2} />
             </span>
             <span className="text-xs tracking-[0.2em] font-bold text-brand-white/50 uppercase group-hover:text-brand-white transition-colors duration-500">SATA Winner</span>
@@ -223,7 +223,7 @@ export default function Home() {
                       <div className="flex items-center gap-8 md:gap-12 flex-1">
                         <span className={`text-2xl font-bold transition-colors duration-500 ${isHovered ? biz.color.replace('text-', 'text-') : 'text-brand-black/30'}`}>{biz.num}</span>
                         <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-12 flex-1">
-                          <h3 className={`text-3xl md:text-5xl font-display font-bold transition-colors duration-500 min-w-[280px] ${isHovered ? 'text-brand-black' : 'text-brand-black/80'}`}>{biz.title}</h3>
+                          <h3 className={`text-3xl md:text-5xl font-display font-bold transition-colors duration-500 min-w-0 md:min-w-[280px] ${isHovered ? 'text-brand-black' : 'text-brand-black/80'}`}>{biz.title}</h3>
                           <p className={`text-[10px] md:text-xs font-bold tracking-[0.2em] uppercase transition-colors duration-500 ${isHovered ? 'text-brand-black/80' : 'text-brand-black/40'}`}>{biz.desc}</p>
                         </div>
                       </div>

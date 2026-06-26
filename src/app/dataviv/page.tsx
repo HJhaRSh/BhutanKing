@@ -276,17 +276,7 @@ export default function DatavivPage() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-16 md:py-32 bg-black border-t border-white/5 text-center">
-        <div className="container mx-auto px-6 max-w-4xl">
-          <h2 className="text-4xl md:text-6xl font-display font-bold text-white mb-16 tracking-tight leading-tight">
-            Ready to see how Dataviv transforms Dralha Group?
-          </h2>
-          <Link href="/transformation" className="inline-flex items-center px-10 py-5 bg-white text-black font-sans text-xs tracking-[0.2em] uppercase font-bold rounded-none hover:bg-brand-gold transition-colors duration-500 group">
-            View the Transformation Plan <ArrowRight className="ml-4 w-4 h-4 group-hover:translate-x-2 transition-transform duration-500" />
-          </Link>
-        </div>
-      </section>
+
 
       {/* Add Marquee utilities */}
       <style dangerouslySetInnerHTML={{__html: `

@@ -1,429 +1,786 @@
 "use client";
-import AuroraLayer from "@/components/AuroraLayer";
-import { useEffect, useState, useRef } from "react";
+
+import { useState } from "react";
 import { motion } from "framer-motion";
-import { ScrollReveal } from "@/components/animations/ScrollReveal";
-import Image from "next/image";
+import SectionHeading from "@/components/SectionHeading";
+import { ArrowRight, CheckCircle2, Database, Cpu, Zap, Eye, Shield, Layers, Radio, BarChart2, Package, Wifi, Sparkles, Lock, Shirt, Globe, Heart, Wheat, Building2, GraduationCap, Network, Leaf, HeartPulse, Truck, Factory, Trees, Sprout } from "lucide-react";
 import Link from "next/link";
-import { CheckCircle, ChevronRight, Brain, Rocket, Headset } from "lucide-react";
-
-// For counting up stats
-const CountUp = ({ end, duration }: { end: number, duration: number }) => {
-  const [count, setCount] = useState(0);
-  const ref = useRef(null);
-  const [inView, setInView] = useState(false);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) {
-        setInView(true);
-      }
-    }, { threshold: 0.1 });
-    if (ref.current) observer.observe(ref.current);
-    return () => observer.disconnect();
-  }, []);
-
-  useEffect(() => {
-    if (!inView) return;
-    let startTimestamp: number;
-    const step = (timestamp: number) => {
-      if (!startTimestamp) startTimestamp = timestamp;
-      const progress = Math.min((timestamp - startTimestamp) / (duration * 1000), 1);
-      setCount(Math.floor(progress * end));
-      if (progress < 1) {
-        window.requestAnimationFrame(step);
-      }
-    };
-    window.requestAnimationFrame(step);
-  }, [inView, end, duration]);
-
-  return <span ref={ref}>{count}</span>;
-};
+import Image from "next/image";
+import DynamicDarkBackground from "@/components/DynamicDarkBackground";
+import NeuralCanvas from "@/components/NeuralCanvas";
+import GlitchText from "@/components/GlitchText";
+import { CountUp } from "@/components/animations/CountUp";
 
 const sectors = [
   {
-    id: "01",
-    title: "Hotel Dralha",
-    subtitle: "3-Star award-winning hospitality in Thimphu",
-    est: "EST. 2018",
-    image: "/hotel/Hotel Reception.jpg",
-    today: ["Manual check-ins", "Generic guest experience", "No demand forecasting", "Limited personalization"],
-    tomorrow: ["AI Concierge Chatbot", "Smart Camera Analytics", "Demand Forecasting", "Personalized Recommendations"],
-    textClass: "text-brand-vibrantPink",
-    borderClass: "border-brand-vibrantPink",
+    id: 1,
+    icon: Heart,
+    name: "Hotel Dralha",
+    image: "/dralha-businesses/hotel_dralha.png",
+    color: "from-blue-500 to-indigo-900",
+    today: [
+      "Manual check-ins",
+      "Generic guest experiences",
+      "Reactive maintenance",
+      "High energy consumption"
+    ],
+    future: [
+      "AI Concierge Chatbot: Multi-lingual ChatGPT-powered guest service",
+      "Smart Room IoT: Automated lighting and climate control",
+      "Predictive Analytics: Anticipating peak seasons and staff needs",
+      "Facial Recognition: Seamless and secure check-in experience",
+      "Energy Optimization: AI-driven power savings"
+    ],
+    badge: "Smart Devices + NLP Chatbots + Data Science"
   },
   {
-    id: "02",
-    title: "Dralha Flour Mill",
-    subtitle: "Bhutan's pioneer flour mill, 100 MT/day",
-    est: "EST. 1988",
-    image: "/mill/hero-bg.png",
-    today: ["Manual quality checks", "Reactive maintenance", "No predictive analytics", "Manual inventory"],
-    tomorrow: ["Computer Vision Quality Control", "Predictive Maintenance", "Inventory Intelligence", "Demand Forecasting"],
-    textClass: "text-brand-vibrantOrange",
-    borderClass: "border-brand-vibrantOrange",
+    id: 2,
+    icon: Factory,
+    name: "Flour Mill",
+    image: "/dralha-businesses/flour_mill.png",
+    color: "from-orange-500 to-red-900",
+    today: [
+      "Manual quality checks",
+      "Inefficient energy use",
+      "Downtime from machinery faults",
+      "Inconsistent milling output"
+    ],
+    future: [
+      "Computer Vision: High-speed grain quality and defect control",
+      "Predictive Maintenance: IoT sensors predict machinery failures",
+      "IoT Energy Optimization: Smart power usage across the mill",
+      "Automated Sorting: Robotic systems for packing and sorting",
+      "Yield Tracking: Real-time dashboard for production metrics"
+    ],
+    badge: "Computer Vision + IoT Smart Devices + Analytics"
   },
   {
-    id: "03",
-    title: "Napkin Factory",
-    subtitle: "Tissue & hygiene products for Bhutan",
-    est: "EST. 2009",
-    image: "https://images.unsplash.com/photo-1584556812952-905ffd0c611a?q=80&w=2000&auto=format&fit=crop",
-    today: ["Manual production monitoring", "Reactive defect detection", "Manual distribution tracking"],
-    tomorrow: ["Automated Defect Detection", "Production Optimization", "Smart Distribution Tracking", "Customer Analytics"],
-    textClass: "text-brand-vibrantPurple",
-    borderClass: "border-brand-vibrantPurple",
+    id: 3,
+    icon: Package,
+    name: "Napkin Factory",
+    image: "/dralha-businesses/napkin_factory.png",
+    color: "from-fuchsia-500 to-purple-900",
+    today: [
+      "Manual defect detection",
+      "Inaccurate inventory tracking",
+      "High material waste",
+      "Slow production feedback loops"
+    ],
+    future: [
+      "AI Quality Control: CV cameras detect paper defects instantly",
+      "Automated Packaging: Robotic arms handle packing and stacking",
+      "Supply Chain Intelligence: Real-time inventory and logistics",
+      "Waste Reduction ML: Algorithms optimize raw material usage",
+      "Demand Forecasting: AI predicts required production volume"
+    ],
+    badge: "Computer Vision + Robotics + Data Science"
   },
   {
-    id: "04",
-    title: "Bamboo Revolution",
-    subtitle: "Sustainable bamboo processing",
-    est: "COMING 2026",
-    image: "/bamboo.png",
-    today: ["Traditional processing", "Manual sorting", "No market intelligence"],
-    tomorrow: ["AI-Powered Processing Lines", "Market Intelligence", "Export Optimization", "Sustainability Monitoring"],
-    textClass: "text-brand-vibrantGreen",
-    borderClass: "border-brand-vibrantGreen",
+    id: 4,
+    icon: Trees,
+    name: "Bamboo Revolution",
+    image: "/dralha-businesses/bamboo_revolution.png",
+    color: "from-green-500 to-emerald-900",
+    today: [
+      "Manual sorting of bamboo",
+      "Weather-dependent processing",
+      "Traditional logistics",
+      "Inconsistent material grading"
+    ],
+    future: [
+      "AI Sorting & Grading: CV ensures perfect bamboo selection",
+      "Smart Curing: IoT climate-controlled processing",
+      "Drone Harvesting: Aerial monitoring of bamboo forests",
+      "Sustainable Tracking: Blockchain verification of eco-materials",
+      "Supply Chain ML: Optimized global distribution"
+    ],
+    badge: "Computer Vision + IoT + Drone Tech"
   },
   {
-    id: "05",
-    title: "Agribusiness",
-    subtitle: "Avocado & Arabica coffee, 54 acres",
-    est: "LAUNCHING SOON",
-    image: "/agri.png",
-    today: ["Traditional farming", "Weather-dependent yields", "Manual monitoring across 54 acres"],
-    tomorrow: ["Drone-Based Crop Monitoring", "Precision Irrigation", "Yield Prediction", "Market Price Intelligence"],
-    textClass: "text-brand-vibrantGreen",
-    borderClass: "border-brand-vibrantGreen",
+    id: 5,
+    icon: Building2,
+    name: "GMC Serviced Apartments",
+    image: "/dralha-businesses/gmc_apartments.png",
+    color: "from-cyan-400 to-blue-900",
+    today: [
+      "Standard security",
+      "High utility bills",
+      "Basic tenant services",
+      "Manual facility management"
+    ],
+    future: [
+      "Smart Building IoT: Automated HVAC and smart lighting",
+      "AI Security Surveillance: Real-time anomaly detection",
+      "Tenant App: Virtual concierge for all resident needs",
+      "Automated Maintenance: Predictive alerts for plumbing/electrical",
+      "Smart Access: Keyless entry using mobile credentials"
+    ],
+    badge: "Smart Building IoT + CV Security + App Integration"
   },
   {
-    id: "06",
-    title: "GMC Apartments",
-    subtitle: "Luxury Real Estate Development",
-    est: "UPCOMING",
-    image: "https://images.unsplash.com/photo-1514924013411-cbf25faa35bb?q=80&w=2000&auto=format&fit=crop",
-    today: ["Traditional property management", "Manual tenant services", "No predictive maintenance"],
-    tomorrow: ["Smart Building Management", "AI Tenant Experience App", "Predictive Maintenance", "Security & Surveillance"],
-    textClass: "text-brand-vibrantBlue",
-    borderClass: "border-brand-vibrantBlue",
+    id: 6,
+    icon: Sprout,
+    name: "Agribusiness",
+    image: "/dralha-businesses/agribusiness.png",
+    color: "from-yellow-400 to-amber-900",
+    today: [
+      "Manual crop monitoring",
+      "Weather-dependent yields",
+      "Guesswork in soil health",
+      "Traditional irrigation"
+    ],
+    future: [
+      "Drone Crop Spraying: Precision automated agriculture",
+      "AI Soil Analysis: IoT sensors monitor nutrient levels",
+      "Yield Prediction ML: Forecasting harvest based on climate data",
+      "Automated Irrigation: Smart water management systems",
+      "Pest Detection CV: Early warning systems for crop diseases"
+    ],
+    badge: "Drone Tech + IoT Smart Farm + ML Analytics"
   }
 ];
 
-export default function AIPartnershipPage() {
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-  const [activeLayer, setActiveLayer] = useState<number | null>(null);
+export default function DatavivPage() {
+  const [activeCategory, setActiveCategory] = useState("All");
+  const [hoveredSector, setHoveredSector] = useState(0);
+
+  const products = [
+    { num: "01", name: "Medical Image Detection", desc: "AI diagnosis from X-rays & scans", category: "Perception", icon: Heart },
+    { num: "02", name: "Smart Camera Computer Vision", desc: "CCTV intelligence, attendance, occupancy analytics", category: "Perception", icon: Eye },
+    { num: "03", name: "Smart Mirrors", desc: "AR try-on for fashion & retail", category: "Perception", icon: Sparkles },
+    { num: "04", name: "AR/VR/MR Experiences", desc: "Virtual walkthroughs & training", category: "Perception", icon: Layers },
+    { num: "05", name: "Audio, Text & Gesture AI", desc: "Chatbots, voice systems, NLP", category: "Intelligence", icon: Radio },
+    { num: "06", name: "Asset & Inventory Tracking", desc: "RFID, barcode, location intelligence", category: "Infrastructure", icon: Package },
+    { num: "07", name: "Smart Devices & IoT", desc: "Wearables, smart farm automation", category: "Infrastructure", icon: Wifi },
+    { num: "08", name: "Data Science & ML", desc: "Recommendation systems, predictive modeling", category: "Intelligence", icon: BarChart2 },
+    { num: "09", name: "Custom Solutions", desc: "Ecommerce, large-scale government apps", category: "Infrastructure", icon: Globe },
+    { num: "10", name: "System Integrations", desc: "CRM, HRMS, inventory automation", category: "Infrastructure", icon: Layers },
+    { num: "11", name: "Online Security", desc: "Blockchain, penetration testing, HIPPA compliance", category: "Intelligence", icon: Lock },
+    { num: "12", name: "AI in Fashion & Textiles", desc: "Computer vision quality control, trend prediction", category: "Perception", icon: Shirt },
+  ];
+
+  const industries = [
+    { name: "Healthcare", icon: Heart }, 
+    { name: "Fashion", icon: Shirt }, 
+    { name: "Agriculture", icon: Wheat }, 
+    { name: "Smart Cities", icon: Building2 }, 
+    { name: "Government", icon: Shield }, 
+    { name: "Defence", icon: Shield },
+    { name: "Education", icon: Layers }, 
+    { name: "Finance", icon: BarChart2 }, 
+    { name: "Manufacturing", icon: Cpu }, 
+    { name: "Retail", icon: Package }, 
+    { name: "Real Estate", icon: Building2 }, 
+    { name: "Hospitality", icon: Sparkles }
+  ];
+
+  const filteredProducts = activeCategory === "All" ? products : products.filter(p => p.category === activeCategory);
 
   return (
-    <div className="w-full flex flex-col items-center bg-brand-black text-brand-white min-h-screen">
-      
-      {/* HERO SECTION */}
-      <section className="relative w-full h-[80vh] flex flex-col justify-center items-center overflow-hidden border-b border-brand-saffron/20">
-        
-        {/* Majestic Fully Wide Background Image */}
-        <div 
-          className="absolute inset-0 bg-cover bg-[80%_center] md:bg-right bg-no-repeat opacity-90 mix-blend-lighten"
-          style={{ backgroundImage: "url('/ai.jpg')" }}
-        />
-        {/* Premium Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-brand-black via-brand-black/40 to-transparent z-0" />
-        <div className="absolute inset-0 bg-gradient-to-t from-brand-black via-transparent to-brand-black/30 z-0" />
-        
-        {/* Background Network Animation */}
-        <div className="absolute inset-0 z-0 opacity-40 pointer-events-none">
-          <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-            {[...Array(20)].map((_, i) => (
-              <motion.circle
-                key={i}
-                r="2"
-                fill="#FF9500"
-                initial={{
-                  cx: Math.random() * (typeof window !== "undefined" ? window.innerWidth : 1000),
-                  cy: Math.random() * (typeof window !== "undefined" ? window.innerHeight : 1000),
-                  opacity: Math.random() * 0.5 + 0.5,
-                }}
-                animate={{
-                  cx: Math.random() * (typeof window !== "undefined" ? window.innerWidth : 1000),
-                  cy: Math.random() * (typeof window !== "undefined" ? window.innerHeight : 1000),
-                }}
-                transition={{
-                  duration: Math.random() * 20 + 10,
-                  repeat: Infinity,
-                  ease: "linear",
-                }}
-              />
-            ))}
-          </svg>
-        </div>
+    <div className="relative overflow-x-hidden pt-20">
+      {/* HERO */}
+      <section className="relative min-h-[90vh] flex flex-col items-center justify-center overflow-hidden bg-black py-20">
+        <NeuralCanvas />
+        <div className="absolute inset-0 bg-[url('/noise.png')] opacity-[0.03] z-0 pointer-events-none" />
+        <div className="absolute inset-0 border-x border-white/5 w-full max-w-7xl mx-auto z-0 pointer-events-none" />
+        <div className="absolute top-1/2 left-0 w-full h-[1px] bg-white/5 z-0 pointer-events-none" />
 
-        <div className="max-w-7xl mx-auto px-6 w-full relative z-10 flex flex-col items-start text-left">
-          <motion.div
-            className="max-w-2xl"
-            initial={{ opacity: 0, x: -30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <h2 className="text-sm font-bold tracking-[0.4em] uppercase mb-4 text-brand-saffron drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
-              THE FUTURE OF DRALHA
-            </h2>
-            <h1 className="text-6xl lg:text-7xl font-display leading-[1.1] mb-6 font-bold drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)]">
-              Powered by <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-saffron to-brand-gold">Dataviv AI OS.</span>
-            </h1>
-            <p className="text-xl md:text-2xl font-medium text-brand-white/80 leading-relaxed drop-shadow-lg pr-4">
-              How artificial intelligence will transform every Dralha business — from flour mill to hotel, from bamboo to agribusiness.
-            </p>
+        <div className="container mx-auto px-6 relative z-10 text-center pointer-events-none">
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className="flex justify-center mb-10 pointer-events-auto">
+            <Image src="/dataviv%20logo.jpeg" alt="Dataviv" width={200} height={80} className="object-contain rounded-lg drop-shadow-[0_0_15px_rgba(255,255,255,0.1)]" priority />
+          </motion.div>
+          <div className="mb-8">
+            <GlitchText />
+          </div>
+          <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.4 }} className="text-xl md:text-2xl text-gray-400 max-w-4xl mx-auto font-light leading-relaxed mb-16">
+            India's AI-First Technology Company — Built at Stanford, Deployed Globally.
+          </motion.p>
+          
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.6 }} className="flex flex-wrap justify-center gap-4 mb-16 pointer-events-auto">
+            {["AI", "AR/VR", "IoT", "Cloud", "Computer Vision", "NLP"].map((badge) => (
+              <span key={badge} className="px-6 py-2 border border-white/10 bg-white/5 rounded-none text-gray-400 font-sans text-xs tracking-[0.2em] uppercase hover:bg-white/10 transition-colors cursor-pointer">
+                {badge}
+              </span>
+            ))}
+          </motion.div>
+
+          {/* Stats Row */}
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.8 }} className="flex flex-col md:flex-row items-center justify-center gap-16 md:gap-32 mx-auto max-w-4xl pointer-events-auto mt-12">
+            <div className="flex flex-col items-center group cursor-default">
+              <div className="flex items-center text-6xl md:text-8xl font-display font-bold text-transparent bg-clip-text bg-gradient-to-br from-brand-gold via-yellow-200 to-brand-goldLight mb-4 drop-shadow-[0_0_25px_rgba(255,208,0,0.4)] group-hover:scale-105 transition-transform duration-700">
+                <CountUp end={12} duration={2} />
+              </div>
+              <span className="text-xs md:text-sm uppercase tracking-[0.4em] text-gray-500 font-bold group-hover:text-white transition-colors duration-500">AI Domains</span>
+            </div>
+            
+            <div className="flex flex-col items-center group cursor-default">
+              <div className="flex items-center text-6xl md:text-8xl font-display font-bold text-transparent bg-clip-text bg-gradient-to-br from-brand-gold via-yellow-200 to-brand-goldLight mb-4 drop-shadow-[0_0_25px_rgba(255,208,0,0.4)] group-hover:scale-105 transition-transform duration-700 pr-2">
+                <CountUp end={100} duration={2.5} /><span className="text-5xl md:text-7xl text-brand-gold">+</span>
+              </div>
+              <span className="text-xs md:text-sm uppercase tracking-[0.4em] text-gray-500 font-bold group-hover:text-white transition-colors duration-500">Global Deployments</span>
+            </div>
+            
+            <div className="flex flex-col items-center group cursor-default">
+              <div className="flex items-center text-6xl md:text-8xl font-display font-bold text-transparent bg-clip-text bg-gradient-to-br from-brand-gold via-yellow-200 to-brand-goldLight mb-4 drop-shadow-[0_0_25px_rgba(255,208,0,0.4)] group-hover:scale-105 transition-transform duration-700">
+                <CountUp end={4} duration={1.5} />
+              </div>
+              <span className="text-xs md:text-sm uppercase tracking-[0.4em] text-gray-500 font-bold group-hover:text-white transition-colors duration-500">Continents</span>
+            </div>
           </motion.div>
         </div>
       </section>
 
-      {/* DATAVIV INTRO SECTION */}
-      <section className="w-full bg-brand-white py-16 md:py-32 relative z-20 overflow-hidden border-b border-brand-saffron/20 shadow-2xl">
-        {/* Vibrant Bhutanese Blobs Background */}
-        <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
-          <div className="absolute -right-[20%] -bottom-[20%] w-[60%] h-[140%] bg-brand-dragonRed rounded-full blur-[140px] opacity-10" />
-          <div className="absolute left-[10%] top-[-10%] w-[50%] h-[120%] bg-brand-saffron rounded-full blur-[140px] opacity-10" />
-        </div>
-
-        <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <ScrollReveal className="flex flex-col md:flex-row items-center gap-16 md:gap-24">
-            <div className="flex-1 border-b md:border-b-0 md:border-r border-brand-black/10 pb-12 md:pb-0 md:pr-16">
-              <div className="relative h-28 w-80 mb-8">
-                <Image 
-                  src="/dataviv logo.jpeg" 
-                  alt="Dataviv Technologies" 
-                  fill 
-                  className="object-contain object-left mix-blend-multiply brightness-105" 
-                />
-              </div>
-              <p className="text-brand-saffron text-sm tracking-widest uppercase mb-6 font-bold">Be Future Proof</p>
-              <p className="text-brand-black/80 leading-relaxed text-xl font-medium">
-                Dataviv makes intelligent technology systems. Their core team holds MS in Artificial Intelligence from Stanford University, with research under Andrew Ng, founder of Google Brain.
-              </p>
-            </div>
-            <div className="flex-1 flex flex-col gap-10">
-              <div className="flex items-center gap-6 text-brand-black text-2xl font-bold transition-transform duration-500 hover:translate-x-4">
-                <div className="p-5 rounded-2xl bg-brand-saffron/10 border border-brand-saffron/30 flex items-center justify-center shadow-lg shadow-brand-saffron/10">
-                  <Brain className="text-brand-saffron w-8 h-8 flex-shrink-0 drop-shadow-[0_2px_4px_rgba(255,149,0,0.5)]" />
-                </div>
-                <span>Stanford AI Pedigree</span>
-              </div>
-              <div className="flex items-center gap-6 text-brand-black text-2xl font-bold transition-transform duration-500 hover:translate-x-4">
-                <div className="p-5 rounded-2xl bg-brand-dragonRed/10 border border-brand-dragonRed/30 flex items-center justify-center shadow-lg shadow-brand-dragonRed/10">
-                  <Rocket className="text-brand-dragonRed w-8 h-8 flex-shrink-0 drop-shadow-[0_2px_4px_rgba(232,41,28,0.5)]" />
-                </div>
-                <span>Turnkey Delivery</span>
-              </div>
-              <div className="flex items-center gap-6 text-brand-black text-2xl font-bold transition-transform duration-500 hover:translate-x-4">
-                <div className="p-5 rounded-2xl bg-brand-vibrantBlue/10 border border-brand-vibrantBlue/30 flex items-center justify-center shadow-lg shadow-brand-vibrantBlue/10">
-                  <Headset className="text-brand-vibrantBlue w-8 h-8 flex-shrink-0 drop-shadow-[0_2px_4px_rgba(0,122,255,0.5)]" />
-                </div>
-                <span>Best-in-Class Support</span>
-              </div>
-            </div>
-          </ScrollReveal>
-        </div>
-      </section>
-
-      {/* WHAT IS DATAVIV AI OS */}
-      <section className="w-full py-16 md:py-32 border-b border-brand-saffron/20 relative z-10">
-        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 md:gap-20 items-center">
-          <ScrollReveal>
-            <h2 className="text-xs font-bold tracking-[0.4em] uppercase mb-4 text-brand-saffron">THE PLATFORM</h2>
-            <h3 className="text-4xl md:text-5xl lg:text-7xl font-display text-brand-white mb-6">DATAVIV AI OS</h3>
-            <p className="text-xl text-brand-gold mb-8 font-medium">The Operating System for Artificial Intelligence</p>
-            <p className="text-brand-white/70 text-lg leading-relaxed mb-12 font-medium">
-              Just as a computer needs an operating system — DATAVIV AI OS is the operating system that runs AI across your entire organisation. One platform. One place. Full control.
-            </p>
-            
-            <div className="flex flex-col lg:flex-row items-center gap-4 text-sm font-bold uppercase tracking-wider text-brand-white mt-12 w-full">
+      {/* PEDIGREE SECTION */}
+      <section className="py-16 md:py-32 bg-brand-darkNavy border-y border-white/5 relative overflow-hidden">
+        <DynamicDarkBackground />
+        <div className="container mx-auto px-6 max-w-7xl relative z-10">
+          <SectionHeading title="Why Trust Dataviv?" centered />
+                   <div className="grid md:grid-cols-3 gap-8 mt-16 md:mt-24">
+            {[
+              { num: "TRST-01", title: "Stanford Roots", desc: "Our core team holds MS in Artificial Intelligence from Stanford University, with research under Andrew Ng, founder of Google Brain and Chief Scientist at Baidu.", back: "Trained under Andrew Ng · Google Brain · Stanford AI Lab", icon: GraduationCap },
+              { num: "TRST-02", title: "Global Experience", desc: "Early team members worked at Coursera (Billion-dollar Edtech) and Earnin (Fintech), supporting growth and product at scale.", back: "Coursera · Earnin · Billion-dollar scale products", icon: Globe },
+              { num: "TRST-03", title: "Investment Network", desc: "Associated with Stanford Angels, supporting early-stage companies across investment rounds globally.", back: "Stanford Angels Network · Global Investment Pipeline", icon: Network }
+            ].map((item, idx) => (
               <motion.div 
-                onHoverStart={() => setActiveLayer(0)} onHoverEnd={() => setActiveLayer(null)}
-                className={`px-6 py-4 border rounded-xl cursor-pointer transition-all duration-300 ${activeLayer === 0 ? 'border-brand-white bg-brand-white/20 shadow-[0_0_15px_rgba(255,255,255,0.3)] scale-105' : activeLayer === null ? 'border-brand-saffron/30 bg-brand-white/5' : 'border-brand-saffron/10 text-brand-white/30 bg-transparent opacity-50'}`}
+                key={item.title}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.15, duration: 0.8, ease: "easeOut" }}
+                className="group relative h-[420px] flex flex-col bg-brand-navy hover:bg-white border border-white/5 hover:border-white overflow-hidden transition-colors duration-500 cursor-default"
               >
-                Collect Data
-              </motion.div>
-              <ChevronRight className={`w-5 h-5 hidden lg:block transition-opacity duration-300 ${activeLayer === 1 ? 'text-brand-saffron opacity-100' : 'text-brand-white/20'}`} />
-              <motion.div 
-                onHoverStart={() => setActiveLayer(1)} onHoverEnd={() => setActiveLayer(null)}
-                className={`px-6 py-4 border rounded-xl cursor-pointer transition-all duration-300 ${activeLayer === 1 ? 'border-brand-saffron bg-brand-saffron/20 text-brand-saffron shadow-[0_0_15px_rgba(255,149,0,0.5)] scale-105' : activeLayer === null ? 'border-brand-saffron/50 bg-brand-saffron/10 text-brand-saffron' : 'border-brand-saffron/10 text-brand-white/30 bg-transparent opacity-50'}`}
-              >
-                AI Analysis
-              </motion.div>
-              <ChevronRight className={`w-5 h-5 hidden lg:block transition-opacity duration-300 ${activeLayer === 2 ? 'text-brand-dragonRed opacity-100' : 'text-brand-white/20'}`} />
-              <motion.div 
-                onHoverStart={() => setActiveLayer(2)} onHoverEnd={() => setActiveLayer(null)}
-                className={`px-6 py-4 border rounded-xl cursor-pointer transition-all duration-300 ${activeLayer === 2 ? 'border-brand-dragonRed bg-brand-dragonRed/20 text-brand-dragonRed shadow-[0_0_15px_rgba(232,41,28,0.5)] scale-105' : activeLayer === null ? 'border-brand-dragonRed/50 bg-brand-dragonRed/10 text-brand-dragonRed' : 'border-brand-saffron/10 text-brand-white/30 bg-transparent opacity-50'}`}
-              >
-                Insights & Actions
-              </motion.div>
-            </div>
-          </ScrollReveal>
-          
-          <ScrollReveal delay={0.2} className="flex justify-center">
-            {/* Pyramid SVG */}
-            <svg width="400" height="300" viewBox="0 0 400 300" className="w-full max-w-[280px] md:max-w-md cursor-pointer overflow-visible">
-              <defs>
-                <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" style={{ stopColor: '#050505', stopOpacity: 1 }} />
-                  <stop offset="100%" style={{ stopColor: '#1A1A1A', stopOpacity: 1 }} />
-                </linearGradient>
-              </defs>
-              
-              {/* Base / Data Layer */}
-              <g onMouseEnter={() => setActiveLayer(0)} onMouseLeave={() => setActiveLayer(null)} className="transition-all duration-300 outline-none">
-                <motion.path d="M 50 250 L 350 250 L 300 180 L 100 180 Z" 
-                  fill={activeLayer === 0 ? "rgba(255,255,255,0.1)" : activeLayer === null ? "url(#grad1)" : "rgba(255,255,255,0.02)"} 
-                  stroke={activeLayer === 0 ? "#FFF" : activeLayer === null ? "#555" : "#222"} 
-                  strokeWidth="2"
-                  animate={{ y: activeLayer === 0 ? -5 : 0, scale: activeLayer === 0 ? 1.02 : 1 }}
-                  style={{ transformOrigin: "200px 215px" }}
-                />
-                <motion.text animate={{ y: activeLayer === 0 ? -5 : 0 }} x="200" y="225" fill={activeLayer === 0 || activeLayer === null ? "#FFF" : "#444"} textAnchor="middle" fontSize="14" fontWeight="bold" letterSpacing="2">DATA LAYER</motion.text>
-                <motion.text animate={{ y: activeLayer === 0 ? -5 : 0 }} x="200" y="240" fill={activeLayer === 0 || activeLayer === null ? "#AAA" : "#333"} textAnchor="middle" fontSize="10">Collects & Stores Information</motion.text>
-              </g>
+                {/* Border glowing wrapper & backdrop */}
+                <div className="absolute inset-0 bg-gradient-to-b from-brand-gold/10 to-transparent opacity-0 group-hover:opacity-10 transition-opacity duration-700" />
+                
+                {/* Grid Background */}
+                <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:20px_20px] [mask-image:radial-gradient(ellipse_80%_80%_at_50%_50%,#000_10%,transparent_100%)] opacity-10 group-hover:opacity-0 transition-opacity duration-500 z-0" />
 
-              {/* Middle / AI Layer */}
-              <g onMouseEnter={() => setActiveLayer(1)} onMouseLeave={() => setActiveLayer(null)} className="transition-all duration-300 outline-none">
-                <motion.path d="M 110 170 L 290 170 L 230 90 L 170 90 Z" 
-                  fill={activeLayer === 1 ? "rgba(255, 149, 0, 0.3)" : activeLayer === null ? "rgba(255, 149, 0, 0.1)" : "rgba(255, 149, 0, 0.02)"} 
-                  stroke={activeLayer === 1 || activeLayer === null ? "#FF9500" : "#442200"} 
-                  strokeWidth="2"
-                  animate={{ y: activeLayer === 1 ? -10 : 0, scale: activeLayer === 1 ? 1.02 : 1 }}
-                  style={{ transformOrigin: "200px 130px" }}
-                />
-                <motion.text animate={{ y: activeLayer === 1 ? -10 : 0 }} x="200" y="140" fill={activeLayer === 1 || activeLayer === null ? "#FF9500" : "#442200"} textAnchor="middle" fontSize="14" fontWeight="bold" letterSpacing="2">AI LAYER</motion.text>
-                <motion.text animate={{ y: activeLayer === 1 ? -10 : 0 }} x="200" y="155" fill={activeLayer === 1 || activeLayer === null ? "rgba(255, 149, 0, 0.7)" : "rgba(255, 149, 0, 0.2)"} textAnchor="middle" fontSize="10">Analyses, Finds Insights</motion.text>
-              </g>
-
-              {/* Top / App Layer */}
-              <g onMouseEnter={() => setActiveLayer(2)} onMouseLeave={() => setActiveLayer(null)} className="transition-all duration-300 outline-none">
-                <motion.path d="M 180 80 L 220 80 L 200 30 Z" 
-                  fill={activeLayer === 2 ? "rgba(232, 41, 28, 0.5)" : activeLayer === null ? "rgba(232, 41, 28, 0.2)" : "rgba(232, 41, 28, 0.05)"} 
-                  stroke={activeLayer === 2 || activeLayer === null ? "#E8291C" : "#440000"} 
-                  strokeWidth="2"
-                  animate={{ y: activeLayer === 2 ? -15 : 0, scale: activeLayer === 2 ? 1.05 : 1 }}
-                  style={{ transformOrigin: "200px 55px" }}
-                />
-                <motion.text animate={{ y: activeLayer === 2 ? -15 : 0 }} x="200" y="70" fill={activeLayer === 2 || activeLayer === null ? "#E8291C" : "#440000"} textAnchor="middle" fontSize="12" fontWeight="bold">APP LAYER</motion.text>
-              </g>
-            </svg>
-          </ScrollReveal>
-        </div>
-      </section>
-
-      {/* SECTOR TRANSFORMATIONS */}
-      <section className="w-full bg-brand-white text-brand-black py-16 md:py-32 border-b border-brand-saffron/10 relative z-10">
-        <div className="max-w-7xl mx-auto px-6">
-          <ScrollReveal className="text-center mb-24">
-            <h2 className="text-4xl md:text-6xl lg:text-7xl font-display mb-6 text-brand-black">Sector Transformations.</h2>
-          </ScrollReveal>
-
-          <div className="flex flex-col border-t border-brand-saffron/20">
-            {sectors.map((sector, i) => {
-              const isHovered = hoveredIndex === i;
-              return (
-                <div 
-                  key={sector.id} 
-                  className="relative w-full border-b border-brand-saffron/20 transition-all duration-700 ease-in-out cursor-pointer overflow-hidden group"
-                  onMouseEnter={() => setHoveredIndex(i)}
-                  onMouseLeave={() => setHoveredIndex(null)}
-                  style={{ height: isHovered ? "450px" : "120px" }}
-                >
-                  {/* Background Image */}
-                  <div 
-                    className={`absolute inset-0 bg-cover bg-center transition-all duration-700 ease-in-out ${isHovered ? 'opacity-100 scale-105' : 'opacity-0 scale-100'}`}
-                    style={{ backgroundImage: `url('${sector.image}')` }}
-                  />
-                  {/* Gradient Overlay for Readability */}
-                  <div className={`absolute inset-0 bg-gradient-to-r from-brand-white/95 via-brand-white/40 to-transparent transition-opacity duration-700 ${isHovered ? 'opacity-80' : 'opacity-100'}`} />
-
-                  {/* Content Wrapper */}
-                  <div className="relative z-10 w-full h-full flex flex-col px-8">
-                    
-                    {/* Header Row - Fixed Height 120px */}
-                    <div className="h-[120px] flex items-center justify-between w-full">
-                      <div className="flex items-center gap-8 md:gap-12 flex-1">
-                        <span className={`text-2xl font-bold transition-colors duration-500 ${isHovered ? sector.textClass : 'text-brand-black/30'}`}>{sector.id}</span>
-                        <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-12 flex-1">
-                          <h3 className={`text-3xl md:text-5xl font-display font-bold transition-colors duration-500 min-w-[280px] ${isHovered ? 'text-brand-black' : 'text-brand-black/80'}`}>{sector.title}</h3>
-                          <p className={`hidden lg:block text-[10px] md:text-xs font-bold tracking-[0.2em] uppercase transition-colors duration-500 ${isHovered ? 'text-brand-black/80' : 'text-brand-black/40'}`}>{sector.subtitle}</p>
-                        </div>
-                      </div>
-                      <div className={`hidden md:block text-[10px] md:text-sm tracking-widest font-bold uppercase transition-colors duration-500 text-right ${isHovered ? sector.textClass : 'text-brand-black/30'}`}>
-                        {sector.est}
-                      </div>
+                {/* Scanning line effect */}
+                <div className="absolute top-0 left-0 w-full h-[2px] bg-brand-gold shadow-[0_0_15px_rgba(255,208,0,0.8)] -translate-y-[10px] group-hover:animate-scan z-10 opacity-0 group-hover:opacity-100" />
+                
+                {/* Inner Content */}
+                <div className="relative z-20 flex flex-col h-full p-8 md:p-10">
+                  
+                  {/* Top Header */}
+                  <div className="flex justify-between items-center border-b border-white/10 group-hover:border-brand-navy/10 pb-6 mb-8 transition-colors duration-500">
+                    <div className="flex items-center space-x-3 bg-black/40 group-hover:bg-brand-navy/5 px-3 py-1.5 border border-white/5 group-hover:border-brand-navy/10 rounded-full transition-colors duration-500">
+                       <div className="w-1.5 h-1.5 bg-brand-gold group-hover:bg-brand-navy shadow-[0_0_10px_rgba(255,208,0,1)] group-hover:shadow-none animate-pulse rounded-full transition-colors duration-500" />
+                       <span className="font-mono text-[9px] text-brand-gold group-hover:text-brand-navy tracking-[0.3em] uppercase opacity-70 group-hover:opacity-100 transition-all duration-500">SYS // {item.num}</span>
                     </div>
+                    <item.icon className="w-6 h-6 text-white/20 group-hover:text-brand-navy transition-colors duration-500" />
+                  </div>
 
-                    {/* Expanded Content */}
-                    <div className={`flex flex-col md:flex-row gap-8 transition-all duration-700 ease-in-out pb-8 ${isHovered ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 translate-y-8 pointer-events-none'}`}>
-                      {/* Today */}
-                      <div className="flex-1 bg-brand-white/80 backdrop-blur-md p-8 rounded-3xl border border-brand-black/5 shadow-xl">
-                        <h4 className="text-xl font-bold text-brand-black/60 mb-6 pb-4 border-b border-brand-black/10">Today — Without AI</h4>
-                        <ul className="space-y-4 text-brand-black/80 text-lg">
-                          {sector.today.map((item, idx) => (
-                            <li key={idx} className="flex gap-3"><span className="text-brand-dragonRed font-bold">✕</span> {item}</li>
-                          ))}
-                        </ul>
-                      </div>
-                      {/* Tomorrow */}
-                      <div className="flex-1 bg-brand-black/80 backdrop-blur-xl p-8 rounded-3xl border border-brand-white/10 shadow-2xl">
-                        <h4 className={`text-xl font-bold ${sector.textClass} mb-6 pb-4 border-b border-brand-white/10`}>Tomorrow — With Dataviv AI OS</h4>
-                        <ul className="space-y-4 text-brand-white text-lg font-medium">
-                          {sector.tomorrow.map((item, idx) => (
-                            <li key={idx} className="flex gap-3"><CheckCircle className={`w-6 h-6 ${sector.textClass} flex-shrink-0`} /> {item}</li>
-                          ))}
-                        </ul>
-                      </div>
-                    </div>
+                  {/* Body Content */}
+                  <h3 className="text-2xl md:text-3xl font-display font-bold text-white group-hover:text-brand-navy mb-4 transition-colors duration-500 tracking-tight">{item.title}</h3>
+                  
+                  <p className="text-sm text-gray-400 group-hover:text-brand-navy/70 font-light leading-relaxed mb-auto transition-colors duration-500">
+                    {item.desc}
+                  </p>
 
+                  {/* Terminal Reveal Box */}
+                  <div className="mt-8 pt-6 relative before:absolute before:top-0 before:left-0 before:w-12 before:h-px before:bg-brand-gold/30 group-hover:before:bg-brand-navy/20 group-hover:before:w-full before:transition-all before:duration-700">
+                     <div className="text-[9px] uppercase font-mono tracking-[0.3em] text-brand-gold/50 group-hover:text-brand-navy/40 mb-3 flex items-center transition-colors duration-500">
+                       <ArrowRight className="w-3 h-3 mr-2" /> Output Core
+                     </div>
+                     <p className="text-white group-hover:text-brand-navy text-sm md:text-base font-bold tracking-wide leading-tight transition-colors duration-500">
+                       {item.back}
+                     </p>
                   </div>
                 </div>
-              );
+                
+                {/* Cyberpunk corner accents */}
+                <div className="absolute top-0 left-0 w-3 h-3 border-t border-l border-brand-gold/20 group-hover:border-brand-navy transition-colors duration-500" />
+                <div className="absolute top-0 right-0 w-3 h-3 border-t border-r border-brand-gold/20 group-hover:border-brand-navy transition-colors duration-500" />
+                <div className="absolute bottom-0 left-0 w-3 h-3 border-b border-l border-brand-gold/20 group-hover:border-brand-navy transition-colors duration-500" />
+                <div className="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-brand-gold/20 group-hover:border-brand-navy transition-colors duration-500" />
+              </motion.div>
+            ))}
+          </div>
+
+          <div className="mt-20 flex flex-wrap justify-center gap-6 md:gap-16">
+            {["Timely Delivery", "Best in Class Support", "Turnkey Project Delivery"].map((trust) => (
+              <div key={trust} className="flex items-center text-white font-sans text-xs font-bold tracking-[0.2em] uppercase">
+                <CheckCircle2 className="w-4 h-4 text-brand-gold mr-3" />
+                {trust}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* DATAVIV AI OS */}
+      <section className="py-16 md:py-32 bg-brand-cream border-y border-brand-sand relative">
+        <div className="container mx-auto px-6 max-w-7xl relative z-10">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <div className="text-brand-gold text-[10px] font-sans font-bold uppercase tracking-[0.2em] mb-6">Flagship Platform</div>
+              <h2 className="text-4xl md:text-6xl lg:text-7xl font-display font-bold text-brand-navy mb-4 leading-tight tracking-tight">
+                DATAVIV AI OS
+              </h2>
+              <h3 className="text-2xl text-brand-navy/70 font-light mb-8">
+                The Operating System for Artificial Intelligence
+              </h3>
+              <p className="text-lg text-brand-darkNavy/70 leading-relaxed mb-12">
+                Just as your computer needs an operating system to run — DATAVIV AI OS is the operating system that runs AI for your entire organisation. One platform. One place. Full control.
+              </p>
+
+              <div className="space-y-4 relative before:absolute before:inset-0 before:ml-6 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-brand-navy/10 before:to-transparent">
+                {[
+                  { title: "Data Ingestion Layer", desc: "Integrate diverse structured & unstructured data streams across the enterprise.", icon: "Database" },
+                  { title: "Neural Processing", desc: "Proprietary LLMs and machine learning models process, analyze, and learn.", icon: "Cpu" },
+                  { title: "Actionable Intelligence", desc: "Deliver automated, intelligent outcomes directly into operational workflows.", icon: "Zap" }
+                ].map((step, idx) => (
+                  <motion.div 
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.5, delay: idx * 0.1 }}
+                    viewport={{ once: true }}
+                    key={step.title} 
+                    className="relative flex items-start group bg-white/50 hover:bg-white p-6 border border-brand-sand/50 hover:border-brand-gold/50 transition-all duration-500 rounded-sm"
+                  >
+                    <div className="w-12 h-12 shrink-0 rounded-none border border-brand-navy/10 bg-brand-cream flex items-center justify-center text-brand-gold font-sans font-bold text-xs group-hover:border-brand-gold transition-colors duration-500 z-10 relative">
+                      0{idx + 1}
+                    </div>
+                    <div className="ml-6 flex-1">
+                      <div className="text-brand-navy font-sans tracking-[0.1em] font-bold uppercase text-xs mb-2 flex items-center justify-between">
+                        {step.title}
+                        <ArrowRight className="w-4 h-4 text-brand-navy/30 group-hover:text-brand-gold transition-colors duration-300" />
+                      </div>
+                      <div className="text-brand-darkNavy/70 font-light text-sm leading-relaxed">{step.desc}</div>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+
+            {/* Right Column: 3D Stack + Terminal */}
+            <div className="flex flex-col items-center relative">
+              {/* Upward Particles */}
+              <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                {[...Array(12)].map((_, i) => (
+                  <div 
+                    key={i} 
+                    className="absolute w-[2px] h-[2px] bg-brand-navy/30 rounded-full animate-floatUp"
+                    style={{ 
+                      left: `${Math.random() * 100}%`, 
+                      animationDelay: `${Math.random() * 10}s`,
+                      animationDuration: `${5 + Math.random() * 10}s`
+                    }} 
+                  />
+                ))}
+              </div>
+
+              {/* AI OS Architecture Schematic - Continuous Flow */}
+              <motion.div 
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.8 }}
+                viewport={{ once: true }}
+                className="w-full max-w-xl relative font-mono mt-12 mb-16"
+              >
+                <div className="relative z-10 flex flex-col items-center">
+                  
+                  {/* DATA LAYER */}
+                  <div className="w-full flex justify-between relative gap-4">
+                     {/* Horizontal Flow Bus */}
+                     <div className="absolute top-1/2 left-[10%] right-[10%] h-[6px] bg-[#02010A] border border-white/10 shadow-[inset_0_2px_4px_rgba(0,0,0,0.9),0_2px_8px_rgba(0,0,0,0.1)] -translate-y-1/2 z-0 overflow-hidden rounded-full">
+                        <div className="absolute inset-y-0 left-0 w-[50%]" style={{ animation: 'flowRight 2.5s linear infinite', background: 'linear-gradient(to right, transparent, rgba(0, 212, 255, 1), transparent)' }} />
+                     </div>
+                     
+                     {[
+                       { icon: Database, label: "Lakehouse", sub: "Petabyte Scale" },
+                       { icon: Radio, label: "IoT Streams", sub: "Real-time" },
+                       { icon: Globe, label: "Web Hooks", sub: "10k req/s" }
+                     ].map((item, i) => (
+                       <div key={i} className="relative z-10 bg-gradient-to-b from-[#050315] to-[#02010A] border border-[#00D4FF]/30 p-4 rounded-xl flex flex-col items-center justify-center text-center shadow-[0_10px_30px_rgba(0,0,0,0.3),inset_0_1px_0_rgba(255,255,255,0.1)] hover:border-[#00D4FF] hover:shadow-[0_10px_40px_rgba(0,212,255,0.2)] transition-all group flex-1 overflow-hidden">
+                         <div className="absolute inset-0 bg-[#00D4FF]/10 opacity-0 group-hover:opacity-100 transition-opacity" />
+                         <item.icon className="w-6 h-6 text-[#00D4FF] mb-3 drop-shadow-[0_0_12px_rgba(0,212,255,0.9)]" />
+                         <span className="text-[10px] text-white tracking-widest uppercase font-bold relative z-10 drop-shadow-md">{item.label}</span>
+                         <span className="text-[8px] text-[#00D4FF]/80 mt-1 tracking-wider relative z-10">{item.sub}</span>
+                       </div>
+                     ))}
+                  </div>
+
+                  {/* DOWNWARD PIPELINE */}
+                  <div className="flex flex-col items-center my-3 relative z-0">
+                     <div className="h-12 w-[6px] bg-[#02010A] border border-white/10 shadow-[inset_0_2px_4px_rgba(0,0,0,0.9),0_2px_8px_rgba(0,0,0,0.1)] relative overflow-hidden rounded-full">
+                        <div className="absolute top-0 left-0 w-full h-[60%]" style={{ animation: 'flowDown 1.5s linear infinite', background: 'linear-gradient(to bottom, transparent, rgba(0, 212, 255, 1), transparent)' }} />
+                     </div>
+                     <ArrowRight className="w-5 h-5 text-[#00D4FF] rotate-90 mt-1 drop-shadow-[0_0_10px_rgba(0,212,255,0.8)] animate-pulse" />
+                  </div>
+
+                  {/* KERNEL LAYER */}
+                  <div className="w-full bg-[#02010A] border border-brand-gold/30 p-1.5 rounded-2xl relative shadow-[0_15px_40px_rgba(0,0,0,0.4)] z-10">
+                    <div className="absolute inset-0 bg-brand-gold/10 blur-xl rounded-2xl pointer-events-none" />
+                    
+                    <div className="bg-gradient-to-br from-[#0a0715] to-[#02010A] border border-brand-gold/20 p-8 rounded-xl relative overflow-hidden flex flex-col items-center shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]">
+                       {/* Spinning technical rings */}
+                       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] aspect-square border-[1px] border-brand-gold/10 rounded-full animate-[spin_15s_linear_infinite] pointer-events-none" />
+                       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] aspect-square border-[2px] border-dashed border-brand-gold/20 rounded-full animate-[spin_10s_linear_infinite_reverse] pointer-events-none" />
+                       
+                       <Cpu className="w-14 h-14 text-brand-gold mb-4 relative z-10 drop-shadow-[0_0_25px_rgba(255,208,0,1)]" />
+                       
+                       <div className="flex flex-col items-center relative z-10 mb-6">
+                         <span className="text-brand-gold font-bold text-2xl tracking-[0.3em] uppercase drop-shadow-[0_0_15px_rgba(255,208,0,0.6)]">Neural Kernel</span>
+                         <span className="text-white/60 text-xs tracking-[0.2em] mt-2 uppercase font-medium">Central Inference Engine</span>
+                       </div>
+                       
+                       <div className="w-full flex justify-between gap-4 relative z-10">
+                         {["Computer Vision", "NLP & LLM", "Predictive AI"].map((tech, idx) => (
+                           <div key={tech} className="flex-1 bg-gradient-to-b from-[#0a0715] to-[#02010A] border border-brand-gold/30 px-3 py-4 rounded-lg text-center shadow-[0_5px_15px_rgba(0,0,0,0.5),inset_0_1px_0_rgba(255,255,255,0.05)] relative overflow-hidden">
+                              <div className="absolute inset-0 bg-brand-gold/5 animate-pulse" style={{animationDuration: `${2 + (idx * 0.5)}s`}} />
+                              <span className="text-[10px] text-brand-gold font-bold uppercase tracking-widest relative z-10 drop-shadow-md">{tech}</span>
+                           </div>
+                         ))}
+                       </div>
+                    </div>
+                  </div>
+
+                  {/* DOWNWARD PIPELINE */}
+                  <div className="flex flex-col items-center my-3 relative z-0">
+                     <div className="h-12 w-[6px] bg-[#02010A] border border-white/10 shadow-[inset_0_2px_4px_rgba(0,0,0,0.9),0_2px_8px_rgba(0,0,0,0.1)] relative overflow-hidden rounded-full">
+                        <div className="absolute top-0 left-0 w-full h-[60%]" style={{ animation: 'flowDown 1.5s linear infinite 0.75s', background: 'linear-gradient(to bottom, transparent, rgba(224, 64, 251, 1), transparent)' }} />
+                     </div>
+                     <ArrowRight className="w-5 h-5 text-[#E040FB] rotate-90 mt-1 drop-shadow-[0_0_10px_rgba(224,64,251,0.8)] animate-pulse" />
+                  </div>
+
+                  {/* APP LAYER */}
+                  <div className="w-full flex justify-between gap-6 relative">
+                     {/* Horizontal Flow Bus */}
+                     <div className="absolute top-1/2 left-[20%] right-[20%] h-[6px] bg-[#02010A] border border-white/10 shadow-[inset_0_2px_4px_rgba(0,0,0,0.9),0_2px_8px_rgba(0,0,0,0.1)] -translate-y-1/2 z-0 overflow-hidden rounded-full">
+                        <div className="absolute inset-y-0 left-0 w-[50%]" style={{ animation: 'flowRight 2.5s linear infinite reverse', background: 'linear-gradient(to right, transparent, rgba(224, 64, 251, 1), transparent)' }} />
+                     </div>
+
+                     {[
+                       { icon: BarChart2, label: "Smart Dashboards", sub: "Executive Insights" },
+                       { icon: Zap, label: "Auto Actions", sub: "Trigger Systems" }
+                     ].map((item, i) => (
+                       <div key={i} className="relative z-10 bg-gradient-to-b from-[#050315] to-[#02010A] border border-[#E040FB]/30 p-6 rounded-xl flex flex-col items-center justify-center text-center shadow-[0_10px_30px_rgba(0,0,0,0.3),inset_0_1px_0_rgba(255,255,255,0.1)] hover:border-[#E040FB] hover:shadow-[0_10px_40px_rgba(224,64,251,0.2)] transition-all group flex-1 overflow-hidden">
+                         <div className="absolute inset-0 bg-[#E040FB]/10 opacity-0 group-hover:opacity-100 transition-opacity" />
+                         <item.icon className="w-8 h-8 text-[#E040FB] mb-3 drop-shadow-[0_0_12px_rgba(224,64,251,0.9)]" />
+                         <span className="text-xs text-white tracking-widest uppercase font-bold relative z-10 drop-shadow-md">{item.label}</span>
+                         <span className="text-[9px] text-[#E040FB]/80 mt-1 tracking-wider relative z-10">{item.sub}</span>
+                       </div>
+                     ))}
+                  </div>
+
+                </div>
+              </motion.div>
+
+              {/* Terminal Block */}
+              <motion.div 
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="w-full max-w-md bg-black border border-white/10 rounded-none shadow-2xl z-10"
+              >
+                <div className="flex items-center px-4 py-3 border-b border-white/10 bg-white/5">
+                  <div className="flex space-x-2">
+                    <div className="w-3 h-3 rounded-full bg-red-500/80" />
+                    <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
+                    <div className="w-3 h-3 rounded-full bg-green-500/80" />
+                  </div>
+                  <div className="ml-4 text-[10px] text-gray-500 font-mono">dataviv_os — ai_inference.sh</div>
+                </div>
+                <div className="p-6 font-mono text-xs md:text-sm text-green-400/90 h-[220px] overflow-hidden flex flex-col space-y-2 relative">
+                  <div className="terminal-line" style={{animationDelay: "0s"}}>$ connecting to Bhutan data lake...</div>
+                  <div className="terminal-line" style={{animationDelay: "1s"}}>&gt; ingesting 14,200 records ████████ 100%</div>
+                  <div className="terminal-line text-white/80" style={{animationDelay: "2.5s"}}>$ running crop yield prediction model...</div>
+                  <div className="terminal-line text-brand-gold" style={{animationDelay: "3.5s"}}>&gt; accuracy: 94.7% | confidence: HIGH</div>
+                  <div className="terminal-line text-white/80" style={{animationDelay: "5s"}}>$ generating smart city dashboard...</div>
+                  <div className="terminal-line text-brand-gold" style={{animationDelay: "6s"}}>&gt; 3 anomalies detected in Thimphu grid</div>
+                  <div className="terminal-line" style={{animationDelay: "7.5s"}}>$ ready.<span className="animate-pulse">_</span></div>
+                </div>
+              </motion.div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      {/* INDUSTRIES SERVED (DUAL MARQUEE) */}
+      <section className="py-16 bg-brand-darkNavy overflow-hidden border-y border-brand-glassLight relative">
+        <DynamicDarkBackground />
+        <div className="container mx-auto px-6 mb-12 relative z-10">
+          <h3 className="text-center text-gray-400 font-bold uppercase tracking-widest text-sm">AI for Every Industry</h3>
+        </div>
+        
+        {/* Row 1: Scroll Left */}
+        <div className="relative flex overflow-hidden mb-8 group">
+          <div className="animate-marquee whitespace-nowrap flex space-x-16 items-center group-hover:[animation-play-state:paused]">
+            {industries.map((ind, i) => (
+              <div key={ind.name + i} className="flex items-center space-x-4 mx-8">
+                <ind.icon className="w-8 h-8 text-brand-gold/60" />
+                <span className="text-3xl font-display font-bold text-transparent bg-clip-text bg-gradient-to-r from-gray-500 to-gray-700">
+                  {ind.name}
+                </span>
+              </div>
+            ))}
+            {industries.map((ind, i) => (
+              <div key={ind.name + "_dup" + i} className="flex items-center space-x-4 mx-8">
+                <ind.icon className="w-8 h-8 text-brand-gold/60" />
+                <span className="text-3xl font-display font-bold text-transparent bg-clip-text bg-gradient-to-r from-gray-500 to-gray-700">
+                  {ind.name}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Row 2: Scroll Right */}
+        <div className="relative flex overflow-hidden group">
+          <div className="animate-marqueeRight whitespace-nowrap flex space-x-16 items-center group-hover:[animation-play-state:paused]">
+            {[...industries].reverse().map((ind, i) => (
+              <div key={ind.name + "rev" + i} className="flex items-center space-x-4 mx-8">
+                <ind.icon className="w-8 h-8 text-brand-gold/60" />
+                <span className="text-3xl font-display font-bold text-transparent bg-clip-text bg-gradient-to-r from-gray-500 to-gray-700">
+                  {ind.name}
+                </span>
+              </div>
+            ))}
+            {[...industries].reverse().map((ind, i) => (
+              <div key={ind.name + "_dup_rev" + i} className="flex items-center space-x-4 mx-8">
+                <ind.icon className="w-8 h-8 text-brand-gold/60" />
+                <span className="text-3xl font-display font-bold text-transparent bg-clip-text bg-gradient-to-r from-gray-500 to-gray-700">
+                  {ind.name}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* NEW SECTION: Bhutan x Dataviv Partnership Map */}
+      <section className="py-24 md:py-32 bg-brand-cream relative border-b border-brand-navy/10 overflow-hidden">
+        <div className="container mx-auto px-6 max-w-6xl relative z-10">
+          <div className="text-center max-w-4xl mx-auto">
+            <h2 className="text-3xl md:text-5xl font-display font-bold text-brand-navy mb-6 leading-tight">
+              DATAVIV AI OS doesn't just add technology — it becomes the <span className="text-brand-gold">intelligence layer</span> across every Dralha business.
+            </h2>
+            <p className="text-gray-600 font-sans tracking-widest uppercase text-sm">Here is exactly how:</p>
+          </div>
+          
+          <div className="mt-16 md:mt-24 flex flex-col lg:flex-row h-auto lg:h-[700px] w-full max-w-[1400px] mx-auto gap-4 lg:gap-2">
+            {sectors.map((sector, idx) => {
+              const isExpanded = hoveredSector === idx;
+              return (
+                <div 
+                  key={sector.name}
+                  onMouseEnter={() => setHoveredSector(idx)}
+                  className={`relative group rounded-2xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.05)] border border-brand-navy/10 transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] flex flex-row cursor-pointer ${isExpanded ? 'lg:w-[70%] w-full h-[600px] lg:h-full cursor-default' : 'lg:w-[6%] w-full h-[80px] lg:h-full lg:hover:w-[8%]'}`}
+                >
+                  {/* IMAGE SECTION */}
+                  <div className={`relative h-full overflow-hidden shrink-0 transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] ${isExpanded ? 'w-full lg:w-[35%]' : 'w-full lg:w-full'}`}>
+                    <Image src={sector.image} alt={sector.name} fill className={`object-cover transition-transform duration-1000 group-hover:scale-105 ${sector.name === 'Agribusiness' ? 'object-left' : 'object-center'}`} />
+                    
+                    {/* Gradient Overlays */}
+                    <div className={`absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent transition-opacity duration-700 ${isExpanded ? 'opacity-90' : 'opacity-70'}`} />
+                    <div className={`absolute inset-0 bg-gradient-to-r from-transparent to-black/80 transition-opacity duration-700 hidden lg:block ${isExpanded ? 'opacity-100' : 'opacity-0'}`} />
+                    <div className={`absolute inset-0 bg-black/50 transition-opacity duration-700 lg:block ${isExpanded ? 'opacity-0' : 'opacity-100 group-hover:opacity-60'}`} />
+
+                    {/* Collapsed State Title (Vertical) */}
+                    <div className={`absolute inset-0 flex flex-col items-center justify-end pb-10 transition-all duration-700 ${isExpanded ? 'opacity-0 pointer-events-none translate-y-10 hidden lg:flex' : 'opacity-100 translate-y-0 hidden lg:flex'}`}>
+                      <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-6 bg-white/10 backdrop-blur-md shadow-[0_0_15px_rgba(255,255,255,0.1)] border border-white/20">
+                        <sector.icon className="w-6 h-6 text-white" />
+                      </div>
+                      <div className="flex-1 flex flex-col justify-end">
+                        <h3 className="text-xl font-display font-bold text-white whitespace-nowrap -rotate-90 origin-bottom mb-24 tracking-widest uppercase">
+                          {sector.name}
+                        </h3>
+                      </div>
+                    </div>
+
+                    {/* Expanded State Title */}
+                    <div className={`absolute bottom-10 left-8 right-8 z-10 transition-all duration-700 transform ${isExpanded ? 'translate-y-0 opacity-100 delay-300' : 'translate-y-10 opacity-0 pointer-events-none hidden lg:block'}`}>
+                      <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-6 bg-gradient-to-br ${sector.color} shadow-[0_0_20px_rgba(255,255,255,0.2)]`}>
+                        <sector.icon className="w-6 h-6 text-white" />
+                      </div>
+                      <h3 className="text-2xl lg:text-3xl font-display font-bold text-white mb-2 leading-tight">
+                        {sector.name}
+                      </h3>
+                    </div>
+                  </div>
+
+                  {/* CONTENT SECTION */}
+                  <div className={`flex flex-col md:flex-row bg-white relative z-10 overflow-hidden transition-all duration-700 h-full ease-[cubic-bezier(0.25,1,0.5,1)] ${isExpanded ? 'w-full lg:w-[65%] opacity-100 translate-x-0' : 'w-0 opacity-0 translate-x-20'}`}>
+                    <div className="w-full min-w-0 md:min-w-[500px] flex flex-col md:flex-row h-full overflow-y-auto md:overflow-visible">
+                      {/* LEFT: Today */}
+                      <div className="w-full md:w-[45%] p-8 border-b md:border-b-0 md:border-r border-brand-navy/10 bg-brand-cream/40 relative h-full flex flex-col justify-center shrink-0 md:shrink">
+                        <div className="text-brand-navy/60 font-sans font-bold uppercase tracking-[0.2em] text-[10px] mb-8 flex items-center">
+                          <span className="w-1.5 h-1.5 rounded-full bg-red-500 mr-3" />
+                          Today
+                        </div>
+                        <ul className="space-y-6">
+                          {sector.today.map((item, i) => (
+                            <li key={i} className="text-brand-navy/70 flex items-start text-sm">
+                              <span className="text-red-500/70 mr-4 font-mono">✕</span>
+                              {item}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+
+                      {/* RIGHT: With AI */}
+                      <div className="w-full md:w-[55%] p-8 relative h-full flex flex-col justify-center bg-white shrink-0 md:shrink">
+                        <div className={`absolute -bottom-24 -right-24 w-64 h-64 rounded-full blur-[100px] opacity-10 bg-gradient-to-br ${sector.color} transition-opacity duration-700 pointer-events-none`} />
+
+                        <div className="relative z-10">
+                          <div className="text-brand-gold font-sans font-bold uppercase tracking-[0.2em] text-[10px] mb-8 flex items-center">
+                            <span className="w-1.5 h-1.5 rounded-full bg-brand-gold mr-3" />
+                            With Dataviv AI OS
+                          </div>
+                          
+                          <div className="grid gap-y-6 mb-10">
+                            {sector.future.map((item, i) => {
+                              const [title, desc] = item.split(": ");
+                              return (
+                                <div key={i} className="flex items-start">
+                                  <CheckCircle2 className="w-5 h-5 text-brand-gold shrink-0 mt-0.5 mr-4" />
+                                  <div>
+                                    <span className="text-brand-navy font-bold block mb-1 text-sm">{title}</span>
+                                    {desc && <span className="text-brand-navy/70 font-light text-xs leading-relaxed">{desc}</span>}
+                                  </div>
+                                </div>
+                              )
+                            })}
+                          </div>
+
+                          <div className="inline-flex items-center px-4 py-2 border border-brand-navy/10 text-brand-navy/60 text-[10px] font-sans tracking-[0.2em] uppercase bg-brand-navy/5 backdrop-blur-sm">
+                            <span className="font-bold mr-2 text-brand-navy">MODULES:</span> {sector.badge}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )
             })}
           </div>
         </div>
       </section>
 
-      {/* IMPACT SECTION */}
-      <section className="w-full bg-brand-black text-brand-white py-16 md:py-32 border-b border-brand-saffron/20 relative overflow-hidden z-10">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[300px] bg-brand-vibrantBlue/5 rounded-full blur-[100px] pointer-events-none" />
+
+
+      {/* Styles & Keyframes */}
+      <style dangerouslySetInnerHTML={{__html: `
+        @keyframes marquee {
+          0% { transform: translateX(0%); }
+          100% { transform: translateX(-50%); }
+        }
+        @keyframes marqueeRight {
+          0% { transform: translateX(-50%); }
+          100% { transform: translateX(0%); }
+        }
+        .animate-marquee {
+          animation: marquee 30s linear infinite;
+        }
+        .animate-marqueeRight {
+          animation: marqueeRight 30s linear infinite;
+        }
         
-        <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-y-16 text-center relative z-10">
-          <motion.div whileHover={{ scale: 1.05 }} className="group flex flex-col items-center justify-center border-brand-white/10 md:border-r last:border-0 cursor-default">
-            <div className="text-4xl md:text-6xl lg:text-8xl font-display text-brand-vibrantGreen mb-4 drop-shadow-[0_0_15px_rgba(0,255,136,0.3)]"><CountUp end={6} duration={2} /></div>
-            <p className="text-xs tracking-[0.2em] font-bold text-brand-white/50 uppercase group-hover:text-brand-white transition-colors duration-500">Dralha Divisions Transformed</p>
-          </motion.div>
-          <motion.div whileHover={{ scale: 1.05 }} className="group flex flex-col items-center justify-center border-brand-white/10 md:border-r last:border-0 cursor-default">
-            <div className="text-4xl md:text-6xl lg:text-8xl font-display text-brand-vibrantPink mb-4 drop-shadow-[0_0_15px_rgba(255,0,128,0.3)]"><CountUp end={12} duration={2.5} />+</div>
-            <p className="text-xs tracking-[0.2em] font-bold text-brand-white/50 uppercase group-hover:text-brand-white transition-colors duration-500">AI Modules Deployed</p>
-          </motion.div>
-          <motion.div whileHover={{ scale: 1.05 }} className="group flex flex-col items-center justify-center border-brand-white/10 md:border-r last:border-0 cursor-default">
-            <div className="text-4xl md:text-6xl lg:text-8xl font-display text-brand-vibrantBlue mb-4 drop-shadow-[0_0_15px_rgba(0,229,255,0.3)]"><CountUp end={1} duration={1} /></div>
-            <p className="text-xs tracking-[0.2em] font-bold text-brand-white/50 uppercase group-hover:text-brand-white transition-colors duration-500">Unified Intelligence Platform</p>
-          </motion.div>
-          <motion.div whileHover={{ scale: 1.05 }} className="group flex flex-col items-center justify-center cursor-default">
-            <div className="text-4xl md:text-6xl lg:text-8xl font-display text-brand-vibrantOrange mb-4 drop-shadow-[0_0_15px_rgba(255,140,0,0.3)]">∞</div>
-            <p className="text-xs tracking-[0.2em] font-bold text-brand-white/50 uppercase group-hover:text-brand-white transition-colors duration-500">ROI Potential</p>
-          </motion.div>
-        </div>
-      </section>
+        .backface-hidden {
+          backface-visibility: hidden;
+          -webkit-backface-visibility: hidden;
+        }
+        
+        @keyframes floatUp {
+          0% { transform: translateY(100vh) scale(0.5); opacity: 0; }
+          20% { opacity: 1; }
+          80% { opacity: 1; }
+          100% { transform: translateY(-20vh) scale(1.5); opacity: 0; }
+        }
+        .animate-floatUp {
+          animation-name: floatUp;
+          animation-timing-function: linear;
+          animation-iteration-count: infinite;
+        }
 
-      {/* CLOSING VISION STATEMENT */}
-      <section className="w-full bg-flag-gradient py-16 md:py-32 flex flex-col items-center text-center text-brand-white relative z-10">
-        <div className="max-w-5xl mx-auto px-6">
-          <h2 className="text-4xl md:text-6xl font-display mb-10 leading-tight">
-            "Bhutan has always led the world in Gross National Happiness. With DATAVIV AI OS, Dralha Group will lead Bhutan into Gross National Intelligence."
-          </h2>
-          <p className="font-bold tracking-widest uppercase text-brand-gold">— Dralha × Dataviv Partnership, 2026</p>
-          
-          <div className="mt-16">
-            <Link href="/contact" className="inline-flex items-center gap-2 px-8 py-4 bg-brand-white text-brand-black font-bold hover:bg-transparent hover:text-brand-white border-2 border-brand-white transition-colors rounded-full">
-              Get In Touch <ChevronRight className="w-5 h-5" />
-            </Link>
-          </div>
-        </div>
-      </section>
+        @keyframes scan {
+          0% { transform: translateY(0); opacity: 0; }
+          10% { opacity: 1; }
+          90% { opacity: 1; }
+          100% { transform: translateY(420px); opacity: 0; }
+        }
+        .animate-scan {
+          animation: scan 2s linear infinite;
+        }
 
+        @keyframes flowDown {
+          0% { transform: translateY(-100%); opacity: 0; }
+          20% { opacity: 1; }
+          80% { opacity: 1; }
+          100% { transform: translateY(200%); opacity: 0; }
+        }
+        @keyframes flowRight {
+          0% { transform: translateX(-100%); opacity: 0; }
+          20% { opacity: 1; }
+          80% { opacity: 1; }
+          100% { transform: translateX(200%); opacity: 0; }
+        }
+
+        .terminal-line {
+          opacity: 0;
+          animation: typeIn 10s steps(40, end) infinite;
+          white-space: nowrap;
+          overflow: hidden;
+        }
+        @keyframes typeIn {
+          0%, 10% { opacity: 0; max-width: 0; }
+          11%, 90% { opacity: 1; max-width: 100%; }
+          100% { opacity: 0; max-width: 0; }
+        }
+
+        /* Glitch Effect */
+        .glitch-active {
+          animation: glitch-anim 0.5s infinite;
+        }
+        .glitch-active::before,
+        .glitch-active::after {
+          content: attr(data-text);
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: black;
+        }
+        .glitch-active::before {
+          left: 2px;
+          text-shadow: -2px 0 #ff00c1;
+          clip: rect(44px, 450px, 56px, 0);
+          animation: glitch-anim-2 0.5s infinite linear alternate-reverse;
+        }
+        .glitch-active::after {
+          left: -2px;
+          text-shadow: -2px 0 #00fff9, 2px 2px #ff00c1;
+          clip: rect(44px, 450px, 56px, 0);
+          animation: glitch-anim-3 0.5s infinite linear alternate-reverse;
+        }
+        @keyframes glitch-anim {
+          0% { clip-path: inset(80% 0 0 0); transform: translate(-2px, 2px); }
+          20% { clip-path: inset(10% 0 60% 0); transform: translate(2px, -2px); }
+          40% { clip-path: inset(40% 0 20% 0); transform: translate(-2px, 2px); }
+          60% { clip-path: inset(80% 0 5% 0); transform: translate(2px, -2px); }
+          80% { clip-path: inset(15% 0 70% 0); transform: translate(-2px, 2px); }
+          100% { clip-path: inset(50% 0 30% 0); transform: translate(2px, -2px); }
+        }
+        @keyframes glitch-anim-2 {
+          0% { clip: rect(65px, 9999px, 100px, 0); }
+          20% { clip: rect(2px, 9999px, 44px, 0); }
+          40% { clip: rect(78px, 9999px, 12px, 0); }
+          60% { clip: rect(10px, 9999px, 89px, 0); }
+          80% { clip: rect(56px, 9999px, 34px, 0); }
+          100% { clip: rect(98px, 9999px, 78px, 0); }
+        }
+        @keyframes glitch-anim-3 {
+          0% { clip: rect(12px, 9999px, 67px, 0); }
+          20% { clip: rect(89px, 9999px, 23px, 0); }
+          40% { clip: rect(34px, 9999px, 98px, 0); }
+          60% { clip: rect(76px, 9999px, 45px, 0); }
+          80% { clip: rect(9px, 9999px, 87px, 0); }
+          100% { clip: rect(54px, 9999px, 12px, 0); }
+        }
+      `}} />
     </div>
   );
 }
