@@ -60,10 +60,10 @@ export default function Footer() {
                 <h4 className="text-brand-white font-display text-xl mb-6 tracking-wide">Partners</h4>
                 <div className="flex flex-col space-y-4">
                   <a href="https://indiancst.in/courses.php" target="_blank" rel="noopener noreferrer" className="text-brand-white/50 hover:text-brand-saffron transition-colors text-sm font-medium tracking-wide">
-                    Indian CST (Education)
+                    Indian CST
                   </a>
                   <a href="https://fanaindia.in/demand.html" target="_blank" rel="noopener noreferrer" className="text-brand-white/50 hover:text-brand-saffron transition-colors text-sm font-medium tracking-wide">
-                    FANA India (Recruitment)
+                    Bhutan Requirements
                   </a>
                 </div>
               </div>

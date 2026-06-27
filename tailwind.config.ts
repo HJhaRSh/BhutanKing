@@ -23,6 +23,7 @@ const config: Config = {
           orchid:      "#E040FB",   // Himalayan orchid — hot violet
           forestGreen: "#00E676",   // Himalayan pine — neon green
           royalViolet: "#7C4DFF",   // Bhutanese royal purple
+          dralhaGreen: "#152A20",   // Deep rich forest green from the Dralha logo
 
           // Utility maps (keep names so NO existing classes break)
           primary:       "#08051A",

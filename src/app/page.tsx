@@ -69,7 +69,7 @@ export default function Home() {
     <div className="w-full flex flex-col items-center bg-brand-black">
         <AuroraLayer />
       
-      <section className="relative w-full min-h-screen flex items-center pt-20 overflow-hidden bg-[#152A20] text-brand-white">
+      <section className="relative w-full min-h-screen flex items-center pt-20 overflow-hidden bg-[#2D533A] text-brand-white">
         {/* Vibrant Bhutanese Aurora Background */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute -left-[10%] top-[-10%] w-[50%] h-[80%] bg-brand-saffron rounded-full blur-[140px] opacity-20" />
@@ -101,7 +101,7 @@ export default function Home() {
                 <Link href="#portfolio" className="group relative inline-flex items-center justify-center px-10 py-5 bg-flag-gradient text-brand-white font-bold uppercase tracking-[0.2em] text-xs hover:shadow-lg hover:shadow-brand-saffron/40 transition-all duration-500 overflow-hidden rounded-full">
                   <span className="relative z-10">Explore Portfolio</span>
                 </Link>
-                <Link href="/about" className="group inline-flex items-center justify-center px-10 py-5 border-2 border-brand-saffron text-brand-saffron font-bold uppercase tracking-[0.2em] text-xs hover:bg-brand-saffron hover:text-[#152A20] transition-all duration-500 rounded-full">
+                <Link href="/about" className="group inline-flex items-center justify-center px-10 py-5 border-2 border-brand-saffron text-brand-saffron font-bold uppercase tracking-[0.2em] text-xs hover:bg-brand-saffron hover:text-[#2D533A] transition-all duration-500 rounded-full">
                   Our Story <ArrowRight className="ml-3 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </div>
@@ -188,8 +188,15 @@ export default function Home() {
       </section>
 
       {/* PORTFOLIO (NO CARDS) */}
-      <section id="portfolio" className="w-full bg-brand-white text-brand-black py-16 md:py-32 border-b border-brand-saffron/10">
-        <div className="max-w-7xl mx-auto px-6">
+      <section id="portfolio" className="relative w-full bg-[#E5DCC5] text-brand-black py-16 md:py-32 border-b border-brand-saffron/10 overflow-hidden">
+        {/* Abstract Background Elements */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[70%] bg-brand-saffron rounded-full blur-[140px] opacity-[0.15] mix-blend-multiply" />
+          <div className="absolute bottom-[-10%] right-[-10%] w-[60%] h-[80%] bg-brand-dragonRed rounded-full blur-[160px] opacity-[0.1] mix-blend-multiply" />
+          <div className="absolute top-[30%] left-[40%] w-[30%] h-[50%] bg-brand-gold rounded-full blur-[120px] opacity-[0.15] mix-blend-multiply" />
+        </div>
+
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
           <div className="mb-20">
             <h3 className="text-brand-saffron text-[11px] font-bold tracking-[0.4em] uppercase mb-4 pb-4">Our Portfolio</h3>
             <h2 className="text-4xl md:text-6xl lg:text-7xl font-display leading-tight font-bold tracking-tight text-brand-black">Diversified<br/><span className="text-transparent bg-clip-text bg-vibrant-gradient drop-shadow-sm">Excellence.</span></h2>
@@ -212,7 +219,7 @@ export default function Home() {
                     style={{ backgroundImage: `url('${biz.image}')`, filter: 'grayscale(0%)' }}
                   />
                   {/* Gradient Overlay for Readability */}
-                  <div className={`absolute inset-0 bg-gradient-to-r from-brand-white/90 via-brand-white/40 to-transparent transition-opacity duration-700 ${isHovered ? 'opacity-30' : 'opacity-100'}`} />
+                  <div className={`absolute inset-0 bg-gradient-to-r from-[#E5DCC5]/95 via-[#E5DCC5]/10 to-transparent transition-opacity duration-700 ${isHovered ? 'opacity-100' : 'opacity-0'}`} />
 
                   {/* Content Wrapper */}
                   <div className="relative z-10 w-full h-full flex flex-col px-6 md:px-12">
